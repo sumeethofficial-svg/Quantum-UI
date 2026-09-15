@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  color: #ffffff;
+  background: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000000;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================================
+   HIDDEN SCROLLBARS
+========================================================= */
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+/* =========================================================
+   QUANTUM CONTENT SCROLLER
+========================================================= */
+
+.quantum-content-scroll {
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================================
+   QUANTUM CORE ANIMATIONS
+========================================================= */
+
+@keyframes quantum-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes quantum-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes quantum-pulse {
+  50% {
+    transform: scale(1.08);
+    filter: blur(12px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes quantum-flicker {
+  50% {
+    opacity: 0.58;
+  }
+}
+
+.animate-spin-slow {
+  animation: quantum-spin 42s linear infinite;
+}
+
+.animate-ring-a {
+  animation: quantum-spin 26s linear infinite;
+}
+
+.animate-ring-b {
+  animation: quantum-spin-reverse 38s linear infinite;
+}
+
+.animate-ring-c {
+  animation: quantum-spin 16s linear infinite;
+}
+
+.animate-ring-d {
+  animation: quantum-spin-reverse 55s linear infinite;
+}
+
+.animate-core-pulse {
+  animation: quantum-pulse 4.8s ease-in-out infinite;
+}
+
+.animate-energy {
+  animation: quantum-flicker 2.9s ease-in-out infinite;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-ring-a,
+  .animate-ring-b,
+  .animate-ring-c,
+  .animate-ring-d,
+  .animate-core-pulse,
+  .animate-energy,
+  .animate-ping,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .quantum-content-scroll {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+  body {
+    overflow: auto;
+  }
+}
