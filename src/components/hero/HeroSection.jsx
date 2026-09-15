@@ -1,41 +1,13 @@
 import React from "react";
 import QuantumCore from "./QuantumCore";
 
-function HomeSection({ onOpenLibrary }) {
+function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-77px)] overflow-hidden bg-[#000000] text-white">
-      {/* =====================================================
-          STAR FIELD BACKGROUND
-      ===================================================== */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-0
-          bg-[url('/images/starfield.jpg')]
-          bg-cover
-          bg-center
-          bg-no-repeat
-          opacity-[0.18]
-        "
-      />
-
-      {/* Dark overlay to keep the background subtle */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-0
-          bg-black/70
-        "
-      />
-
-      {/* =====================================================
-          HERO CONTAINER
-      ===================================================== */}
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-77px)] max-w-[1500px] items-center px-4 py-6 sm:px-6">
+    <section
+      id="home"
+      className="relative min-h-[calc(100vh-77px)] overflow-hidden bg-transparent text-white"
+    >
+      <div className="mx-auto flex min-h-[calc(100vh-77px)] max-w-[1500px] items-center px-4 py-6 sm:px-6">
         <div
           className="
             relative
@@ -48,10 +20,10 @@ function HomeSection({ onOpenLibrary }) {
             rounded-[32px]
             border
             border-white/[0.08]
-            bg-black/70
+            bg-black/45
             px-6
             py-10
-            backdrop-blur-2xl
+            backdrop-blur-xl
             sm:px-10
             lg:px-16
           "
@@ -62,15 +34,11 @@ function HomeSection({ onOpenLibrary }) {
               pointer-events-none
               absolute
               inset-0
-              bg-[radial-gradient(
-                circle_at_50%_0%,
-                rgba(255,255,255,0.055),
-                transparent_45%
-              )]
+              bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.055),transparent_45%)]
             "
           />
 
-          {/* Top glass highlight */}
+          {/* Top highlight */}
           <div
             className="
               pointer-events-none
@@ -86,9 +54,6 @@ function HomeSection({ onOpenLibrary }) {
             "
           />
 
-          {/* =================================================
-              HERO CONTENT
-          ================================================= */}
           <div className="relative z-10 flex w-full flex-1 flex-col items-center text-center">
 
             {/* Heading */}
@@ -107,15 +72,14 @@ function HomeSection({ onOpenLibrary }) {
               >
                 A futuristic component library
                 <br />
+
                 <span className="text-white/40">
                   for React & Next.js.
                 </span>
               </h1>
             </div>
 
-            {/* =================================================
-                QUANTUM CORE
-            ================================================= */}
+            {/* Quantum Core */}
             <div
               className="
                 relative
@@ -129,20 +93,18 @@ function HomeSection({ onOpenLibrary }) {
                 justify-center
               "
             >
-              {/* Core ambient glow */}
               <div
                 className="
                   pointer-events-none
                   absolute
-                  h-[220px]
-                  w-[220px]
+                  h-[280px]
+                  w-[280px]
                   rounded-full
-                  bg-cyan-400/[0.025]
-                  blur-[90px]
+                  bg-cyan-400/[0.035]
+                  blur-[100px]
                 "
               />
 
-              {/* Quantum Core */}
               <div
                 className="
                   relative
@@ -159,9 +121,7 @@ function HomeSection({ onOpenLibrary }) {
               </div>
             </div>
 
-            {/* =================================================
-                BUTTONS
-            ================================================= */}
+            {/* Buttons */}
             <div
               className="
                 relative
@@ -173,8 +133,8 @@ function HomeSection({ onOpenLibrary }) {
                 gap-3
               "
             >
-              <button
-                onClick={onOpenLibrary}
+              <a
+                href="/components"
                 className="
                   group
                   inline-flex
@@ -184,7 +144,7 @@ function HomeSection({ onOpenLibrary }) {
                   rounded-full
                   border
                   border-white/[0.12]
-                  bg-white/[0.04]
+                  bg-black/50
                   px-6
                   text-sm
                   font-medium
@@ -197,9 +157,11 @@ function HomeSection({ onOpenLibrary }) {
                   hover:text-white
                 "
               >
-                <span className="mr-2">•</span>
+                <span className="mr-2">
+                  •
+                </span>
 
-                <span>EXPLORE COMPONENTS</span>
+                EXPLORE COMPONENTS
 
                 <span
                   className="
@@ -211,10 +173,10 @@ function HomeSection({ onOpenLibrary }) {
                 >
                   →
                 </span>
-              </button>
+              </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/sumeethofficial-svg/Quantum-UI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -225,14 +187,16 @@ function HomeSection({ onOpenLibrary }) {
                   rounded-full
                   border
                   border-white/[0.10]
+                  bg-black/50
                   px-6
                   text-sm
                   font-medium
                   text-white/50
+                  backdrop-blur-xl
                   transition-all
                   duration-300
                   hover:border-white/[0.20]
-                  hover:bg-white/[0.04]
+                  hover:bg-white/[0.06]
                   hover:text-white
                 "
               >
@@ -251,7 +215,7 @@ function HomeSection({ onOpenLibrary }) {
               right-0
               h-28
               bg-gradient-to-t
-              from-black/60
+              from-black/50
               to-transparent
             "
           />
@@ -261,4 +225,4 @@ function HomeSection({ onOpenLibrary }) {
   );
 }
 
-export default HomeSection;
+export default HeroSection;
