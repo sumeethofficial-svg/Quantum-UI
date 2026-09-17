@@ -1,16 +1,65 @@
-# React + Vite
+# ⚛️ Quantum UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern React and Next UI component library focused on building clean, interactive, and visually engaging interfaces.
 
-Currently, two official plugins are available:
+Quantum UI is currently under active development, with new components, effects, and UI patterns being added continuously.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚛️ Modern React components
+- 🎨 Clean and customizable UI
+- 🌌 Animated backgrounds and visual effects
+- 🔘 Modern buttons and interactive controls
+- 🃏 Cards and content components
+- 📝 Inputs and form components
+- 🧭 Navigation components
+- 📐 Responsive layout components
+- ⚡ Smooth animations and transitions
+- 🔄 Loaders and loading states
+- 💬 Feedback components
+- ✨ Text effects and animated typography
+- 📊 Data display components
+- 🎯 Interactive UI elements
+- 🌑 Dark, modern visual language
+- 📱 Responsive across different screen sizes
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🧩 Components
+
+Quantum UI currently includes components across areas such as:
+
+- Buttons
+- Cards
+- Backgrounds
+- Effects
+- Inputs
+- Interactive Components
+- Navigation
+- Layout
+- Loaders
+- Feedback
+- Text
+- Data
+
+More components are being developed and added regularly.
+
+---
+
+## 🛠️ Built With
+
+- React
+- Next.js
+- Vite
+- Tailwind CSS
+- Typescript
+- Motion
+- Lucide React
+
+---
+
+## 🚀 Getting Started
+
+Under Developemt
