@@ -39,7 +39,7 @@ function ComponentSidebar({
         overflow-x-hidden
         border-b
         border-white/[0.08]
-        bg-black
+        bg-black/30
         p-5
         md:border-b-0
         md:border-r
