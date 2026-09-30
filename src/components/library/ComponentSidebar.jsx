@@ -39,11 +39,11 @@ function ComponentSidebar({
         overflow-x-hidden
         border-b
         border-white/[0.08]
-        bg-black/30
+        bg-black
         p-5
         md:border-b-0
         md:border-r
-        md:p-7
+        md:p-8
       "
     >
       {/* Header */}
