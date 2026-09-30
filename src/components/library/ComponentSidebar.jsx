@@ -43,7 +43,7 @@ function ComponentSidebar({
         p-5
         md:border-b-0
         md:border-r
-        md:p-8
+        md:p-7
       "
     >
       {/* Header */}
