@@ -16,9 +16,9 @@ function ComponentLibrary({ onClose }) {
   const component = getComponent(activeComponent);
 
   return (
-    <section className="h-screen overflow-hidden bg-gradient-to-br from-[#08090c] via-[#071016] to-[#08090c]">
+    <section className="h-screen overflow-hidden bg-black text-white">
 
-      <div className="grid h-full min-h-0 md:grid-cols-[276px_minmax(0,1fr)] xl:grid-cols-[276px_minmax(0,1fr)_218px]">
+      <div className="grid h-full min-h-0 md:grid-cols-[326px_minmax(0,1fr)] xl:grid-cols-[326px_minmax(0,1fr)_258px]">
 
         {/* =====================================================
             LEFT — COMPONENT INDEX
