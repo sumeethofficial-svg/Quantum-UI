@@ -18,7 +18,7 @@ function ComponentLibrary({ onClose }) {
   return (
     <section className="h-screen overflow-hidden bg-black text-white">
 
-      <div className="grid h-full min-h-0 md:grid-cols-[326px_minmax(0,1fr)] xl:grid-cols-[326px_minmax(0,1fr)_258px]">
+      <div className="grid h-full min-h-0 md:grid-cols-[276px_minmax(0,1fr)] xl:grid-cols-[276px_minmax(0,1fr)_218px]">
 
         {/* =====================================================
             LEFT — COMPONENT INDEX
