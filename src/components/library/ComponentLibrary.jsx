@@ -16,7 +16,7 @@ function ComponentLibrary({ onClose }) {
   const component = getComponent(activeComponent);
 
   return (
-    <section className="h-screen overflow-hidden bg-gradient-to-br from-[#08090c] via-[#071016] to-[#08090c] text-white">
+    <section className="h-screen overflow-hidden bg-[#050505] text-white">
 
       <div className="grid h-full min-h-0 md:grid-cols-[276px_minmax(0,1fr)] xl:grid-cols-[276px_minmax(0,1fr)_218px]">
 
@@ -65,7 +65,7 @@ function ComponentLibrary({ onClose }) {
           >
             <div className="font-mono text-xs text-slate-600">
               COMPONENTS / INTERACTIONS /{" "}
-              <span className="text-cyan-100">
+              <span className="text-white/80">
                 {component.name.toUpperCase()}
               </span>
             </div>
@@ -82,8 +82,8 @@ function ComponentLibrary({ onClose }) {
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/[0.19] px-2.5 py-1.5 font-mono text-[10px] text-cyan-100">
-                <span className="h-[5px] w-[5px] rounded-full bg-cyan-100 shadow-[0_0_6px_2px_rgba(77,216,255,0.35)]" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.025] px-2.5 py-1.5 font-mono text-[10px] text-white/75">
+                <span className="h-[5px] w-[5px] rounded-full bg-white shadow-[0_0_7px_2px_rgba(255,255,255,0.22)]" />
 
                 STABLE · v2.4
               </div>
@@ -94,7 +94,7 @@ function ComponentLibrary({ onClose }) {
               PREVIEW / CODE SWITCH
           ================================================= */}
 
-          <div className="mb-3 flex w-fit gap-1 rounded-lg border border-white/[0.08] bg-[#0b0d11] p-1">
+          <div className="mb-3 flex w-fit gap-1 rounded-xl border border-white/[0.10] bg-black/90 p-1 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
 
             <button
               type="button"
@@ -108,7 +108,7 @@ function ComponentLibrary({ onClose }) {
                 transition-all
                 ${
                   !showCode
-                    ? "bg-[#202a30] text-cyan-100"
+                    ? "border border-white/[0.12] bg-white/[0.075] text-white shadow-[0_0_18px_rgba(255,255,255,0.035)]"
                     : "text-slate-600 hover:text-slate-300"
                 }
               `}
