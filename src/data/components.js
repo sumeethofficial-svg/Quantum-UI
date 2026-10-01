@@ -273,3 +273,9 @@ export const allComponents = componentGroups.flatMap(
 export const getComponent = (name) =>
   allComponents.find((component) => component.name === name);
 
+/* Helpers shared by the docs UI and the registry build (scripts/build-registry.mjs). */
+export const getSlug = (component) =>
+  component.name.trim().toLowerCase().replace(/\s+/g, "-");
+
+export const getExportName = (component) =>
+  component.name.replace(/\s+/g, "");

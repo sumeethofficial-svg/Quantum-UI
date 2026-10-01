@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid-text",
+  "type": "registry:ui",
+  "title": "Liquid Text",
+  "description": "Text that distorts with a liquid-like skew on hover.",
+  "categories": [
+    "text & motion"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/LiquidText.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/LiquidText.jsx",
+      "content": "import { useState } from \"react\";\n\nfunction LiquidText({ children = \"Hover Me\" }) {\n  const [hovered, setHovered] = useState(false);\n\n  return (\n    <span\n      onMouseEnter={() => setHovered(true)}\n      onMouseLeave={() => setHovered(false)}\n      className=\"inline-block cursor-default text-4xl font-semibold tracking-tight text-white transition-all duration-500\"\n      style={{\n        transform: hovered ? \"skewX(-8deg) scaleX(1.08)\" : \"skewX(0) scaleX(1)\",\n        filter: hovered ? \"blur(.2px)\" : \"blur(0)\",\n        textShadow: hovered ? \"10px 0 18px rgba(77,216,255,.16), -10px 0 18px rgba(255,255,255,.08)\" : \"none\",\n      }}\n    >\n      {children}\n    </span>\n  );\n}\n\nexport default LiquidText;\n"
+    }
+  ],
+  "meta": {
+    "exportName": "LiquidText",
+    "category": "TEXT & MOTION",
+    "demo": "Hover Me"
+  }
+}

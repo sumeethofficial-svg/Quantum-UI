@@ -1,14 +1,20 @@
+
+import registryConfig from "../../../registry.config.json";
+import { getExportName } from "../../data/components";
+
 function ComponentCode({ component }) {
-  const fallbackName = component.name.replaceAll(" ", "");
-  const source = component.code || `// Quantum UI component
+  const exportName = getExportName(component);
+  const importPath = `./${registryConfig.installDir}/${exportName}`;
 
-import { ${fallbackName} } from "@quantum-ui/react";
+  const source =
+    component.code ||
+    `import ${exportName} from "${importPath}";
 
-export function Example() {
+export default function App() {
   return (
-    <${fallbackName}>
+    <${exportName}>
       ${component.demo}
-    </${fallbackName}>
+    </${exportName}>
   );
 }`;
 
@@ -20,6 +26,7 @@ export function Example() {
         </span>
         <span>JSX</span>
       </div>
+
       <pre className="overflow-auto p-6 font-mono text-[13px] leading-[1.8] text-slate-400">
         <code>{source}</code>
       </pre>

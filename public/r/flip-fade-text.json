@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-fade-text",
+  "type": "registry:ui",
+  "title": "Flip Fade Text",
+  "description": "A cycling word display that fades and drifts between states.",
+  "categories": [
+    "text & motion"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/FlipFadeText.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/FlipFadeText.jsx",
+      "content": "import { useEffect, useState } from \"react\";\n\nfunction FlipFadeText({ words = [\"BUILDING\", \"PROTOTYPING\", \"SHIPPING\"], interval = 2200 }) {\n  const [index, setIndex] = useState(0);\n\n  useEffect(() => {\n    const timer = window.setInterval(() => {\n      setIndex((current) => (current + 1) % words.length);\n    }, interval);\n    return () => window.clearInterval(timer);\n  }, [words, interval]);\n\n  return (\n    <span className=\"inline-block min-w-[9ch] text-center font-semibold tracking-tight text-white\">\n      <span key={index} className=\"inline-block animate-[word-fade_.8s_ease_both]\">\n        {words[index]}\n      </span>\n      <style>{`@keyframes word-fade { 0% { opacity:0; filter:blur(10px); transform:translateY(10px) rotateX(-35deg); } 45% { opacity:1; filter:blur(0); } 100% { opacity:1; transform:translateY(0) rotateX(0); } }`}</style>\n    </span>\n  );\n}\n\nexport default FlipFadeText;\n"
+    }
+  ],
+  "meta": {
+    "exportName": "FlipFadeText",
+    "category": "TEXT & MOTION",
+    "demo": "BUILDING → PROTOTYPING → SHIPPING"
+  }
+}

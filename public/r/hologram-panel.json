@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hologram-panel",
+  "type": "registry:ui",
+  "title": "Hologram Panel",
+  "description": "A layered glass surface with projected depth.",
+  "categories": [
+    "surfaces"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/HologramPanel.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/HologramPanel.jsx",
+      "content": "function HologramPanel({ title = \"Interface\", children }) {\n  return (\n    <div className=\"relative w-full max-w-md overflow-hidden rounded-xl border border-cyan-300/[0.15] bg-[#0b0d11]/80 p-6 backdrop-blur-xl\">\n      <div className=\"pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-300/[0.06] via-transparent to-transparent\" />\n      <div className=\"relative font-mono text-[10px] uppercase tracking-[0.14em] text-cyan-200/70\">{title}</div>\n      <div className=\"relative mt-3 text-sm text-slate-400\">\n        {children || \"A layered glass surface with projected depth.\"}\n      </div>\n    </div>\n  );\n}\n\nexport default HologramPanel;\n"
+    }
+  ],
+  "meta": {
+    "exportName": "HologramPanel",
+    "category": "SURFACES",
+    "demo": "Project interface"
+  }
+}

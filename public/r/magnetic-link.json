@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-link",
+  "type": "registry:ui",
+  "title": "Magnetic Link",
+  "description": "A text link that bends toward the cursor's gravity.",
+  "categories": [
+    "interactions"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/MagneticLink.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/MagneticLink.jsx",
+      "content": "import { useRef, useState } from \"react\";\n\nfunction MagneticLink({ children = \"Follow trajectory ↗\", strength = 0.18 }) {\n  const ref = useRef(null);\n  const [offset, setOffset] = useState({ x: 0, y: 0 });\n\n  const move = (event) => {\n    const rect = ref.current?.getBoundingClientRect();\n    if (!rect) return;\n    setOffset({\n      x: (event.clientX - (rect.left + rect.width / 2)) * strength,\n      y: (event.clientY - (rect.top + rect.height / 2)) * strength,\n    });\n  };\n\n  return (\n    <a\n      ref={ref}\n      href=\"#\"\n      onMouseMove={move}\n      onMouseLeave={() => setOffset({ x: 0, y: 0 })}\n      onClick={(e) => e.preventDefault()}\n      style={{ transform: `translate3d(${offset.x}px, ${offset.y}px, 0)` }}\n      className=\"inline-flex rounded-md px-3 py-2 font-mono text-sm text-cyan-200 transition-transform duration-200 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60\"\n    >\n      {children}\n    </a>\n  );\n}\n\nexport default MagneticLink;\n"
+    }
+  ],
+  "meta": {
+    "exportName": "MagneticLink",
+    "category": "INTERACTIONS",
+    "demo": "Follow trajectory ↗"
+  }
+}

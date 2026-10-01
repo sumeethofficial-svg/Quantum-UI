@@ -1,0 +1,35 @@
+{
+  "name": "quantum-ui-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that lets AI assistants browse and install Quantum UI components",
+  "type": "module",
+  "bin": {
+    "quantum-ui-mcp": "./src/index.js"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.25.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "react",
+    "ui",
+    "components"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumeethofficial-svg/Quantum-UI.git",
+    "directory": "packages/mcp"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}

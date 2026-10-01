@@ -1,3 +1,4 @@
+
 import { useMemo, useState } from "react";
 import { componentGroups } from "../../data/components";
 
@@ -19,14 +20,10 @@ function ComponentSidebar({
       .map((group) => ({
         ...group,
         items: group.items.filter((item) =>
-          item.name
-            .toLowerCase()
-            .includes(query)
+          item.name.toLowerCase().includes(query)
         ),
       }))
-      .filter(
-        (group) => group.items.length > 0
-      );
+      .filter((group) => group.items.length > 0);
   }, [search]);
 
   return (
@@ -39,7 +36,7 @@ function ComponentSidebar({
         overflow-x-hidden
         border-b
         border-white/[0.08]
-        bg-black/30
+        bg-black
         p-5
         md:border-b-0
         md:border-r
@@ -62,12 +59,7 @@ function ComponentSidebar({
           type="button"
           onClick={onClose}
           aria-label="Return to homepage"
-          className="
-            text-lg
-            text-slate-400
-            transition-colors
-            hover:text-cyan-100
-          "
+          className="text-lg text-slate-400 transition-colors hover:text-cyan-100"
         >
           ×
         </button>
@@ -82,9 +74,7 @@ function ComponentSidebar({
         <input
           type="search"
           value={search}
-          onChange={(event) =>
-            setSearch(event.target.value)
-          }
+          onChange={(event) => setSearch(event.target.value)}
           placeholder="Search the interface"
           aria-label="Search components"
           className="
@@ -92,7 +82,7 @@ function ComponentSidebar({
             rounded-md
             border
             border-white/[0.14]
-            bg-[#0b0e12]
+            bg-[#080808]
             py-2.5
             pl-[34px]
             pr-3
@@ -108,34 +98,27 @@ function ComponentSidebar({
         />
       </div>
 
-      {/* Groups */}
+      {/* Component Groups */}
       {filteredGroups.map((group) => (
-        <div
-          key={group.label}
-          className="my-6"
-        >
+        <div key={group.label} className="my-6">
           <p className="mb-2 ml-2 font-mono text-[10px] tracking-[0.14em] text-slate-600">
             {group.label}
           </p>
 
           <div className="space-y-1">
             {group.items.map((item) => {
-              const active =
-                item.name === activeComponent;
+              const active = item.name === activeComponent;
 
               return (
                 <button
                   key={item.name}
                   type="button"
-                  onClick={() =>
-                    onSelectComponent(item.name)
-                  }
+                  onClick={() => onSelectComponent(item.name)}
                   className={`
                     group
                     flex
                     w-full
                     items-center
-                    gap-2.5
                     rounded-md
                     px-2.5
                     py-2
@@ -149,23 +132,10 @@ function ComponentSidebar({
                     }
                   `}
                 >
-                  <span
-                    className={`
-                      w-[17px]
-                      font-mono
-                      transition-all
-                      ${
-                        active
-                          ? "text-cyan-100"
-                          : "text-cyan-400/70 group-hover:text-cyan-100"
-                      }
-                    `}
-                  >
-                    {item.glyph}
-                  </span>
-
+                  {/* Component name — feature icon removed */}
                   <span>{item.name}</span>
 
+                  {/* Component number */}
                   {item.number && (
                     <span
                       className={`
@@ -189,7 +159,7 @@ function ComponentSidebar({
         </div>
       ))}
 
-      {/* No results */}
+      {/* No Results */}
       {filteredGroups.length === 0 && (
         <div className="px-2 py-8 text-center">
           <div className="font-mono text-[10px] text-slate-600">

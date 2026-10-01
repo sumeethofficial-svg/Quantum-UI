@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-group",
+  "type": "registry:ui",
+  "title": "Avatar Group",
+  "description": "Overlapping avatars that lift and scale forward on hover.",
+  "categories": [
+    "interactive"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/AvatarGroup.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/AvatarGroup.jsx",
+      "content": "import React, { useState } from \"react\";\n\nconst defaultAvatars = [\n  { name: \"A\", image: \"https://i.pravatar.cc/96?img=12\" },\n  { name: \"B\", image: \"https://i.pravatar.cc/96?img=32\" },\n  { name: \"C\", image: \"https://i.pravatar.cc/96?img=47\" },\n  { name: \"D\", image: \"https://i.pravatar.cc/96?img=5\" },\n  { name: \"E\", image: \"https://i.pravatar.cc/96?img=68\" },\n];\n\nexport default function AvatarGroup({\n  avatars = defaultAvatars,\n  size = 48,\n  overlap = 14,\n}) {\n  const [active, setActive] = useState(null);\n\n  return (\n    <div className=\"flex items-center justify-center py-6\">\n      <div className=\"flex items-center\">\n        {avatars.map((avatar, index) => (\n          <button\n            key={index}\n            type=\"button\"\n            onMouseEnter={() => setActive(index)}\n            onMouseLeave={() => setActive(null)}\n            className=\"relative overflow-hidden rounded-full border-2 border-[#08090c] bg-neutral-800 transition-all duration-300 ease-out focus:outline-none\"\n            style={{\n              width: size,\n              height: size,\n              marginLeft: index === 0 ? 0 : -overlap,\n              zIndex: active === index ? 50 : index + 1,\n              transform:\n                active === index\n                  ? \"translateY(-8px) scale(1.12)\"\n                  : \"translateY(0) scale(1)\",\n            }}\n            aria-label={avatar.name}\n          >\n            <img\n              src={avatar.image}\n              alt={avatar.name}\n              className=\"h-full w-full object-cover\"\n            />\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "exportName": "AvatarGroup",
+    "category": "INTERACTIVE",
+    "demo": "Reveal contributor"
+  }
+}

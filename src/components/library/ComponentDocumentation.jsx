@@ -1,4 +1,15 @@
+import registryConfig from "../../../registry.config.json";
+import { getSlug, getExportName } from "../../data/components";
+
 function ComponentDocumentation({ component }) {
+  const slug = getSlug(component);
+  const exportName = getExportName(component);
+  const addCommand =
+    component.installation ||
+    `npx shadcn@latest add ${registryConfig.namespace}/${slug}`;
+  const setupCommand = `npx ${registryConfig.cliPackage} init`;
+  const importPath = `./${registryConfig.installDir}/${exportName}`;
+
   return (
     <div className="mt-12 space-y-14">
 
@@ -18,9 +29,14 @@ function ComponentDocumentation({ component }) {
 
           <div className="flex items-center justify-between gap-4 px-5 py-5">
 
-            <code className="overflow-x-auto font-mono text-xs text-cyan-50">
-              {component.installation ||
-                `npx shadcn@latest add @quantum-ui/${component.slug}`}
+            <code className="block overflow-x-auto whitespace-pre font-mono text-xs leading-6 text-cyan-50">
+              <span className="text-slate-600"># once per project</span>
+              {"\n"}
+              {setupCommand}
+              {"\n\n"}
+              <span className="text-slate-600"># add this component</span>
+              {"\n"}
+              {addCommand}
             </code>
 
             <button
@@ -39,12 +55,8 @@ function ComponentDocumentation({ component }) {
                 hover:border-cyan-300/30
                 hover:text-cyan-100
               "
-              onClick={() =>
-                navigator.clipboard?.writeText(
-                  component.installation ||
-                    `npx shadcn@latest add @quantum-ui/${component.slug}`
-                )
-              }
+              aria-label="Copy install command"
+              onClick={() => navigator.clipboard?.writeText(addCommand)}
             >
               ⧉
             </button>
@@ -69,18 +81,20 @@ function ComponentDocumentation({ component }) {
           Integrate the component directly into
           your interface and customize its
           behavior through the available
-          properties.
+          properties. The import path is relative to
+          the importing file; components are copied
+          to <code className="font-mono">src/{registryConfig.installDir}/</code> by default.
         </p>
 
         <div className="mt-6 overflow-hidden rounded-xl border border-white/[0.08] bg-[#0b0d11]">
           <pre className="overflow-x-auto p-5 font-mono text-xs leading-6 text-slate-300">
             <code>
 {component.usage ||
-`import { ${component.name.replace(/\s+/g, "")} } from "@/components";
+`import ${exportName} from "${importPath}";
 
 export default function Example() {
   return (
-    <${component.name.replace(/\s+/g, "")} />
+    <${exportName} />
   );
 }`}
             </code>

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kinetic-typography",
+  "type": "registry:ui",
+  "title": "Kinetic Typography",
+  "description": "Bold stacked typography with staggered letter entrances, motion, and dimensional depth.",
+  "categories": [
+    "text & motion"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/KineticTypography.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/KineticTypography.jsx",
+      "content": "import React from \"react\";\r\n\r\nfunction KineticText({ lines = [\"WORDS\", \"IN\", \"MOTION\"] } = {}) {\r\n  return (\r\n    <div className=\"w-full max-w-3xl select-none px-4 py-8 sm:px-8\" aria-label=\"Words in motion kinetic typography preview\">\r\n      <style>{`\r\n        @keyframes quantum-kinetic-enter {\r\n          0% { opacity: 0; transform: translate3d(0, 115%, 0) skewY(9deg); filter: blur(8px); }\r\n          65% { opacity: 1; transform: translate3d(0, -5%, 0) skewY(-1deg); filter: blur(0); }\r\n          100% { opacity: 1; transform: translate3d(0, 0, 0) skewY(0); filter: blur(0); }\r\n        }\r\n        @keyframes quantum-kinetic-glint {\r\n          0%, 70%, 100% { opacity: .12; }\r\n          35% { opacity: .42; }\r\n        }\r\n        .quantum-kinetic-line { overflow: hidden; line-height: .82; }\r\n        .quantum-kinetic-letter {\r\n          display: inline-block;\r\n          opacity: 0;\r\n          animation: quantum-kinetic-enter 900ms cubic-bezier(.2,.75,.2,1) forwards;\r\n          will-change: transform, opacity;\r\n        }\r\n        .quantum-kinetic-glint { animation: quantum-kinetic-glint 3.6s ease-in-out infinite; }\r\n        @media (prefers-reduced-motion: reduce) {\r\n          .quantum-kinetic-letter, .quantum-kinetic-glint { animation: none !important; opacity: 1; transform: none; filter: none; }\r\n        }\r\n      `}</style>\r\n      <div className=\"mb-5 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.24em] text-slate-500 sm:text-[10px]\">\r\n        <span>Q / 001 — KINETIC TYPE</span>\r\n        <span className=\"quantum-kinetic-glint text-cyan-200\">Motion study</span>\r\n      </div>\r\n      <div className=\"space-y-2 sm:space-y-3\" aria-hidden=\"true\">\r\n        {lines.map((line, lineIndex) => (\r\n          <div key={line} className=\"quantum-kinetic-line\">\r\n            <div\r\n              className=\"whitespace-nowrap text-[clamp(3.2rem,12vw,8rem)] font-black uppercase tracking-[-0.085em] text-slate-100\"\r\n              style={{ textShadow: \"0 2px 0 #a5aeb8, 0 5px 0 #515a66, 0 12px 30px rgba(0,0,0,.55)\" }}\r\n            >\r\n              {[...line].map((letter, letterIndex) => (\r\n                <span\r\n                  className=\"quantum-kinetic-letter\"\r\n                  key={`${line}-${letterIndex}`}\r\n                  style={{ animationDelay: `${lineIndex * 170 + letterIndex * 48}ms` }}\r\n                >\r\n                  {letter}\r\n                </span>\r\n              ))}\r\n            </div>\r\n          </div>\r\n        ))}\r\n      </div>\r\n      <div className=\"mt-7 flex items-center gap-3\">\r\n        <span className=\"h-px flex-1 bg-gradient-to-r from-cyan-300/60 to-transparent\" />\r\n        <span className=\"font-mono text-[9px] uppercase tracking-[0.22em] text-slate-600\">Stagger · Reveal · Repeat</span>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default KineticText;\r\n"
+    }
+  ],
+  "meta": {
+    "exportName": "KineticTypography",
+    "category": "TEXT & MOTION",
+    "demo": "WORDS IN MOTION"
+  }
+}

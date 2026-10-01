@@ -1,0 +1,9 @@
+{
+  "name": "quantum-ui",
+  "namespace": "@quantum-ui",
+  "homepage": "https://github.com/sumeethofficial-svg/Quantum-UI",
+  "baseUrl": "https://raw.githubusercontent.com/sumeethofficial-svg/Quantum-UI/main/public/r",
+  "cliPackage": "quantum-ui-cli",
+  "mcpPackage": "quantum-ui-mcp",
+  "installDir": "components/quantum-ui"
+}

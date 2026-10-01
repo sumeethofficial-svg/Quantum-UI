@@ -1,7 +1,8 @@
+
 function UnderDevelopment() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black px-6 text-white">
-      <section className="w-full max-w-2xl rounded-[28px] border border-white/[0.08] bg-white/[0.02] p-8 text-center backdrop-blur-xl sm:p-12">
+    <main className="flex min-h-[calc(100dvh-54px)] items-center justify-center bg-black px-6 py-10 text-white">
+      <section className="w-full max-w-2xl rounded-[28px] border border-white/[0.08] bg-white/[0.02] p-8 text-center sm:p-12">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.03]">
           <span className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_18px_rgba(255,255,255,0.7)]" />
         </div>
@@ -23,6 +24,7 @@ function UnderDevelopment() {
           <p className="text-sm font-medium text-white/75">
             Want to contribute?
           </p>
+
           <p className="mt-2 text-sm leading-6 text-white/35">
             Submit a component, improvement, or feature through GitHub.
             Contributions will be reviewed and updated into Quantum UI when

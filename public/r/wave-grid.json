@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wave-grid",
+  "type": "registry:ui",
+  "title": "Wave Grid",
+  "description": "An interactive grid background that ripples toward the cursor.",
+  "categories": [
+    "backgrounds"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/WaveGrid.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/WaveGrid.jsx",
+      "content": "import React, { useRef, useState } from \"react\";\n\nexport default function WaveGrid({\n  columns = 18,\n  rows = 10,\n}) {\n  const ref = useRef(null);\n  const [pointer, setPointer] = useState({ x: 0.5, y: 0.5 });\n\n  const handleMove = (event) => {\n    const rect = ref.current?.getBoundingClientRect();\n    if (!rect) return;\n    setPointer({\n      x: (event.clientX - rect.left) / rect.width,\n      y: (event.clientY - rect.top) / rect.height,\n    });\n  };\n\n  const cells = Array.from({ length: columns * rows });\n\n  return (\n    <div\n      ref={ref}\n      onMouseMove={handleMove}\n      className=\"relative min-h-[360px] w-full overflow-hidden rounded-2xl bg-neutral-950 p-8\"\n    >\n      <div\n        className=\"absolute inset-0 opacity-40\"\n        style={{\n          backgroundImage:\n            \"linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px)\",\n          backgroundSize: \"8% 10%\",\n        }}\n      />\n      <div className=\"relative grid h-full grid-cols-[repeat(18,minmax(0,1fr))] gap-2\">\n        {cells.map((_, index) => {\n          const x = (index % columns) / columns;\n          const y = Math.floor(index / columns) / rows;\n          const distance = Math.sqrt((x - pointer.x) ** 2 + (y - pointer.y) ** 2);\n          const lift = Math.max(0, 1 - distance * 4);\n          return (\n            <div\n              key={index}\n              className=\"aspect-square rounded-[3px] border border-white/10 bg-white/[0.035] transition-transform duration-150\"\n              style={{\n                transform: `translateY(${-lift * 14}px) rotateX(${lift * 8}deg)`,\n                opacity: 0.25 + lift * 0.6,\n              }}\n            />\n          );\n        })}\n      </div>\n      <div className=\"pointer-events-none absolute inset-0 flex items-center justify-center text-center\">\n        <div>\n          <h2 className=\"text-4xl font-bold text-white drop-shadow-lg\">Wave Grid</h2>\n          <p className=\"mt-2 text-sm text-white/60\">Move your cursor across the grid to send ripples.</p>\n        </div>\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "exportName": "WaveGrid",
+    "category": "BACKGROUNDS",
+    "demo": "Move across the grid"
+  }
+}

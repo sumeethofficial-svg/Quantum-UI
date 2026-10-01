@@ -1,0 +1,581 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "quantum-ui",
+  "homepage": "https://github.com/sumeethofficial-svg/Quantum-UI",
+  "items": [
+    {
+      "name": "photon-button",
+      "type": "registry:ui",
+      "title": "Photon Button",
+      "description": "A charged action trigger with an energized hover sweep.",
+      "categories": [
+        "interactions"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/PhotonButton.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/PhotonButton.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "PhotonButton",
+        "category": "INTERACTIONS",
+        "demo": "Initialize sequence →"
+      }
+    },
+    {
+      "name": "magnetic-link",
+      "type": "registry:ui",
+      "title": "Magnetic Link",
+      "description": "A text link that bends toward the cursor's gravity.",
+      "categories": [
+        "interactions"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/MagneticLink.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/MagneticLink.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "MagneticLink",
+        "category": "INTERACTIONS",
+        "demo": "Follow trajectory ↗"
+      }
+    },
+    {
+      "name": "signal-toggle",
+      "type": "registry:ui",
+      "title": "Signal Toggle",
+      "description": "A binary control that makes state instantly legible.",
+      "categories": [
+        "interactions"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/SignalToggle.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/SignalToggle.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "SignalToggle",
+        "category": "INTERACTIONS",
+        "demo": "Signal enabled"
+      }
+    },
+    {
+      "name": "orbit-menu",
+      "type": "registry:ui",
+      "title": "Orbit Menu",
+      "description": "A compact radial navigator for dense interfaces.",
+      "categories": [
+        "interactions"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/OrbitMenu.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/OrbitMenu.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "OrbitMenu",
+        "category": "INTERACTIONS",
+        "demo": "Open command orbit"
+      }
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button",
+      "description": "A fluid action button with an animated liquid interaction.",
+      "categories": [
+        "interactions"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/LiquidButton.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/LiquidButton.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "LiquidButton",
+        "category": "INTERACTIONS",
+        "demo": "Activate liquid sequence →"
+      }
+    },
+    {
+      "name": "telemetry-card",
+      "type": "registry:ui",
+      "title": "Telemetry Card",
+      "description": "A precision status surface for live system data.",
+      "categories": [
+        "data & systems"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/TelemetryCard.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/TelemetryCard.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "TelemetryCard",
+        "category": "DATA & SYSTEMS",
+        "demo": "Sync live telemetry"
+      }
+    },
+    {
+      "name": "waveform-chart",
+      "type": "registry:ui",
+      "title": "Waveform Chart",
+      "description": "An animated data trace built for streaming signals.",
+      "categories": [
+        "data & systems"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/WaveformChart.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/WaveformChart.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "WaveformChart",
+        "category": "DATA & SYSTEMS",
+        "demo": "Inspect waveform"
+      }
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "A fast-launch interface for expert workflows.",
+      "categories": [
+        "data & systems"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/CommandPalette.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/CommandPalette.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "CommandPalette",
+        "category": "DATA & SYSTEMS",
+        "demo": "Search commands"
+      }
+    },
+    {
+      "name": "system-status",
+      "type": "registry:ui",
+      "title": "System Status",
+      "description": "A compact health beacon with meaningful states.",
+      "categories": [
+        "data & systems"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/SystemStatus.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/SystemStatus.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "SystemStatus",
+        "category": "DATA & SYSTEMS",
+        "demo": "Systems nominal"
+      }
+    },
+    {
+      "name": "hologram-panel",
+      "type": "registry:ui",
+      "title": "Hologram Panel",
+      "description": "A layered glass surface with projected depth.",
+      "categories": [
+        "surfaces"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/HologramPanel.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/HologramPanel.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "HologramPanel",
+        "category": "SURFACES",
+        "demo": "Project interface"
+      }
+    },
+    {
+      "name": "aurora-input",
+      "type": "registry:ui",
+      "title": "Aurora Input",
+      "description": "An input field with an active spectral edge.",
+      "categories": [
+        "surfaces"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/AuroraInput.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/AuroraInput.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "AuroraInput",
+        "category": "SURFACES",
+        "demo": "Acquire input"
+      }
+    },
+    {
+      "name": "flip-text",
+      "type": "registry:ui",
+      "title": "Flip Text",
+      "description": "A word cycler that flips through phrases with a smooth 3D rotation.",
+      "categories": [
+        "text & motion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/FlipText.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/FlipText.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "FlipText",
+        "category": "TEXT & MOTION",
+        "demo": "beautiful → precise → quantum"
+      }
+    },
+    {
+      "name": "flip-fade-text",
+      "type": "registry:ui",
+      "title": "Flip Fade Text",
+      "description": "A cycling word display that fades and drifts between states.",
+      "categories": [
+        "text & motion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/FlipFadeText.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/FlipFadeText.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "FlipFadeText",
+        "category": "TEXT & MOTION",
+        "demo": "BUILDING → PROTOTYPING → SHIPPING"
+      }
+    },
+    {
+      "name": "liquid-text",
+      "type": "registry:ui",
+      "title": "Liquid Text",
+      "description": "Text that distorts with a liquid-like skew on hover.",
+      "categories": [
+        "text & motion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/LiquidText.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/LiquidText.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "LiquidText",
+        "category": "TEXT & MOTION",
+        "demo": "Hover Me"
+      }
+    },
+    {
+      "name": "kinetic-typography",
+      "type": "registry:ui",
+      "title": "Kinetic Typography",
+      "description": "Bold stacked typography with staggered letter entrances, motion, and dimensional depth.",
+      "categories": [
+        "text & motion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/KineticTypography.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/KineticTypography.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "KineticTypography",
+        "category": "TEXT & MOTION",
+        "demo": "WORDS IN MOTION"
+      }
+    },
+    {
+      "name": "3d-text-reveal",
+      "type": "registry:ui",
+      "title": "3D Text Reveal",
+      "description": "Large extruded typography revealed with a perspective tilt and dimensional text shadows.",
+      "categories": [
+        "text & motion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/3DTextReveal.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/3DTextReveal.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "3DTextReveal",
+        "category": "TEXT & MOTION",
+        "demo": "QUANTUM"
+      }
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Overlapping avatars that lift and scale forward on hover.",
+      "categories": [
+        "interactive"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/AvatarGroup.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/AvatarGroup.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "AvatarGroup",
+        "category": "INTERACTIVE",
+        "demo": "Reveal contributor"
+      }
+    },
+    {
+      "name": "cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "A custom trailing cursor confined to its own preview surface.",
+      "categories": [
+        "interactive"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/Cursor.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/Cursor.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "Cursor",
+        "category": "INTERACTIVE",
+        "demo": "Move your mouse over the div"
+      }
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "An animated tooltip with an arrow, triggered on hover.",
+      "categories": [
+        "interactive"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/Tooltip.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/Tooltip.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "Tooltip",
+        "category": "INTERACTIVE",
+        "demo": "Docs"
+      }
+    },
+    {
+      "name": "masked-avatars",
+      "type": "registry:ui",
+      "title": "Masked Avatars",
+      "description": "Overlapping circular avatars with an active name label.",
+      "categories": [
+        "interactive"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/MaskedAvatars.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/MaskedAvatars.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "MaskedAvatars",
+        "category": "INTERACTIVE",
+        "demo": "AIZEN"
+      }
+    },
+    {
+      "name": "team-reveal-grid",
+      "type": "registry:ui",
+      "title": "Team Reveal Grid",
+      "description": "A responsive team grid with a smooth hover reveal on each member.",
+      "categories": [
+        "layout & cards"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/TeamRevealGrid.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/TeamRevealGrid.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "TeamRevealGrid",
+        "category": "LAYOUT & CARDS",
+        "demo": "Meet the team"
+      }
+    },
+    {
+      "name": "testimonials-card",
+      "type": "registry:ui",
+      "title": "Testimonials Card",
+      "description": "A stacked testimonial card with previous/next navigation and a counter.",
+      "categories": [
+        "layout & cards"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/TestimonialsCard.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/TestimonialsCard.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "TestimonialsCard",
+        "category": "LAYOUT & CARDS",
+        "demo": "Ocean Horizon"
+      }
+    },
+    {
+      "name": "spotlight-navbar",
+      "type": "registry:ui",
+      "title": "Spotlight Navbar",
+      "description": "A pill navbar with an animated spotlight that tracks the active item.",
+      "categories": [
+        "navigation"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/quantum-ui/SpotlightNavbar.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/SpotlightNavbar.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "SpotlightNavbar",
+        "category": "NAVIGATION",
+        "demo": "Home"
+      }
+    },
+    {
+      "name": "wave-grid",
+      "type": "registry:ui",
+      "title": "Wave Grid",
+      "description": "An interactive grid background that ripples toward the cursor.",
+      "categories": [
+        "backgrounds"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/WaveGrid.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/WaveGrid.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "WaveGrid",
+        "category": "BACKGROUNDS",
+        "demo": "Move across the grid"
+      }
+    },
+    {
+      "name": "aurora-hero",
+      "type": "registry:ui",
+      "title": "Aurora Hero",
+      "description": "A vertical aurora light field with smooth, shifting color bands.",
+      "categories": [
+        "backgrounds"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/AuroraHero.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/AuroraHero.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "AuroraHero",
+        "category": "BACKGROUNDS",
+        "demo": "Shift the aurora"
+      }
+    },
+    {
+      "name": "stars-background",
+      "type": "registry:ui",
+      "title": "Stars Background",
+      "description": "A field of softly twinkling stars at a configurable density.",
+      "categories": [
+        "backgrounds"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/StarsBackground.jsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/StarsBackground.jsx"
+        }
+      ],
+      "meta": {
+        "exportName": "StarsBackground",
+        "category": "BACKGROUNDS",
+        "demo": "90 stars"
+      }
+    }
+  ]
+}

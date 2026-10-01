@@ -8,6 +8,11 @@
   },
   "scripts": {
     "dev": "vite",
+    "registry:build": "node scripts/build-registry.mjs",
+    "registry:verify": "node scripts/verify-registry.mjs",
+    "mcp:install": "npm --prefix packages/mcp install",
+    "test": "npm run registry:build && npm run registry:verify && npm --prefix packages/mcp test",
+    "prebuild": "npm run registry:build",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"

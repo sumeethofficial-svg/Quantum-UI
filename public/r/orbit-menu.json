@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "orbit-menu",
+  "type": "registry:ui",
+  "title": "Orbit Menu",
+  "description": "A compact radial navigator for dense interfaces.",
+  "categories": [
+    "interactions"
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/quantum-ui/OrbitMenu.jsx",
+      "type": "registry:ui",
+      "target": "components/quantum-ui/OrbitMenu.jsx",
+      "content": "import { useState } from \"react\";\n\nconst items = [\"Overview\", \"Signals\", \"Archive\", \"Settings\"];\n\nfunction OrbitMenu() {\n  const [open, setOpen] = useState(false);\n\n  return (\n    <div className=\"relative flex min-h-[240px] items-center justify-center\">\n      <button\n        type=\"button\"\n        onClick={() => setOpen((value) => !value)}\n        aria-expanded={open}\n        className=\"relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-cyan-300/30 bg-black/60 text-cyan-100 shadow-[0_0_25px_rgba(77,216,255,0.18)] transition-colors hover:border-cyan-200/60\"\n      >\n        ◍\n      </button>\n\n      {items.map((item, index) => {\n        const angle = (index / items.length) * Math.PI * 2 - Math.PI / 2;\n        const radius = open ? 90 : 0;\n        const x = Math.cos(angle) * radius;\n        const y = Math.sin(angle) * radius;\n\n        return (\n          <button\n            key={item}\n            type=\"button\"\n            style={{\n              transform: `translate(${x}px, ${y}px)`,\n              opacity: open ? 1 : 0,\n            }}\n            className=\"absolute rounded-full border border-white/10 bg-[#0b0d11] px-3 py-1.5 font-mono text-[11px] text-slate-300 transition-all duration-300 hover:border-cyan-300/40 hover:text-cyan-100\"\n          >\n            {item}\n          </button>\n        );\n      })}\n    </div>\n  );\n}\n\nexport default OrbitMenu;\n"
+    }
+  ],
+  "meta": {
+    "exportName": "OrbitMenu",
+    "category": "INTERACTIONS",
+    "demo": "Open command orbit"
+  }
+}
