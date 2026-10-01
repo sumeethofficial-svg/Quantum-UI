@@ -83,7 +83,7 @@ function Navbar() {
             Components
           </a>
           <a
-            href="#docs"
+            href="/docs"
             className="text-sm text-white/75 transition-colors hover:text-white"
           >
             Docs

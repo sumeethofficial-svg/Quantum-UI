@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 const members = [
-  { name: "Aizen", role: "Web3 Lead", image: "https://i.pravatar.cc/300?img=12", bio: "Designs decentralized product systems." },
-  { name: "Batman", role: "Infrastructure Engineer", image: "https://i.pravatar.cc/300?img=14", bio: "Builds resilient infrastructure." },
-  { name: "Johan", role: "Backend Engineer", image: "https://i.pravatar.cc/300?img=33", bio: "Builds silent, ultra-precise distributed systems." },
-  { name: "Shinji", role: "Frontend Engineer", image: "https://i.pravatar.cc/300?img=47", bio: "Creates expressive interface systems." },
-  { name: "Kaname", role: "Security Engineer", image: "https://i.pravatar.cc/300?img=51", bio: "Hardens critical application surfaces." },
-  { name: "Ashutosh", role: "Product Engineer", image: "https://i.pravatar.cc/300?img=68", bio: "Turns concepts into polished products." },
+  { name: "Naruto", role: "Web3 Lead", image: "https://i.pravatar.cc/300?img=12", bio: "Designs decentralized product systems." },
+  { name: "Sasuke", role: "Infrastructure Engineer", image: "https://i.pravatar.cc/300?img=14", bio: "Builds resilient infrastructure." },
+  { name: "Sakura", role: "Backend Engineer", image: "https://i.pravatar.cc/300?img=33", bio: "Builds silent, ultra-precise distributed systems." },
+  { name: "Hinata", role: "Frontend Engineer", image: "https://i.pravatar.cc/300?img=47", bio: "Creates expressive interface systems." },
+  { name: "kakashi", role: "Security Engineer", image: "https://i.pravatar.cc/300?img=51", bio: "Hardens critical application surfaces." },
+  { name: "Bobby", role: "Product Engineer", image: "https://i.pravatar.cc/300?img=68", bio: "Turns concepts into polished products." },
 ];
 
 export default function TeamRevealGrid() {

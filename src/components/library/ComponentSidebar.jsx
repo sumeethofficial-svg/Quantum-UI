@@ -1,17 +1,40 @@
-
 import { useMemo, useState } from "react";
 import { componentGroups } from "../../data/components";
+import { setupDocs } from "./SetupDocs";
+
+const X_URL = "https://x.com/sumedev_";
+const X_HANDLE = "@sumedev_";
+
+const itemClass = (active) => `
+  group
+  flex
+  w-full
+  items-center
+  rounded-md
+  px-2.5
+  py-2
+  text-left
+  text-[13px]
+  transition-all
+  ${
+    active
+      ? "bg-white/[0.065] text-white shadow-[inset_2px_0_#4dd8ff]"
+      : "text-slate-400 hover:bg-white/[0.04] hover:text-white"
+  }
+`;
 
 function ComponentSidebar({
   activeComponent,
+  activeDoc = null,
   onSelectComponent,
+  onSelectDoc,
   onClose,
 }) {
   const [search, setSearch] = useState("");
 
-  const filteredGroups = useMemo(() => {
-    const query = search.toLowerCase().trim();
+  const query = search.toLowerCase().trim();
 
+  const filteredGroups = useMemo(() => {
     if (!query) {
       return componentGroups;
     }
@@ -24,7 +47,24 @@ function ComponentSidebar({
         ),
       }))
       .filter((group) => group.items.length > 0);
-  }, [search]);
+  }, [query]);
+
+  const filteredSetup = useMemo(
+    () =>
+      setupDocs.filter(
+        (doc) =>
+          !query ||
+          doc.name.toLowerCase().includes(query) ||
+          "setup".includes(query)
+      ),
+    [query]
+  );
+
+  const showFollow =
+    !query || "follow for updates x sumedev".includes(query);
+
+  const hasResults =
+    filteredGroups.length > 0 || filteredSetup.length > 0 || showFollow;
 
   return (
     <aside
@@ -98,6 +138,50 @@ function ComponentSidebar({
         />
       </div>
 
+      {/* Follow for updates */}
+      {showFollow && (
+        <div className="my-6">
+          <p className="mb-2 ml-2 font-mono text-[10px] tracking-[0.14em] text-slate-600">
+            FOLLOW FOR UPDATES
+          </p>
+
+          <a
+            href={X_URL}
+            target="_blank"
+            rel="noreferrer"
+            className={itemClass(false)}
+          >
+            <span>X {X_HANDLE}</span>
+
+            <span className="ml-auto font-mono text-[10px] text-slate-600">
+              ↗
+            </span>
+          </a>
+        </div>
+      )}
+
+      {/* Setup */}
+      {filteredSetup.length > 0 && (
+        <div className="my-6">
+          <p className="mb-2 ml-2 font-mono text-[10px] tracking-[0.14em] text-slate-600">
+            SETUP
+          </p>
+
+          <div className="space-y-1">
+            {filteredSetup.map((doc) => (
+              <button
+                key={doc.id}
+                type="button"
+                onClick={() => onSelectDoc?.(doc.id)}
+                className={itemClass(activeDoc === doc.id)}
+              >
+                <span>{doc.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Component Groups */}
       {filteredGroups.map((group) => (
         <div key={group.label} className="my-6">
@@ -107,51 +191,17 @@ function ComponentSidebar({
 
           <div className="space-y-1">
             {group.items.map((item) => {
-              const active = item.name === activeComponent;
+              const active = !activeDoc && item.name === activeComponent;
 
               return (
                 <button
                   key={item.name}
                   type="button"
                   onClick={() => onSelectComponent(item.name)}
-                  className={`
-                    group
-                    flex
-                    w-full
-                    items-center
-                    rounded-md
-                    px-2.5
-                    py-2
-                    text-left
-                    text-[13px]
-                    transition-all
-                    ${
-                      active
-                        ? "bg-white/[0.065] text-white shadow-[inset_2px_0_#4dd8ff]"
-                        : "text-slate-400 hover:bg-white/[0.04] hover:text-white"
-                    }
-                  `}
+                  className={itemClass(active)}
                 >
                   {/* Component name — feature icon removed */}
                   <span>{item.name}</span>
-
-                  {/* Component number */}
-                  {item.number && (
-                    <span
-                      className={`
-                        ml-auto
-                        font-mono
-                        text-[10px]
-                        ${
-                          active
-                            ? "text-cyan-400/70"
-                            : "text-slate-600"
-                        }
-                      `}
-                    >
-                      {item.number}
-                    </span>
-                  )}
                 </button>
               );
             })}
@@ -160,7 +210,7 @@ function ComponentSidebar({
       ))}
 
       {/* No Results */}
-      {filteredGroups.length === 0 && (
+      {!hasResults && (
         <div className="px-2 py-8 text-center">
           <div className="font-mono text-[10px] text-slate-600">
             NO COMPONENT SIGNAL
