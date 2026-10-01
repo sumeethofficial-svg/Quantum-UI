@@ -15,6 +15,8 @@ import AuroraInput from "../ui/inputs/AuroraInput";
 import FlipText from "../ui/text/FlipText";
 import FlipFadeText from "../ui/text/FlipFadeText";
 import LiquidText from "../ui/text/LiquidText";
+import KineticText from "../ui/text/KineticText";
+import Text3DReveal from "../ui/text/Text3DReveal";
 
 import AvatarGroup from "../ui/interactive/AvatarGroup";
 import Cursor from "../ui/interactive/Cursor";
@@ -48,6 +50,8 @@ export const componentRegistry = {
   "Flip Text": FlipText,
   "Flip Fade Text": FlipFadeText,
   "Liquid Text": LiquidText,
+  "Kinetic Typography": KineticText,
+  "3D Text Reveal": Text3DReveal,
 
   "Avatar Group": AvatarGroup,
   "Cursor": Cursor,

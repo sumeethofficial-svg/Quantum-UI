@@ -123,6 +123,51 @@ export const componentGroups = [
           "Text that distorts with a liquid-like skew on hover.",
         demo: "Hover Me",
       },
+      {
+        name: "Kinetic Typography",
+        glyph: "↗",
+        description:
+          "Bold stacked typography with staggered letter entrances, motion, and dimensional depth.",
+        demo: "WORDS IN MOTION",
+        slug: "kinetic-typography",
+        installation: "Copy src/components/ui/text/KineticText.jsx",
+        usage: `import KineticText from "@/components/ui/text/KineticText";
+
+export default function Example() {
+  return <KineticText />;
+}`,
+        code: `import KineticText from "@/components/ui/text/KineticText";
+
+export default function Example() {
+  return <KineticText />;
+}`,
+        props: [
+          { name: "lines", type: "string[]", default: '["WORDS", "IN", "MOTION"]' },
+        ],
+      },
+      {
+        name: "3D Text Reveal",
+        glyph: "▰",
+        description:
+          "Large extruded typography revealed with a perspective tilt and dimensional text shadows.",
+        demo: "QUANTUM",
+        slug: "3d-text-reveal",
+        installation: "Copy src/components/ui/text/Text3DReveal.jsx",
+        usage: `import Text3DReveal from "@/components/ui/text/Text3DReveal";
+
+export default function Example() {
+  return <Text3DReveal />;
+}`,
+        code: `import Text3DReveal from "@/components/ui/text/Text3DReveal";
+
+export default function Example() {
+  return <Text3DReveal />;
+}`,
+        props: [
+          { name: "text", type: "string", default: '"QUANTUM"' },
+          { name: "subtitle", type: "string", default: '"Built beyond the surface"' },
+        ],
+      },
     ],
   },
 
