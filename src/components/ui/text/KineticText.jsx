@@ -1,8 +1,6 @@
 import React from "react";
 
-const lines = ["WORDS", "IN", "MOTION"];
-
-function KineticText() {
+function KineticText({ lines = ["WORDS", "IN", "MOTION"] } = {}) {
   return (
     <div className="w-full max-w-3xl select-none px-4 py-8 sm:px-8" aria-label="Words in motion kinetic typography preview">
       <style>{`
