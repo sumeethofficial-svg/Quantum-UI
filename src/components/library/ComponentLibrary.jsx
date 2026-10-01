@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getComponent } from "../../data/components";
+import { allComponents, getComponent } from "../../data/components";
 
 import ComponentSidebar from "./ComponentSidebar";
 import ComponentPreview from "./ComponentPreview";
@@ -128,7 +128,7 @@ function ComponentLibrary({ onClose }) {
                 transition-all
                 ${
                   showCode
-                    ? "bg-[#202a30] text-cyan-100"
+                    ? "border border-white/[0.12] bg-white/[0.075] text-white shadow-[0_0_18px_rgba(255,255,255,0.035)]"
                     : "text-slate-600 hover:text-slate-300"
                 }
               `}
@@ -170,7 +170,7 @@ function ComponentLibrary({ onClose }) {
           ================================================= */}
 
           <div className="mt-9 pb-12 font-mono text-[11px] text-slate-600">
-            73 components · React / Next.js · zero visual dependencies
+            {allComponents.length} components · React / Next.js · zero visual dependencies
           </div>
 
         </main>
