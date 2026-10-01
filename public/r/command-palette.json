@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "CommandPalette",
     "category": "DATA & SYSTEMS",
-    "demo": "Search commands"
+    "demo": "Search commands",
+    "usage": "import CommandPalette from \"./components/quantum-ui/CommandPalette\";\n\nexport default function Example() {\n  return <CommandPalette>Search commands</CommandPalette>;\n}"
   }
 }

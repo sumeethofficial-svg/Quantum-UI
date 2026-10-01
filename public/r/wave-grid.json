@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "WaveGrid",
     "category": "BACKGROUNDS",
-    "demo": "Move across the grid"
+    "demo": "Move across the grid",
+    "usage": "import WaveGrid from \"./components/quantum-ui/WaveGrid\";\n\nexport default function Example() {\n  return <WaveGrid>Move across the grid</WaveGrid>;\n}"
   }
 }

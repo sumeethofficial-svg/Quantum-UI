@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "FlipText",
     "category": "TEXT & MOTION",
-    "demo": "beautiful → precise → quantum"
+    "demo": "beautiful → precise → quantum",
+    "usage": "import FlipText from \"./components/quantum-ui/FlipText\";\n\nexport default function Example() {\n  return <FlipText>beautiful → precise → quantum</FlipText>;\n}"
   }
 }

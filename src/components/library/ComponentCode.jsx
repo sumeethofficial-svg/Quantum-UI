@@ -1,11 +1,11 @@
-
 import registryConfig from "../../../registry.config.json";
 import { getExportName } from "../../data/components";
 
 function ComponentCode({ component }) {
   const exportName = getExportName(component);
+  // shadcn places the file at <src>/<installDir>/<Name>.jsx; the import below is
+  // relative to src/App.jsx, so adjust it to wherever the importing file lives.
   const importPath = `./${registryConfig.installDir}/${exportName}`;
-
   const source =
     component.code ||
     `import ${exportName} from "${importPath}";
@@ -21,12 +21,9 @@ export default function App() {
   return (
     <div className="overflow-hidden rounded-xl border border-white/[0.14] bg-[#090b0e]">
       <div className="flex items-center justify-between border-b border-white/[0.08] px-4 py-3 font-mono text-[11px] text-slate-400">
-        <span>
-          {component.name.toLowerCase().replaceAll(" ", "-")}.jsx
-        </span>
+        <span>App.jsx</span>
         <span>JSX</span>
       </div>
-
       <pre className="overflow-auto p-6 font-mono text-[13px] leading-[1.8] text-slate-400">
         <code>{source}</code>
       </pre>

@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "LiquidButton",
     "category": "INTERACTIONS",
-    "demo": "Activate liquid sequence →"
+    "demo": "Activate liquid sequence →",
+    "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return <LiquidButton>Activate liquid sequence →</LiquidButton>;\n}"
   }
 }

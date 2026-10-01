@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "AuroraHero",
     "category": "BACKGROUNDS",
-    "demo": "Shift the aurora"
+    "demo": "Shift the aurora",
+    "usage": "import AuroraHero from \"./components/quantum-ui/AuroraHero\";\n\nexport default function Example() {\n  return <AuroraHero>Shift the aurora</AuroraHero>;\n}"
   }
 }

@@ -56,3 +56,13 @@ test("get_install_command builds one shadcn command and rejects unknowns", () =>
     "npx shadcn@latest add @quantum-ui/flip-text @quantum-ui/wave-grid");
   assert.equal((await c.callTool({ name: "get_install_command", arguments: { names: ["nope"] } })).isError, true);
 }));
+
+test("components whose file name differs from their title resolve correctly", () => withClient(async (c) => {
+  const t = body(await c.callTool({ name: "get_component", arguments: { name: "3D Text Reveal" } }));
+  assert.match(t, /npx shadcn@latest add @quantum-ui\/3d-text-reveal/);
+  assert.match(t, /import Text3DReveal from "\.\/components\/quantum-ui\/Text3DReveal"/);
+  assert.match(t, /components\/quantum-ui\/Text3DReveal\.jsx/);
+  assert.doesNotMatch(t, /from "@\//);
+  const k = body(await c.callTool({ name: "get_component", arguments: { name: "kinetic-typography" } }));
+  assert.match(k, /import KineticText from "\.\/components\/quantum-ui\/KineticText"/);
+}));

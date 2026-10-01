@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "WaveformChart",
     "category": "DATA & SYSTEMS",
-    "demo": "Inspect waveform"
+    "demo": "Inspect waveform",
+    "usage": "import WaveformChart from \"./components/quantum-ui/WaveformChart\";\n\nexport default function Example() {\n  return <WaveformChart>Inspect waveform</WaveformChart>;\n}"
   }
 }

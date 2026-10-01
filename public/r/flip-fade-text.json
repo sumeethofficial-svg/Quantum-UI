@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "FlipFadeText",
     "category": "TEXT & MOTION",
-    "demo": "BUILDING → PROTOTYPING → SHIPPING"
+    "demo": "BUILDING → PROTOTYPING → SHIPPING",
+    "usage": "import FlipFadeText from \"./components/quantum-ui/FlipFadeText\";\n\nexport default function Example() {\n  return <FlipFadeText>BUILDING → PROTOTYPING → SHIPPING</FlipFadeText>;\n}"
   }
 }

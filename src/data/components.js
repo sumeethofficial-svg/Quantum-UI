@@ -130,13 +130,13 @@ export const componentGroups = [
           "Bold stacked typography with staggered letter entrances, motion, and dimensional depth.",
         demo: "WORDS IN MOTION",
         slug: "kinetic-typography",
-        installation: "Copy src/components/ui/text/KineticText.jsx",
-        usage: `import KineticText from "@/components/ui/text/KineticText";
+        exportName: "KineticText",
+        usage: `import KineticText from "./components/quantum-ui/KineticText";
 
 export default function Example() {
   return <KineticText />;
 }`,
-        code: `import KineticText from "@/components/ui/text/KineticText";
+        code: `import KineticText from "./components/quantum-ui/KineticText";
 
 export default function Example() {
   return <KineticText />;
@@ -152,13 +152,13 @@ export default function Example() {
           "Large extruded typography revealed with a perspective tilt and dimensional text shadows.",
         demo: "QUANTUM",
         slug: "3d-text-reveal",
-        installation: "Copy src/components/ui/text/Text3DReveal.jsx",
-        usage: `import Text3DReveal from "@/components/ui/text/Text3DReveal";
+        exportName: "Text3DReveal",
+        usage: `import Text3DReveal from "./components/quantum-ui/Text3DReveal";
 
 export default function Example() {
   return <Text3DReveal />;
 }`,
-        code: `import Text3DReveal from "@/components/ui/text/Text3DReveal";
+        code: `import Text3DReveal from "./components/quantum-ui/Text3DReveal";
 
 export default function Example() {
   return <Text3DReveal />;
@@ -275,7 +275,8 @@ export const getComponent = (name) =>
 
 /* Helpers shared by the docs UI and the registry build (scripts/build-registry.mjs). */
 export const getSlug = (component) =>
-  component.name.trim().toLowerCase().replace(/\s+/g, "-");
+  component.slug || component.name.trim().toLowerCase().replace(/\s+/g, "-");
 
+/** Default-export / file name. Defaults to the display name without spaces. */
 export const getExportName = (component) =>
-  component.name.replace(/\s+/g, "");
+  component.exportName || component.name.replace(/\s+/g, "");

@@ -21,6 +21,7 @@
   "meta": {
     "exportName": "SpotlightNavbar",
     "category": "NAVIGATION",
-    "demo": "Home"
+    "demo": "Home",
+    "usage": "import SpotlightNavbar from \"./components/quantum-ui/SpotlightNavbar\";\n\nexport default function Example() {\n  return <SpotlightNavbar>Home</SpotlightNavbar>;\n}"
   }
 }

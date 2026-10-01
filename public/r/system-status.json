@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "SystemStatus",
     "category": "DATA & SYSTEMS",
-    "demo": "Systems nominal"
+    "demo": "Systems nominal",
+    "usage": "import SystemStatus from \"./components/quantum-ui/SystemStatus\";\n\nexport default function Example() {\n  return <SystemStatus>Systems nominal</SystemStatus>;\n}"
   }
 }

@@ -23,12 +23,13 @@ Quantum UI is a copy-paste component registry (React + Tailwind CSS v4). Compone
 [shadcn CLI](https://ui.shadcn.com/docs/cli); there is no runtime package to depend on.
 
 ```bash
-# once per project: registers the @quantum-ui registry in components.json
-npx quantum-ui-cli init
+# add a component: works in any project, no setup (this is the command on each component page)
+npx shadcn@latest add https://raw.githubusercontent.com/sumeethofficial-svg/Quantum-UI/main/public/r/photon-button.json
 
-# add components
+# or register the @quantum-ui registry once, then use short names
+npx quantum-ui-cli init
 npx shadcn@latest add @quantum-ui/photon-button
-npx shadcn@latest search @quantum-ui        # browse
+npx shadcn@latest search @quantum-ui         # browse
 npx shadcn@latest view @quantum-ui/wave-grid # read the source first
 ```
 
@@ -48,8 +49,10 @@ No `@/` alias is needed to *use* the components. (The shadcn CLI itself reads `t
 ### Cursor / Claude
 
 ```bash
-npx quantum-ui-cli init --cursor   # .cursor/rules/quantum-ui.mdc + .cursor/mcp.json
-npx quantum-ui-cli init --claude   # CLAUDE.md section + .mcp.json
+npx quantum-ui-cli init cursor   # .cursor/rules/quantum-ui.mdc + .cursor/mcp.json
+npx quantum-ui-cli init claude   # CLAUDE.md section + .mcp.json
+npx quantum-ui-cli init mcp      # MCP server config only (.cursor/mcp.json and .mcp.json)
+npx quantum-ui-cli init -y       # Cursor + Claude + MCP config
 ```
 
 Existing files are merged, never overwritten. Add `--no-mcp` to write the instructions without the MCP config.
@@ -79,7 +82,7 @@ never published. Registry config (name, namespace, base URL, package names) live
 npm run registry:build    # writes public/r/*.json (also runs before every `npm run build`)
 npm run registry:verify   # every listed component resolves, content is fresh, names/URLs agree
 npm run mcp:install       # one-time: install MCP server dependencies
-npm test                  # build + verify registry, then MCP server tests
+npm test                  # build + verify registry, then CLI and MCP server tests
 ```
 
 Commit `public/r/` after changing a component: the default registry URL serves it straight from `main`.

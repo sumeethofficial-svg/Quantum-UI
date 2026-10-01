@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "SignalToggle",
     "category": "INTERACTIONS",
-    "demo": "Signal enabled"
+    "demo": "Signal enabled",
+    "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return <SignalToggle>Signal enabled</SignalToggle>;\n}"
   }
 }

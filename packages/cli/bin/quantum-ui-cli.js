@@ -17,15 +17,22 @@ const HELP = `
 quantum-ui-cli — set a project up to install Quantum UI components with the shadcn CLI
 
 Usage
-  npx ${CLI_PACKAGE} init [options]
+  npx ${CLI_PACKAGE} init [target] [options]
+
+Targets (optional)
+  cursor      .cursor/rules/quantum-ui.mdc + .cursor/mcp.json
+  claude      CLAUDE.md section + .mcp.json
+  both        cursor + claude
+  mcp         MCP server config only (.cursor/mcp.json and .mcp.json)
 
 Options
-  --cursor           also write .cursor/rules/quantum-ui.mdc and .cursor/mcp.json
-  --claude           also add a Quantum UI section to CLAUDE.md and write .mcp.json
-  --no-mcp           with --cursor/--claude, write the instructions but not the MCP config
+  -y, --yes          cursor + claude + MCP config (same as: init both)
+  --no-mcp           write instructions without MCP config
   --registry <url>   registry base URL (folder containing {name}.json); default: ${DEFAULT_BASE_URL}
   --dry-run          print what would change without writing
   -h, --help         show this help
+
+Flags --cursor and --claude still work. Without a target, init only registers the registry.
 
 After init, install components with:
   npx shadcn@latest add ${NAMESPACE}/photon-button
@@ -166,8 +173,28 @@ export async function init(cwd, opts) {
       log.ok(`.mcp.json ${m}`);
     }
   }
+  if (opts.mcpOnly) {
+    for (const f of [".cursor/mcp.json", ".mcp.json"]) {
+      const m = await mergeJson(join(cwd, f), (j) => ({ ...j, mcpServers: { ...(j.mcpServers || {}), "quantum-ui": mcpEntry } }), dry);
+      log.ok(`${f} ${m}`);
+    }
+  }
 
   console.log(`\n${dry ? "(dry run — nothing written)\n" : ""}Next:\n  npx shadcn@latest add ${NAMESPACE}/photon-button`);
+}
+
+export const TARGETS = ["cursor", "claude", "both", "mcp"];
+
+export function resolveTargets(target, values = {}) {
+  if (target && !TARGETS.includes(target)) {
+    throw new Error(`Unknown target "${target}". Use one of: ${TARGETS.join(", ")} (or -y).`);
+  }
+  const all = !!values.yes || target === "both";
+  return {
+    cursor: all || target === "cursor" || !!values.cursor,
+    claude: all || target === "claude" || !!values.claude,
+    mcpOnly: target === "mcp",
+  };
 }
 
 async function main() {
@@ -176,19 +203,20 @@ async function main() {
     options: {
       cursor: { type: "boolean" },
       claude: { type: "boolean" },
+      yes: { type: "boolean", short: "y" },
       "no-mcp": { type: "boolean" },
       registry: { type: "string" },
       "dry-run": { type: "boolean" },
       help: { type: "boolean", short: "h" },
     },
   });
-  const [cmd] = positionals;
+  const [cmd, target] = positionals;
   if (values.help || !cmd) return console.log(HELP);
   if (cmd !== "init") {
     console.error(`Unknown command "${cmd}". To install components use: npx shadcn@latest add ${NAMESPACE}/<component>`);
     process.exit(1);
   }
-  await init(process.cwd(), { cursor: values.cursor, claude: values.claude, noMcp: values["no-mcp"], registry: values.registry, dryRun: values["dry-run"] });
+  await init(process.cwd(), { ...resolveTargets(target, values), noMcp: values["no-mcp"], registry: values.registry, dryRun: values["dry-run"] });
 }
 
 import { pathToFileURL } from "node:url";

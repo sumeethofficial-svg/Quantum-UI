@@ -10,15 +10,16 @@
   "dependencies": [],
   "files": [
     {
-      "path": "components/quantum-ui/3DTextReveal.jsx",
+      "path": "components/quantum-ui/Text3DReveal.jsx",
       "type": "registry:ui",
-      "target": "components/quantum-ui/3DTextReveal.jsx",
+      "target": "components/quantum-ui/Text3DReveal.jsx",
       "content": "import React from \"react\";\r\n\r\nfunction Text3DReveal({ text = \"QUANTUM\", subtitle = \"Built beyond the surface\" } = {}) {\r\n  return (\r\n    <div className=\"w-full max-w-4xl select-none px-3 py-10 text-center sm:px-8\" aria-label={`Three dimensional ${text} text reveal preview`}>\r\n      <style>{`\r\n        @keyframes quantum-3d-reveal {\r\n          0% { clip-path: inset(0 100% 0 0); opacity: .2; transform: perspective(700px) rotateX(18deg) translateY(22px); }\r\n          65% { clip-path: inset(0 0 0 0); opacity: 1; transform: perspective(700px) rotateX(-3deg) translateY(-2px); }\r\n          100% { clip-path: inset(0 0 0 0); opacity: 1; transform: perspective(700px) rotateX(0) translateY(0); }\r\n        }\r\n        @keyframes quantum-3d-subtitle {\r\n          from { opacity: 0; letter-spacing: .75em; transform: translateY(8px); }\r\n          to { opacity: 1; letter-spacing: .42em; transform: translateY(0); }\r\n        }\r\n        .quantum-3d-word {\r\n          display: inline-block;\r\n          color: #f4f5f7;\r\n          animation: quantum-3d-reveal 1.25s cubic-bezier(.16,1,.3,1) both;\r\n          transform-origin: center bottom;\r\n          text-shadow: 0 2px 0 #c9cdd2, 0 4px 0 #a3a9b1, 0 6px 0 #7a828d, 0 8px 0 #535c68, 0 10px 0 #353d47, 0 14px 22px rgba(0,0,0,.8);\r\n        }\r\n        .quantum-3d-subtitle { opacity: 0; animation: quantum-3d-subtitle .9s .65s ease-out forwards; }\r\n        @media (prefers-reduced-motion: reduce) {\r\n          .quantum-3d-word, .quantum-3d-subtitle { animation: none !important; clip-path: none; opacity: 1; transform: none; letter-spacing: .42em; }\r\n        }\r\n      `}</style>\r\n      <div className=\"mb-8 flex items-center justify-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-slate-600\">\r\n        <span className=\"h-px w-8 bg-white/15\" />\r\n        <span>Q / 002 — DEPTH TYPE</span>\r\n        <span className=\"h-px w-8 bg-white/15\" />\r\n      </div>\r\n      <div className=\"overflow-hidden py-4\">\r\n        <h2 className=\"quantum-3d-word whitespace-nowrap text-[clamp(2.5rem,10vw,7.5rem)] font-black uppercase leading-[.9] tracking-[-0.075em]\">\r\n          {text}\r\n        </h2>\r\n      </div>\r\n      <p className=\"quantum-3d-subtitle mt-7 font-mono text-[9px] uppercase text-slate-400 sm:text-[10px]\">\r\n        {subtitle}\r\n      </p>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Text3DReveal;\r\n"
     }
   ],
   "meta": {
-    "exportName": "3DTextReveal",
+    "exportName": "Text3DReveal",
     "category": "TEXT & MOTION",
-    "demo": "QUANTUM"
+    "demo": "QUANTUM",
+    "usage": "import Text3DReveal from \"./components/quantum-ui/Text3DReveal\";\n\nexport default function Example() {\n  return <Text3DReveal />;\n}"
   }
 }

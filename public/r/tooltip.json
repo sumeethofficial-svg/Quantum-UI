@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "Tooltip",
     "category": "INTERACTIVE",
-    "demo": "Docs"
+    "demo": "Docs",
+    "usage": "import Tooltip from \"./components/quantum-ui/Tooltip\";\n\nexport default function Example() {\n  return <Tooltip>Docs</Tooltip>;\n}"
   }
 }

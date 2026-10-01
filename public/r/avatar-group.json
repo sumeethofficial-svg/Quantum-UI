@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "AvatarGroup",
     "category": "INTERACTIVE",
-    "demo": "Reveal contributor"
+    "demo": "Reveal contributor",
+    "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
   }
 }

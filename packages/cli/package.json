@@ -3,14 +3,30 @@
   "version": "0.1.0",
   "description": "One-time project setup for Quantum UI: registers the @quantum-ui registry with the shadcn CLI and optionally configures Cursor / Claude and the MCP server",
   "type": "module",
-  "bin": { "quantum-ui-cli": "./bin/quantum-ui-cli.js" },
-  "files": ["bin"],
-  "engines": { "node": ">=18" },
-  "keywords": ["react", "tailwind", "ui", "shadcn", "registry", "cli"],
+  "bin": {
+    "quantum-ui-cli": "./bin/quantum-ui-cli.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "react",
+    "tailwind",
+    "ui",
+    "shadcn",
+    "registry",
+    "cli"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sumeethofficial-svg/Quantum-UI.git",
     "directory": "packages/cli"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
   }
 }

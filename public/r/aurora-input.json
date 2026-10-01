@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "AuroraInput",
     "category": "SURFACES",
-    "demo": "Acquire input"
+    "demo": "Acquire input",
+    "usage": "import AuroraInput from \"./components/quantum-ui/AuroraInput\";\n\nexport default function Example() {\n  return <AuroraInput>Acquire input</AuroraInput>;\n}"
   }
 }

@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "HologramPanel",
     "category": "SURFACES",
-    "demo": "Project interface"
+    "demo": "Project interface",
+    "usage": "import HologramPanel from \"./components/quantum-ui/HologramPanel\";\n\nexport default function Example() {\n  return <HologramPanel>Project interface</HologramPanel>;\n}"
   }
 }

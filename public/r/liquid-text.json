@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "LiquidText",
     "category": "TEXT & MOTION",
-    "demo": "Hover Me"
+    "demo": "Hover Me",
+    "usage": "import LiquidText from \"./components/quantum-ui/LiquidText\";\n\nexport default function Example() {\n  return <LiquidText>Hover Me</LiquidText>;\n}"
   }
 }

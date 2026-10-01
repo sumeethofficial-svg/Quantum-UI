@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "Cursor",
     "category": "INTERACTIVE",
-    "demo": "Move your mouse over the div"
+    "demo": "Move your mouse over the div",
+    "usage": "import Cursor from \"./components/quantum-ui/Cursor\";\n\nexport default function Example() {\n  return <Cursor>Move your mouse over the div</Cursor>;\n}"
   }
 }

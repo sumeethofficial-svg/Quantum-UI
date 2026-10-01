@@ -1,13 +1,28 @@
+import { useState } from "react";
+import CopyButton from "./CopyButton";
+import {
+  packageManagers,
+  getAddCommand,
+  getNamespacedCommand,
+  getInitCommand,
+} from "./installCommands";
 import registryConfig from "../../../registry.config.json";
-import { getSlug, getExportName } from "../../data/components";
+import { getExportName } from "../../data/components";
+
+function CommandBlock({ command }) {
+  return (
+    <div className="flex items-center justify-between gap-4 rounded-xl border border-white/[0.08] bg-[#0b0d11] px-4 py-3">
+      <code className="overflow-x-auto whitespace-nowrap font-mono text-xs text-cyan-50">
+        {command}
+      </code>
+      <CopyButton text={command} />
+    </div>
+  );
+}
 
 function ComponentDocumentation({ component }) {
-  const slug = getSlug(component);
+  const [pm, setPm] = useState("npm");
   const exportName = getExportName(component);
-  const addCommand =
-    component.installation ||
-    `npx shadcn@latest add ${registryConfig.namespace}/${slug}`;
-  const setupCommand = `npx ${registryConfig.cliPackage} init`;
   const importPath = `./${registryConfig.installDir}/${exportName}`;
 
   return (
@@ -25,43 +40,58 @@ function ComponentDocumentation({ component }) {
           Install in one transmission
         </h3>
 
-        <div className="mt-6 overflow-hidden rounded-xl border border-white/[0.08] bg-[#0b0d11]">
-
-          <div className="flex items-center justify-between gap-4 px-5 py-5">
-
-            <code className="block overflow-x-auto whitespace-pre font-mono text-xs leading-6 text-cyan-50">
-              <span className="text-slate-600"># once per project</span>
-              {"\n"}
-              {setupCommand}
-              {"\n\n"}
-              <span className="text-slate-600"># add this component</span>
-              {"\n"}
-              {addCommand}
-            </code>
-
+        <div
+          role="tablist"
+          aria-label="Package manager"
+          className="mt-6 flex w-fit gap-1 rounded-lg border border-white/[0.08] bg-[#0b0d11] p-1"
+        >
+          {packageManagers.map((name) => (
             <button
+              key={name}
               type="button"
-              className="
-                shrink-0
-                rounded-lg
-                border
-                border-white/[0.12]
-                px-3
-                py-2
-                font-mono
-                text-xs
-                text-slate-400
-                transition
-                hover:border-cyan-300/30
-                hover:text-cyan-100
-              "
-              aria-label="Copy install command"
-              onClick={() => navigator.clipboard?.writeText(addCommand)}
+              role="tab"
+              aria-selected={pm === name}
+              onClick={() => setPm(name)}
+              className={`rounded-md px-3 py-1.5 font-mono text-xs transition-all ${
+                pm === name
+                  ? "bg-[#202a30] text-cyan-100"
+                  : "text-slate-600 hover:text-slate-300"
+              }`}
             >
-              ⧉
+              {name}
             </button>
+          ))}
+        </div>
 
-          </div>
+        <p className="mt-4 text-sm text-slate-500">
+          Works in any React + Tailwind v4 project with the{" "}
+          <a
+            href="https://ui.shadcn.com/docs/cli"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-300 underline decoration-white/20 underline-offset-4 hover:text-cyan-100"
+          >
+            shadcn CLI
+          </a>
+          . No setup needed.
+        </p>
+        <div className="mt-3">
+          <CommandBlock command={getAddCommand(component, pm)} />
+        </div>
+
+        <h4 className="mt-8 text-base font-semibold text-slate-200">
+          Namespaced registry
+        </h4>
+        <p className="mt-2 text-sm text-slate-500">
+          Prefer short names? Register{" "}
+          <code className="font-mono text-slate-300">
+            {registryConfig.namespace}
+          </code>{" "}
+          once per project, then add components by name.
+        </p>
+        <div className="mt-3 space-y-2">
+          <CommandBlock command={getInitCommand(pm)} />
+          <CommandBlock command={getNamespacedCommand(component, pm)} />
         </div>
       </section>
 

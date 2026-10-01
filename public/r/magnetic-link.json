@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "MagneticLink",
     "category": "INTERACTIONS",
-    "demo": "Follow trajectory ↗"
+    "demo": "Follow trajectory ↗",
+    "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink>Follow trajectory ↗</MagneticLink>;\n}"
   }
 }

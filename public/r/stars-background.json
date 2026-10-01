@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "StarsBackground",
     "category": "BACKGROUNDS",
-    "demo": "90 stars"
+    "demo": "90 stars",
+    "usage": "import StarsBackground from \"./components/quantum-ui/StarsBackground\";\n\nexport default function Example() {\n  return <StarsBackground>90 stars</StarsBackground>;\n}"
   }
 }

@@ -22,7 +22,8 @@
       "meta": {
         "exportName": "PhotonButton",
         "category": "INTERACTIONS",
-        "demo": "Initialize sequence →"
+        "demo": "Initialize sequence →",
+        "usage": "import PhotonButton from \"./components/quantum-ui/PhotonButton\";\n\nexport default function Example() {\n  return <PhotonButton>Initialize sequence →</PhotonButton>;\n}"
       }
     },
     {
@@ -44,7 +45,8 @@
       "meta": {
         "exportName": "MagneticLink",
         "category": "INTERACTIONS",
-        "demo": "Follow trajectory ↗"
+        "demo": "Follow trajectory ↗",
+        "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink>Follow trajectory ↗</MagneticLink>;\n}"
       }
     },
     {
@@ -66,7 +68,8 @@
       "meta": {
         "exportName": "SignalToggle",
         "category": "INTERACTIONS",
-        "demo": "Signal enabled"
+        "demo": "Signal enabled",
+        "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return <SignalToggle>Signal enabled</SignalToggle>;\n}"
       }
     },
     {
@@ -88,7 +91,8 @@
       "meta": {
         "exportName": "OrbitMenu",
         "category": "INTERACTIONS",
-        "demo": "Open command orbit"
+        "demo": "Open command orbit",
+        "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu>Open command orbit</OrbitMenu>;\n}"
       }
     },
     {
@@ -110,7 +114,8 @@
       "meta": {
         "exportName": "LiquidButton",
         "category": "INTERACTIONS",
-        "demo": "Activate liquid sequence →"
+        "demo": "Activate liquid sequence →",
+        "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return <LiquidButton>Activate liquid sequence →</LiquidButton>;\n}"
       }
     },
     {
@@ -132,7 +137,8 @@
       "meta": {
         "exportName": "TelemetryCard",
         "category": "DATA & SYSTEMS",
-        "demo": "Sync live telemetry"
+        "demo": "Sync live telemetry",
+        "usage": "import TelemetryCard from \"./components/quantum-ui/TelemetryCard\";\n\nexport default function Example() {\n  return <TelemetryCard>Sync live telemetry</TelemetryCard>;\n}"
       }
     },
     {
@@ -154,7 +160,8 @@
       "meta": {
         "exportName": "WaveformChart",
         "category": "DATA & SYSTEMS",
-        "demo": "Inspect waveform"
+        "demo": "Inspect waveform",
+        "usage": "import WaveformChart from \"./components/quantum-ui/WaveformChart\";\n\nexport default function Example() {\n  return <WaveformChart>Inspect waveform</WaveformChart>;\n}"
       }
     },
     {
@@ -176,7 +183,8 @@
       "meta": {
         "exportName": "CommandPalette",
         "category": "DATA & SYSTEMS",
-        "demo": "Search commands"
+        "demo": "Search commands",
+        "usage": "import CommandPalette from \"./components/quantum-ui/CommandPalette\";\n\nexport default function Example() {\n  return <CommandPalette>Search commands</CommandPalette>;\n}"
       }
     },
     {
@@ -198,7 +206,8 @@
       "meta": {
         "exportName": "SystemStatus",
         "category": "DATA & SYSTEMS",
-        "demo": "Systems nominal"
+        "demo": "Systems nominal",
+        "usage": "import SystemStatus from \"./components/quantum-ui/SystemStatus\";\n\nexport default function Example() {\n  return <SystemStatus>Systems nominal</SystemStatus>;\n}"
       }
     },
     {
@@ -220,7 +229,8 @@
       "meta": {
         "exportName": "HologramPanel",
         "category": "SURFACES",
-        "demo": "Project interface"
+        "demo": "Project interface",
+        "usage": "import HologramPanel from \"./components/quantum-ui/HologramPanel\";\n\nexport default function Example() {\n  return <HologramPanel>Project interface</HologramPanel>;\n}"
       }
     },
     {
@@ -242,7 +252,8 @@
       "meta": {
         "exportName": "AuroraInput",
         "category": "SURFACES",
-        "demo": "Acquire input"
+        "demo": "Acquire input",
+        "usage": "import AuroraInput from \"./components/quantum-ui/AuroraInput\";\n\nexport default function Example() {\n  return <AuroraInput>Acquire input</AuroraInput>;\n}"
       }
     },
     {
@@ -264,7 +275,8 @@
       "meta": {
         "exportName": "FlipText",
         "category": "TEXT & MOTION",
-        "demo": "beautiful → precise → quantum"
+        "demo": "beautiful → precise → quantum",
+        "usage": "import FlipText from \"./components/quantum-ui/FlipText\";\n\nexport default function Example() {\n  return <FlipText>beautiful → precise → quantum</FlipText>;\n}"
       }
     },
     {
@@ -286,7 +298,8 @@
       "meta": {
         "exportName": "FlipFadeText",
         "category": "TEXT & MOTION",
-        "demo": "BUILDING → PROTOTYPING → SHIPPING"
+        "demo": "BUILDING → PROTOTYPING → SHIPPING",
+        "usage": "import FlipFadeText from \"./components/quantum-ui/FlipFadeText\";\n\nexport default function Example() {\n  return <FlipFadeText>BUILDING → PROTOTYPING → SHIPPING</FlipFadeText>;\n}"
       }
     },
     {
@@ -308,7 +321,8 @@
       "meta": {
         "exportName": "LiquidText",
         "category": "TEXT & MOTION",
-        "demo": "Hover Me"
+        "demo": "Hover Me",
+        "usage": "import LiquidText from \"./components/quantum-ui/LiquidText\";\n\nexport default function Example() {\n  return <LiquidText>Hover Me</LiquidText>;\n}"
       }
     },
     {
@@ -322,15 +336,16 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/KineticTypography.jsx",
+          "path": "components/quantum-ui/KineticText.jsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/KineticTypography.jsx"
+          "target": "components/quantum-ui/KineticText.jsx"
         }
       ],
       "meta": {
-        "exportName": "KineticTypography",
+        "exportName": "KineticText",
         "category": "TEXT & MOTION",
-        "demo": "WORDS IN MOTION"
+        "demo": "WORDS IN MOTION",
+        "usage": "import KineticText from \"./components/quantum-ui/KineticText\";\n\nexport default function Example() {\n  return <KineticText />;\n}"
       }
     },
     {
@@ -344,15 +359,16 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/3DTextReveal.jsx",
+          "path": "components/quantum-ui/Text3DReveal.jsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/3DTextReveal.jsx"
+          "target": "components/quantum-ui/Text3DReveal.jsx"
         }
       ],
       "meta": {
-        "exportName": "3DTextReveal",
+        "exportName": "Text3DReveal",
         "category": "TEXT & MOTION",
-        "demo": "QUANTUM"
+        "demo": "QUANTUM",
+        "usage": "import Text3DReveal from \"./components/quantum-ui/Text3DReveal\";\n\nexport default function Example() {\n  return <Text3DReveal />;\n}"
       }
     },
     {
@@ -374,7 +390,8 @@
       "meta": {
         "exportName": "AvatarGroup",
         "category": "INTERACTIVE",
-        "demo": "Reveal contributor"
+        "demo": "Reveal contributor",
+        "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
       }
     },
     {
@@ -396,7 +413,8 @@
       "meta": {
         "exportName": "Cursor",
         "category": "INTERACTIVE",
-        "demo": "Move your mouse over the div"
+        "demo": "Move your mouse over the div",
+        "usage": "import Cursor from \"./components/quantum-ui/Cursor\";\n\nexport default function Example() {\n  return <Cursor>Move your mouse over the div</Cursor>;\n}"
       }
     },
     {
@@ -418,7 +436,8 @@
       "meta": {
         "exportName": "Tooltip",
         "category": "INTERACTIVE",
-        "demo": "Docs"
+        "demo": "Docs",
+        "usage": "import Tooltip from \"./components/quantum-ui/Tooltip\";\n\nexport default function Example() {\n  return <Tooltip>Docs</Tooltip>;\n}"
       }
     },
     {
@@ -440,7 +459,8 @@
       "meta": {
         "exportName": "MaskedAvatars",
         "category": "INTERACTIVE",
-        "demo": "AIZEN"
+        "demo": "AIZEN",
+        "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars>AIZEN</MaskedAvatars>;\n}"
       }
     },
     {
@@ -462,7 +482,8 @@
       "meta": {
         "exportName": "TeamRevealGrid",
         "category": "LAYOUT & CARDS",
-        "demo": "Meet the team"
+        "demo": "Meet the team",
+        "usage": "import TeamRevealGrid from \"./components/quantum-ui/TeamRevealGrid\";\n\nexport default function Example() {\n  return <TeamRevealGrid>Meet the team</TeamRevealGrid>;\n}"
       }
     },
     {
@@ -484,7 +505,8 @@
       "meta": {
         "exportName": "TestimonialsCard",
         "category": "LAYOUT & CARDS",
-        "demo": "Ocean Horizon"
+        "demo": "Ocean Horizon",
+        "usage": "import TestimonialsCard from \"./components/quantum-ui/TestimonialsCard\";\n\nexport default function Example() {\n  return <TestimonialsCard>Ocean Horizon</TestimonialsCard>;\n}"
       }
     },
     {
@@ -508,7 +530,8 @@
       "meta": {
         "exportName": "SpotlightNavbar",
         "category": "NAVIGATION",
-        "demo": "Home"
+        "demo": "Home",
+        "usage": "import SpotlightNavbar from \"./components/quantum-ui/SpotlightNavbar\";\n\nexport default function Example() {\n  return <SpotlightNavbar>Home</SpotlightNavbar>;\n}"
       }
     },
     {
@@ -530,7 +553,8 @@
       "meta": {
         "exportName": "WaveGrid",
         "category": "BACKGROUNDS",
-        "demo": "Move across the grid"
+        "demo": "Move across the grid",
+        "usage": "import WaveGrid from \"./components/quantum-ui/WaveGrid\";\n\nexport default function Example() {\n  return <WaveGrid>Move across the grid</WaveGrid>;\n}"
       }
     },
     {
@@ -552,7 +576,8 @@
       "meta": {
         "exportName": "AuroraHero",
         "category": "BACKGROUNDS",
-        "demo": "Shift the aurora"
+        "demo": "Shift the aurora",
+        "usage": "import AuroraHero from \"./components/quantum-ui/AuroraHero\";\n\nexport default function Example() {\n  return <AuroraHero>Shift the aurora</AuroraHero>;\n}"
       }
     },
     {
@@ -574,7 +599,8 @@
       "meta": {
         "exportName": "StarsBackground",
         "category": "BACKGROUNDS",
-        "demo": "90 stars"
+        "demo": "90 stars",
+        "usage": "import StarsBackground from \"./components/quantum-ui/StarsBackground\";\n\nexport default function Example() {\n  return <StarsBackground>90 stars</StarsBackground>;\n}"
       }
     }
   ]

@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "OrbitMenu",
     "category": "INTERACTIONS",
-    "demo": "Open command orbit"
+    "demo": "Open command orbit",
+    "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu>Open command orbit</OrbitMenu>;\n}"
   }
 }

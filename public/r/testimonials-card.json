@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "TestimonialsCard",
     "category": "LAYOUT & CARDS",
-    "demo": "Ocean Horizon"
+    "demo": "Ocean Horizon",
+    "usage": "import TestimonialsCard from \"./components/quantum-ui/TestimonialsCard\";\n\nexport default function Example() {\n  return <TestimonialsCard>Ocean Horizon</TestimonialsCard>;\n}"
   }
 }

@@ -8,7 +8,6 @@ import { join, resolve } from "node:path";
 import { z } from "zod";
 
 const NAMESPACE = "@quantum-ui";
-const INSTALL_DIR = "components/quantum-ui";
 // Keep in sync with registry.config.json (checked by `npm run registry:verify` in the repo).
 const DEFAULT_REGISTRY = "https://raw.githubusercontent.com/sumeethofficial-svg/Quantum-UI/main/public/r";
 const REGISTRY = (process.env.QUANTUM_UI_REGISTRY || DEFAULT_REGISTRY).replace(/\/$/, "");
@@ -91,7 +90,6 @@ export function createServer() {
       try { item = await load(`${slug}.json`); }
       catch { return fail(`Component "${name}" not found. Use list_components or search_components.`); }
       const file = item.files[0];
-      const exp = item.meta.exportName;
       return text(
         [
           `# ${item.title} (${item.name})`,
@@ -99,7 +97,7 @@ export function createServer() {
           `Category: ${item.meta.category}`,
           `Extra npm dependencies: ${item.dependencies.length ? item.dependencies.join(", ") : "none (react + Tailwind v4 only)"}`,
           `\n## Install (shadcn CLI)\n\`${addCommand([item.name])}\`\nWrites ${file.target}. Needs a one-time \`npx quantum-ui-cli init\` so the ${NAMESPACE} registry is in components.json.`,
-          `\n## Usage (default export; path is relative to the importing file)\n\`\`\`jsx\nimport ${exp} from "./${INSTALL_DIR}/${exp}";\n\n<${exp}>${item.meta.demo}</${exp}>\n\`\`\``,
+          `\n## Usage (default export; path is relative to the importing file)\n\`\`\`jsx\n${item.meta.usage}\n\`\`\``,
           `\n## Source: ${file.target}\n\`\`\`jsx\n${file.content}\n\`\`\``,
         ].join("\n")
       );

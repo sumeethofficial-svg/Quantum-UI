@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "TelemetryCard",
     "category": "DATA & SYSTEMS",
-    "demo": "Sync live telemetry"
+    "demo": "Sync live telemetry",
+    "usage": "import TelemetryCard from \"./components/quantum-ui/TelemetryCard\";\n\nexport default function Example() {\n  return <TelemetryCard>Sync live telemetry</TelemetryCard>;\n}"
   }
 }

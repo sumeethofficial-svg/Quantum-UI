@@ -19,6 +19,7 @@
   "meta": {
     "exportName": "PhotonButton",
     "category": "INTERACTIONS",
-    "demo": "Initialize sequence →"
+    "demo": "Initialize sequence →",
+    "usage": "import PhotonButton from \"./components/quantum-ui/PhotonButton\";\n\nexport default function Example() {\n  return <PhotonButton>Initialize sequence →</PhotonButton>;\n}"
   }
 }

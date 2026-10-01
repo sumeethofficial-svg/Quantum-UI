@@ -66,7 +66,14 @@ for (const group of componentGroups) {
           content,
         },
       ],
-      meta: { exportName, category: group.label, demo: c.demo },
+      meta: {
+        exportName,
+        category: group.label,
+        demo: c.demo,
+        usage:
+          c.usage ??
+          `import ${exportName} from "./${cfg.installDir}/${exportName}";\n\nexport default function Example() {\n  return <${exportName}>${c.demo}</${exportName}>;\n}`,
+      },
     };
     await writeFile(join(outDir, `${slug}.json`), JSON.stringify(item, null, 2) + "\n");
     items.push({

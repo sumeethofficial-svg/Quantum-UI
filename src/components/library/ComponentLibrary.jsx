@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { allComponents, getComponent } from "../../data/components";
 
@@ -7,6 +6,7 @@ import ComponentPreview from "./ComponentPreview";
 import ComponentCode from "./ComponentCode";
 import ComponentDocumentation from "./ComponentDocumentation";
 import ComponentPageNav from "./ComponentPageNav";
+import InstallChip from "./InstallChip";
 
 function ComponentLibrary({ onClose }) {
   const [activeComponent, setActiveComponent] =
@@ -76,47 +76,51 @@ function ComponentLibrary({ onClose }) {
             </div>
           </div>
 
-          {/* PREVIEW / CODE SWITCH */}
-          <div className="mb-3 flex w-fit gap-1 rounded-xl border border-white/[0.10] bg-black/90 p-1 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <button
-              type="button"
-              onClick={() => setShowCode(false)}
-              className={`
-                rounded-md
-                px-3
-                py-1.5
-                font-mono
-                text-xs
-                transition-all
-                ${
-                  !showCode
-                    ? "border border-white/[0.12] bg-white/[0.075] text-white shadow-[0_0_18px_rgba(255,255,255,0.035)]"
-                    : "text-slate-600 hover:text-slate-300"
-                }
-              `}
-            >
-              ◫ Preview
-            </button>
+          {/* PREVIEW / CODE SWITCH + INSTALL COMMAND */}
+          <div className="mb-3 flex flex-wrap items-center gap-3">
+            <div className="flex w-fit gap-1 rounded-xl border border-white/[0.10] bg-black/90 p-1 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+              <button
+                type="button"
+                onClick={() => setShowCode(false)}
+                className={`
+                  rounded-md
+                  px-3
+                  py-1.5
+                  font-mono
+                  text-xs
+                  transition-all
+                  ${
+                    !showCode
+                      ? "border border-white/[0.12] bg-white/[0.075] text-white shadow-[0_0_18px_rgba(255,255,255,0.035)]"
+                      : "text-slate-600 hover:text-slate-300"
+                  }
+                `}
+              >
+                ◫ Preview
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setShowCode(true)}
-              className={`
-                rounded-md
-                px-3
-                py-1.5
-                font-mono
-                text-xs
-                transition-all
-                ${
-                  showCode
-                    ? "border border-white/[0.12] bg-white/[0.075] text-white shadow-[0_0_18px_rgba(255,255,255,0.035)]"
-                    : "text-slate-600 hover:text-slate-300"
-                }
-              `}
-            >
-              ›_ Code
-            </button>
+              <button
+                type="button"
+                onClick={() => setShowCode(true)}
+                className={`
+                  rounded-md
+                  px-3
+                  py-1.5
+                  font-mono
+                  text-xs
+                  transition-all
+                  ${
+                    showCode
+                      ? "border border-white/[0.12] bg-white/[0.075] text-white shadow-[0_0_18px_rgba(255,255,255,0.035)]"
+                      : "text-slate-600 hover:text-slate-300"
+                  }
+                `}
+              >
+                ›_ Code
+              </button>
+            </div>
+
+            <InstallChip component={component} />
           </div>
 
           {/* COMPONENT PREVIEW / SOURCE */}
