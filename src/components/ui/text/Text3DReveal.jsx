@@ -1,8 +1,8 @@
 import React from "react";
 
-function Text3DReveal() {
+function Text3DReveal({ text = "QUANTUM", subtitle = "Built beyond the surface" } = {}) {
   return (
-    <div className="w-full max-w-4xl select-none px-3 py-10 text-center sm:px-8" aria-label="Three dimensional QUANTUM text reveal preview">
+    <div className="w-full max-w-4xl select-none px-3 py-10 text-center sm:px-8" aria-label={`Three dimensional ${text} text reveal preview`}>
       <style>{`
         @keyframes quantum-3d-reveal {
           0% { clip-path: inset(0 100% 0 0); opacity: .2; transform: perspective(700px) rotateX(18deg) translateY(22px); }
@@ -32,11 +32,11 @@ function Text3DReveal() {
       </div>
       <div className="overflow-hidden py-4">
         <h2 className="quantum-3d-word whitespace-nowrap text-[clamp(2.5rem,10vw,7.5rem)] font-black uppercase leading-[.9] tracking-[-0.075em]">
-          QUANTUM
+          {text}
         </h2>
       </div>
       <p className="quantum-3d-subtitle mt-7 font-mono text-[9px] uppercase text-slate-400 sm:text-[10px]">
-        Built beyond the surface
+        {subtitle}
       </p>
     </div>
   );
