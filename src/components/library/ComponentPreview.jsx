@@ -11,20 +11,31 @@ function ComponentPreview({ component }) {
           overflow-hidden
           rounded-xl
           border
-          border-white/[0.08]
-          bg-[#0b0d11]
+          border-white/[0.10]
+          bg-[#050505]
+          shadow-[0_24px_80px_rgba(0,0,0,0.38)]
         "
       >
-        {/* Ambient grid */}
+        {/* Soft white ambient glow */}
         <div
-          className="
-            pointer-events-none
-            absolute
-            inset-0
-            opacity-[0.18]
-            bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)]
-            bg-[size:32px_32px]
-          "
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,rgba(255,255,255,0.045),transparent_58%)]"
+        />
+
+        {/* Subtle concentric rings */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[min(76vw,430px)] w-[min(76vw,430px)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.035] shadow-[0_0_70px_rgba(255,255,255,0.012)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[min(58vw,320px)] w-[min(58vw,320px)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045] shadow-[inset_0_0_55px_rgba(255,255,255,0.012)]"
+        />
+
+        {/* Fine, low-contrast grid */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:36px_36px]"
         />
 
         {/* Preview content */}
