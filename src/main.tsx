@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";
-import App from "./App.jsx";
+import App from "./App";
 import Navbar from "./components/navigation/Navbar.jsx";
 import ComponentLibrary from "./components/library/ComponentLibrary.jsx";
 import DocsPage from "./pages/DocsPage.jsx";
