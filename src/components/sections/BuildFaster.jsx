@@ -1,4 +1,5 @@
 import React from "react";
+import ParticleOrb from "./ParticleOrb";
 
 function BuildFaster() {
   return (
@@ -233,244 +234,19 @@ function BuildFaster() {
         </div>
 
         {/* =====================================================
-            RIGHT VISUAL
+            RIGHT VISUAL — PARTICLE ORB
         ===================================================== */}
 
         <div
           style={{
             position: "relative",
             minHeight: "620px",
+            overflow: "hidden",
           }}
         >
-          {/* Horizontal line */}
-
-          <div
-            style={{
-              position: "absolute",
-              left: "12%",
-              right: "12%",
-              top: "50%",
-              height: "1px",
-              background:
-                "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)",
-            }}
-          />
-
-          {/* Vertical line */}
-
-          <div
-            style={{
-              position: "absolute",
-              top: "15%",
-              bottom: "15%",
-              left: "50%",
-              width: "1px",
-              background:
-                "linear-gradient(transparent, rgba(255,255,255,0.18), transparent)",
-            }}
-          />
-
-          {/* =================================================
-              TOP LEFT
-          ================================================= */}
-
-          <SystemNode
-            number="01"
-            title="Components"
-            description="Precision primitives"
-            symbol="◇"
-            style={{
-              position: "absolute",
-              left: "7%",
-              top: "13%",
-            }}
-          />
-
-          {/* =================================================
-              TOP RIGHT
-          ================================================= */}
-
-          <SystemNode
-            number="02"
-            title="Motion"
-            description="Fluid interactions"
-            symbol="◌"
-            style={{
-              position: "absolute",
-              right: "7%",
-              top: "13%",
-            }}
-          />
-
-          {/* =================================================
-              BOTTOM LEFT
-          ================================================= */}
-
-          <SystemNode
-            number="03"
-            title="Composition"
-            description="Systematic layouts"
-            symbol="⌘"
-            style={{
-              position: "absolute",
-              left: "7%",
-              bottom: "13%",
-            }}
-          />
-
-          {/* =================================================
-              BOTTOM RIGHT
-          ================================================= */}
-
-          <SystemNode
-            number="04"
-            title="Production"
-            description="Ready to ship"
-            symbol="↗"
-            style={{
-              position: "absolute",
-              right: "7%",
-              bottom: "13%",
-            }}
-          />
-
-          {/* =================================================
-              CENTER QUANTUM CORE
-          ================================================= */}
-
-          <div
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "50%",
-              width: "190px",
-              height: "190px",
-              transform: "translate(-50%, -50%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {/* Outer ring */}
-
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                borderRadius: "50%",
-                border: "1px dashed rgba(255,255,255,0.15)",
-              }}
-            />
-
-            {/* Middle ring */}
-
-            <div
-              style={{
-                position: "absolute",
-                inset: "20px",
-                borderRadius: "50%",
-                border: "1px solid rgba(255,255,255,0.10)",
-              }}
-            />
-
-            {/* Inner ring */}
-
-            <div
-              style={{
-                position: "absolute",
-                inset: "38px",
-                borderRadius: "50%",
-                border: "1px solid rgba(255,255,255,0.08)",
-              }}
-            />
-
-            {/* Core */}
-
-            <div
-              style={{
-                position: "relative",
-                width: "112px",
-                height: "112px",
-                borderRadius: "28px",
-                border: "1px solid rgba(255,255,255,0.16)",
-                background: "rgba(0,0,0,0.92)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 30px 80px rgba(0,0,0,0.8)",
-              }}
-            >
-              {/* Quantum symbol */}
-
-              <div
-                style={{
-                  width: "55px",
-                  height: "55px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.22)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div
-                  style={{
-                    width: "11px",
-                    height: "11px",
-                    borderRadius: "50%",
-                    background: "#ffffff",
-                    boxShadow:
-                      "0 0 22px rgba(255,255,255,0.8)",
-                  }}
-                />
-              </div>
-
-              {/* Label */}
-
-              <span
-                style={{
-                  position: "absolute",
-                  bottom: "-35px",
-                  whiteSpace: "nowrap",
-                  fontSize: "9px",
-                  letterSpacing: "0.22em",
-                  color: "rgba(255,255,255,0.30)",
-                  textTransform: "uppercase",
-                  fontFamily: "monospace",
-                }}
-              >
-                Quantum Core
-              </span>
-            </div>
+          <div style={{ position: "absolute", inset: 0 }}>
+            <ParticleOrb size={0.36} />
           </div>
-
-          {/* Small connection points */}
-
-          <span
-            style={{
-              position: "absolute",
-              left: "19%",
-              top: "50%",
-              width: "6px",
-              height: "6px",
-              transform: "translateY(-50%)",
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.55)",
-            }}
-          />
-
-          <span
-            style={{
-              position: "absolute",
-              right: "19%",
-              top: "50%",
-              width: "6px",
-              height: "6px",
-              transform: "translateY(-50%)",
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.55)",
-            }}
-          />
 
           {/* Bottom label */}
 
@@ -485,6 +261,7 @@ function BuildFaster() {
               letterSpacing: "0.25em",
               color: "rgba(255,255,255,0.16)",
               fontFamily: "monospace",
+              pointerEvents: "none",
             }}
           >
             COMPONENT SYSTEM / READY
@@ -495,115 +272,17 @@ function BuildFaster() {
       {/* Mobile */}
       <style>{`
         @media (max-width: 900px) {
-          #build-with-quantum > div:nth-child(4) {
+          #build-with-quantum > div:nth-child(2) {
             grid-template-columns: 1fr !important;
           }
 
-          #build-with-quantum > div:nth-child(4) > div:first-child {
+          #build-with-quantum > div:nth-child(2) > div:first-child {
             border-right: none !important;
             border-bottom: 1px solid rgba(255,255,255,0.08);
           }
         }
       `}</style>
     </section>
-  );
-}
-
-
-/* ============================================================
-   SYSTEM NODE
-============================================================ */
-
-function SystemNode({
-  number,
-  title,
-  description,
-  symbol,
-  style,
-}) {
-  return (
-    <div
-      style={{
-        ...style,
-        width: "155px",
-        padding: "12px",
-        borderRadius: "12px",
-        border: "1px solid rgba(255,255,255,0.10)",
-        background: "rgba(0,0,0,0.85)",
-        boxSizing: "border-box",
-        backdropFilter: "blur(12px)",
-      }}
-    >
-      {/* Number */}
-
-      <span
-        style={{
-          position: "absolute",
-          top: "7px",
-          right: "8px",
-          fontSize: "7px",
-          color: "rgba(255,255,255,0.18)",
-          fontFamily: "monospace",
-        }}
-      >
-        {number}
-      </span>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-        }}
-      >
-        {/* Symbol */}
-
-        <div
-          style={{
-            width: "36px",
-            height: "36px",
-            flexShrink: 0,
-            borderRadius: "9px",
-            border: "1px solid rgba(255,255,255,0.10)",
-            background: "rgba(255,255,255,0.035)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "15px",
-            color: "rgba(255,255,255,0.55)",
-          }}
-        >
-          {symbol}
-        </div>
-
-        {/* Text */}
-
-        <div>
-          <div
-            style={{
-              fontSize: "11px",
-              color: "rgba(255,255,255,0.75)",
-              fontWeight: 500,
-            }}
-          >
-            {title}
-          </div>
-
-          <div
-            style={{
-              marginTop: "4px",
-              fontSize: "7px",
-              color: "rgba(255,255,255,0.25)",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {description}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 

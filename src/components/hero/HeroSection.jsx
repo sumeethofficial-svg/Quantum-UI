@@ -70,12 +70,12 @@ function HeroSection() {
                   lg:text-6xl
                 "
               >
-                A futuristic component library
+                Futuristic component library
                 <br />
 
-                <span className="text-white/40">
-                  for React & Next.js.
-                </span>
+                <span className="bg-[linear-gradient(90deg,#6b6b6b_0%,#e6e6e6_30%,#9a9a9a_55%,#f4f4f4_78%,#7a7a7a_100%)] bg-clip-text text-transparent">
+  for React & Next.js.
+</span> 
               </h1>
             </div>
 

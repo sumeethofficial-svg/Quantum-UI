@@ -1,6 +1,6 @@
 import Navbar from "../components/navigation/Navbar";
 import HeroSection from "../components/hero/HeroSection";
-
+<h2 className="font-tech tracking-wide">Tech Stack</h2>
 function Home({ onOpenLibrary }) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-black text-white">
