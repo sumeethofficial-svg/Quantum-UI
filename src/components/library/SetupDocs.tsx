@@ -111,7 +111,7 @@ function PmTabs({ pm, setPm }) {
   );
 }
 
-function Command({ command, caption }) {
+function Command({ command, caption = "" }) {
   return (
     <div className="mt-4">
       {caption && (
