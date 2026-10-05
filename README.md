@@ -75,7 +75,7 @@ Because `init` writes the `@quantum-ui` registry into `components.json`, shadcn'
 
 ## Maintaining the registry
 
-`src/data/components.js` decides what is public; sources live in `src/components/ui/`. Empty placeholder files are
+`src/data/components.ts` decides what is public; sources live in `src/components/ui/`. Empty placeholder files are
 never published. Registry config (name, namespace, base URL, package names) lives in `registry.config.json`.
 
 ```bash
