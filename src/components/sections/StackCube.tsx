@@ -235,7 +235,7 @@ export default function StackCube() {
                 <div
                   key={i}
                   className={`qcube-plane${isLogoPlane ? " has-logo" : ""}`}
-                  style={{ "--i": i }}
+                  style={{ "--i": i } as React.CSSProperties}
                 >
                   {isLogoPlane && (
                     <div className="qcube-logo">{LOGOS[logo]}</div>
