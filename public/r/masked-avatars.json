@@ -10,9 +10,9 @@
   "dependencies": [],
   "files": [
     {
-      "path": "components/quantum-ui/MaskedAvatars.jsx",
+      "path": "components/quantum-ui/MaskedAvatars.tsx",
       "type": "registry:ui",
-      "target": "components/quantum-ui/MaskedAvatars.jsx",
+      "target": "components/quantum-ui/MaskedAvatars.tsx",
       "content": "import React, { useState } from \"react\";\n\nconst people = [\n  { name: \"JOHAN\", image: \"https://i.pravatar.cc/160?img=14\" },\n  { name: \"AIZEN\", image: \"https://i.pravatar.cc/160?img=12\" },\n  { name: \"SHINJI\", image: \"https://i.pravatar.cc/160?img=47\" },\n  { name: \"KANAME\", image: \"https://i.pravatar.cc/160?img=51\" },\n];\n\nexport default function MaskedAvatars() {\n  const [active, setActive] = useState(0);\n\n  return (\n    <div className=\"flex min-h-[280px] items-center justify-center\">\n      <div className=\"relative flex items-end justify-center\">\n        <div className=\"absolute -top-16 left-1/2 -translate-x-1/2 text-xs font-bold tracking-[0.2em] text-white/75\">\n          {people[active].name}\n        </div>\n        {people.map((person, index) => (\n          <button\n            key={person.name}\n            type=\"button\"\n            onMouseEnter={() => setActive(index)}\n            className=\"relative h-20 w-20 overflow-hidden rounded-full border-2 border-black bg-neutral-900 transition-all duration-300\"\n            style={{\n              marginLeft: index === 0 ? 0 : -16,\n              zIndex: active === index ? 20 : index + 1,\n              transform: active === index ? \"translateY(-12px) scale(1.08)\" : \"\",\n            }}\n            aria-label={person.name}\n          >\n            <img src={person.image} alt=\"\" className=\"h-full w-full object-cover grayscale\" />\n            <span className=\"absolute inset-0 bg-black/10\" />\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
     }
   ],
