@@ -1,6 +1,6 @@
 // Builds the Quantum UI registry (shadcn registry-item JSON) into public/r/.
 //   npm run registry:build
-// Source of truth: src/data/components.js (what is public) + src/components/ui/** (the code).
+// Source of truth: src/data/components.ts (what is public) + src/components/ui/** (the code).
 import { readdir, readFile, writeFile, mkdir, rm, stat } from "node:fs/promises";
 import { join, dirname, basename, relative } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -115,4 +115,4 @@ await writeFile(
 
 console.log(`✓ registry: ${items.length} components -> public/r/ (+ registry.json)`);
 if (placeholders.length) console.log(`  not registered: ${placeholders.length} empty placeholder file(s) in src/components/ui`);
-if (unlisted.length) console.warn(`! ${unlisted.length} non-empty ui file(s) not in components.js (not registered): ${unlisted.join(", ")}`);
+if (unlisted.length) console.warn(`! ${unlisted.length} non-empty ui file(s) not in components.ts (not registered): ${unlisted.join(", ")}`);
