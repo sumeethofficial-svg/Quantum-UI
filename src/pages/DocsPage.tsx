@@ -102,7 +102,7 @@ function PmTabs({ pm, setPm }) {
 }
 
 /** One-line shell command with a copy button. */
-function Command({ command, caption }) {
+function Command({ command, caption = "" }) {
   return (
     <div className="mt-3">
       {caption && (
