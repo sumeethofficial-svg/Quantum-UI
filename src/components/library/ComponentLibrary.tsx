@@ -9,7 +9,7 @@ import ComponentPageNav from "./ComponentPageNav";
 import InstallChip from "./InstallChip";
 import SetupDocs, { SetupPageNav } from "./SetupDocs";
 
-function ComponentLibrary({ onClose }) {
+function ComponentLibrary() {
   const [activeComponent, setActiveComponent] =
     useState("Photon Button");
 
@@ -21,7 +21,7 @@ function ComponentLibrary({ onClose }) {
 
   const mainRef = useRef(null);
 
-  const component = getComponent(activeComponent);
+  const component = getComponent(activeComponent)!;
 
   // Start every page at the top when the selection changes.
   useEffect(() => {
@@ -41,7 +41,6 @@ function ComponentLibrary({ onClose }) {
             setShowCode(false);
           }}
           onSelectDoc={(id) => setActiveDoc(id)}
-          onClose={onClose}
         />
 
         {/* CENTER — SCROLLABLE CONTENT */}
