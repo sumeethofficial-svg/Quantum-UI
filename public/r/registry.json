@@ -14,9 +14,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/PhotonButton.jsx",
+          "path": "components/quantum-ui/PhotonButton.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/PhotonButton.jsx"
+          "target": "components/quantum-ui/PhotonButton.tsx"
         }
       ],
       "meta": {
@@ -37,9 +37,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/MagneticLink.jsx",
+          "path": "components/quantum-ui/MagneticLink.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/MagneticLink.jsx"
+          "target": "components/quantum-ui/MagneticLink.tsx"
         }
       ],
       "meta": {
@@ -60,9 +60,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/SignalToggle.jsx",
+          "path": "components/quantum-ui/SignalToggle.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/SignalToggle.jsx"
+          "target": "components/quantum-ui/SignalToggle.tsx"
         }
       ],
       "meta": {
@@ -83,9 +83,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/OrbitMenu.jsx",
+          "path": "components/quantum-ui/OrbitMenu.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/OrbitMenu.jsx"
+          "target": "components/quantum-ui/OrbitMenu.tsx"
         }
       ],
       "meta": {
@@ -106,9 +106,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/LiquidButton.jsx",
+          "path": "components/quantum-ui/LiquidButton.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/LiquidButton.jsx"
+          "target": "components/quantum-ui/LiquidButton.tsx"
         }
       ],
       "meta": {
@@ -129,9 +129,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/TelemetryCard.jsx",
+          "path": "components/quantum-ui/TelemetryCard.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/TelemetryCard.jsx"
+          "target": "components/quantum-ui/TelemetryCard.tsx"
         }
       ],
       "meta": {
@@ -152,9 +152,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/WaveformChart.jsx",
+          "path": "components/quantum-ui/WaveformChart.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/WaveformChart.jsx"
+          "target": "components/quantum-ui/WaveformChart.tsx"
         }
       ],
       "meta": {
@@ -175,9 +175,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/CommandPalette.jsx",
+          "path": "components/quantum-ui/CommandPalette.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/CommandPalette.jsx"
+          "target": "components/quantum-ui/CommandPalette.tsx"
         }
       ],
       "meta": {
@@ -198,9 +198,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/SystemStatus.jsx",
+          "path": "components/quantum-ui/SystemStatus.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/SystemStatus.jsx"
+          "target": "components/quantum-ui/SystemStatus.tsx"
         }
       ],
       "meta": {
@@ -221,9 +221,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/HologramPanel.jsx",
+          "path": "components/quantum-ui/HologramPanel.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/HologramPanel.jsx"
+          "target": "components/quantum-ui/HologramPanel.tsx"
         }
       ],
       "meta": {
@@ -244,9 +244,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/AuroraInput.jsx",
+          "path": "components/quantum-ui/AuroraInput.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/AuroraInput.jsx"
+          "target": "components/quantum-ui/AuroraInput.tsx"
         }
       ],
       "meta": {
@@ -267,9 +267,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/FlipText.jsx",
+          "path": "components/quantum-ui/FlipText.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/FlipText.jsx"
+          "target": "components/quantum-ui/FlipText.tsx"
         }
       ],
       "meta": {
@@ -290,9 +290,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/FlipFadeText.jsx",
+          "path": "components/quantum-ui/FlipFadeText.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/FlipFadeText.jsx"
+          "target": "components/quantum-ui/FlipFadeText.tsx"
         }
       ],
       "meta": {
@@ -313,9 +313,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/LiquidText.jsx",
+          "path": "components/quantum-ui/LiquidText.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/LiquidText.jsx"
+          "target": "components/quantum-ui/LiquidText.tsx"
         }
       ],
       "meta": {
@@ -336,9 +336,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/KineticText.jsx",
+          "path": "components/quantum-ui/KineticText.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/KineticText.jsx"
+          "target": "components/quantum-ui/KineticText.tsx"
         }
       ],
       "meta": {
@@ -359,9 +359,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/Text3DReveal.jsx",
+          "path": "components/quantum-ui/Text3DReveal.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/Text3DReveal.jsx"
+          "target": "components/quantum-ui/Text3DReveal.tsx"
         }
       ],
       "meta": {
@@ -382,9 +382,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/AvatarGroup.jsx",
+          "path": "components/quantum-ui/AvatarGroup.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/AvatarGroup.jsx"
+          "target": "components/quantum-ui/AvatarGroup.tsx"
         }
       ],
       "meta": {
@@ -405,9 +405,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/Cursor.jsx",
+          "path": "components/quantum-ui/Cursor.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/Cursor.jsx"
+          "target": "components/quantum-ui/Cursor.tsx"
         }
       ],
       "meta": {
@@ -428,9 +428,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/Tooltip.jsx",
+          "path": "components/quantum-ui/Tooltip.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/Tooltip.jsx"
+          "target": "components/quantum-ui/Tooltip.tsx"
         }
       ],
       "meta": {
@@ -451,9 +451,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/MaskedAvatars.jsx",
+          "path": "components/quantum-ui/MaskedAvatars.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/MaskedAvatars.jsx"
+          "target": "components/quantum-ui/MaskedAvatars.tsx"
         }
       ],
       "meta": {
@@ -474,9 +474,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/TeamRevealGrid.jsx",
+          "path": "components/quantum-ui/TeamRevealGrid.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/TeamRevealGrid.jsx"
+          "target": "components/quantum-ui/TeamRevealGrid.tsx"
         }
       ],
       "meta": {
@@ -497,9 +497,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/TestimonialsCard.jsx",
+          "path": "components/quantum-ui/TestimonialsCard.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/TestimonialsCard.jsx"
+          "target": "components/quantum-ui/TestimonialsCard.tsx"
         }
       ],
       "meta": {
@@ -522,9 +522,9 @@
       ],
       "files": [
         {
-          "path": "components/quantum-ui/SpotlightNavbar.jsx",
+          "path": "components/quantum-ui/SpotlightNavbar.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/SpotlightNavbar.jsx"
+          "target": "components/quantum-ui/SpotlightNavbar.tsx"
         }
       ],
       "meta": {
@@ -545,9 +545,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/WaveGrid.jsx",
+          "path": "components/quantum-ui/WaveGrid.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/WaveGrid.jsx"
+          "target": "components/quantum-ui/WaveGrid.tsx"
         }
       ],
       "meta": {
@@ -568,9 +568,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/AuroraHero.jsx",
+          "path": "components/quantum-ui/AuroraHero.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/AuroraHero.jsx"
+          "target": "components/quantum-ui/AuroraHero.tsx"
         }
       ],
       "meta": {
@@ -591,9 +591,9 @@
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/StarsBackground.jsx",
+          "path": "components/quantum-ui/StarsBackground.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/StarsBackground.jsx"
+          "target": "components/quantum-ui/StarsBackground.tsx"
         }
       ],
       "meta": {

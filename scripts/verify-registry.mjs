@@ -3,7 +3,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
-import { componentGroups, getSlug, getExportName } from "../src/data/components.js";
+import { componentGroups, getSlug, getExportName } from "../src/data/components.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFile(join(root, p), "utf8");
@@ -18,23 +18,23 @@ async function walk(dir) {
   for (const e of await readdir(dir, { withFileTypes: true })) {
     const p = join(dir, e.name);
     if (e.isDirectory()) out.push(...(await walk(p)));
-    else if (e.name.endsWith(".jsx")) out.push(p);
+    else if (e.name.endsWith(".tsx")) out.push(p);
   }
   return out;
 }
 
-// 1. registry.json vs components.js
+// 1. registry.json vs components.ts
 const reg = JSON.parse(await read("public/r/registry.json"));
 const listed = componentGroups.flatMap((g) => g.items);
-ok(reg.items.length === listed.length, `registry.json has ${reg.items.length} items, components.js lists ${listed.length}`);
+ok(reg.items.length === listed.length, `registry.json has ${reg.items.length} items, components.ts lists ${listed.length}`);
 ok(new Set(reg.items.map((i) => i.name)).size === reg.items.length, "duplicate names in registry.json");
 
 // 2. every registered component resolves to an existing, non-empty, self-contained file whose content matches source
 const uiFiles = await walk(join(root, "src/components/ui"));
 for (const c of listed) {
   const slug = getSlug(c), exp = getExportName(c);
-  const src = uiFiles.find((f) => basename(f, ".jsx") === exp);
-  ok(!!src, `${c.name}: source file ${exp}.jsx not found`);
+  const src = uiFiles.find((f) => basename(f, ".tsx") === exp);
+  ok(!!src, `${c.name}: source file ${exp}.tsx not found`);
   let item;
   try { item = JSON.parse(await read(`public/r/${slug}.json`)); } catch { fail(`${c.name}: public/r/${slug}.json missing or invalid`); continue; }
   if (!src) continue;
@@ -43,7 +43,7 @@ for (const c of listed) {
   ok(item.files?.[0]?.content === code, `${c.name}: registry content is stale (run npm run registry:build)`);
   ok(/export\s+default\s/.test(code), `${c.name}: no default export`);
   ok(!/from\s+["'](\.|@\/)/.test(code), `${c.name}: imports project-local modules`);
-  ok(item.type === "registry:ui" && item.files[0].target === `${cfg.installDir}/${exp}.jsx`, `${c.name}: unexpected type/target`);
+  ok(item.type === "registry:ui" && item.files[0].target === `${cfg.installDir}/${exp}.tsx`, `${c.name}: unexpected type/target`);
   ok(reg.items.some((i) => i.name === slug), `${c.name}: missing from registry.json`);
   ok(item.meta?.usage?.includes(`import ${exp} from "./${cfg.installDir}/${exp}"`), `${c.name}: usage example does not import ${exp} from ./${cfg.installDir}/${exp}`);
   ok(!/@\/|@quantum-ui\/react/.test(`${item.meta?.usage ?? ""}${c.code ?? ""}${c.usage ?? ""}`), `${c.name}: usage/code snippet assumes an @/ alias or @quantum-ui/react`);
@@ -52,7 +52,7 @@ for (const c of listed) {
 // 3. every non-empty ui file is registered (empty placeholders are intentionally skipped)
 const registered = new Set(listed.map(getExportName));
 for (const f of uiFiles) {
-  if (!registered.has(basename(f, ".jsx")) && (await stat(f)).size > 0) console.warn(`non-empty ui file not registered: ${f.replace(root + "/", "")}`);
+  if (!registered.has(basename(f, ".tsx")) && (await stat(f)).size > 0) console.warn(`non-empty ui file not registered: ${f.replace(root + "/", "")}`);
 }
 
 // 4. names and URLs agree across config, packages, CLI, MCP and docs
@@ -69,12 +69,12 @@ for (const [label, src] of [["cli", cliSrc], ["mcp", mcpSrc]]) {
 }
 ok(cliSrc.includes(`MCP_PACKAGE = "${cfg.mcpPackage}"`), "cli references a different MCP package name");
 ok(cliSrc.includes(`CLI_PACKAGE = "${cfg.cliPackage}"`), "cli references a different CLI package name");
-for (const f of ["README.md", "src/components/navigation/Navbar.jsx"]) {
+for (const f of ["README.md", "src/components/navigation/Navbar.tsx"]) {
   const t = await read(f);
   for (const m of t.matchAll(/npx\s+(quantum-ui[\w-]*)/g)) ok([cfg.cliPackage].includes(m[1]), `${f}: "npx ${m[1]}" is not the CLI package (${cfg.cliPackage})`);
   ok(!/@quantum-ui\/react/.test(t), `${f}: references nonexistent @quantum-ui/react`);
 }
-const docs = (await read("src/components/library/ComponentDocumentation.jsx")) + (await read("src/components/library/ComponentCode.jsx"));
+const docs = (await read("src/components/library/ComponentDocumentation.tsx")) + (await read("src/components/library/ComponentCode.tsx"));
 ok(!/@quantum-ui\/react|from "@\/components"|component\.slug/.test(docs), "docs still reference a nonexistent package / @/ alias / undefined slug");
 
 if (problems.length) {

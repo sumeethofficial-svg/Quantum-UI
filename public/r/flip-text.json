@@ -10,9 +10,9 @@
   "dependencies": [],
   "files": [
     {
-      "path": "components/quantum-ui/FlipText.jsx",
+      "path": "components/quantum-ui/FlipText.tsx",
       "type": "registry:ui",
-      "target": "components/quantum-ui/FlipText.jsx",
+      "target": "components/quantum-ui/FlipText.tsx",
       "content": "import { useEffect, useState } from \"react\";\n\nfunction FlipText({ words = [\"beautiful\", \"precise\", \"quantum\"], interval = 1800 }) {\n  const [index, setIndex] = useState(0);\n\n  useEffect(() => {\n    const timer = window.setInterval(() => {\n      setIndex((current) => (current + 1) % words.length);\n    }, interval);\n    return () => window.clearInterval(timer);\n  }, [words, interval]);\n\n  return (\n    <span className=\"inline-block overflow-hidden align-bottom text-white\">\n      <span key={index} className=\"inline-block animate-[flip-in_.55s_ease_both]\">\n        {words[index]}\n      </span>\n      <style>{`@keyframes flip-in { from { opacity:0; transform:rotateX(-90deg) translateY(8px); } to { opacity:1; transform:rotateX(0) translateY(0); } }`}</style>\n    </span>\n  );\n}\n\nexport default FlipText;\n"
     }
   ],

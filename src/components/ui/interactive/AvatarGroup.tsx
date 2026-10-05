@@ -13,7 +13,7 @@ export default function AvatarGroup({
   size = 48,
   overlap = 14,
 }) {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
 
   return (
     <div className="flex items-center justify-center py-6">

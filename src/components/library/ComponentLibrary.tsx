@@ -15,7 +15,7 @@ function ComponentLibrary({ onClose }) {
 
   // null = showing a component, otherwise a setup page id
   // ("nextjs" | "tailwind" | "features").
-  const [activeDoc, setActiveDoc] = useState(null);
+  const [activeDoc, setActiveDoc] = useState<string | null>(null);
 
   const [showCode, setShowCode] = useState(false);
 

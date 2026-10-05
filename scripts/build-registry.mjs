@@ -1,10 +1,10 @@
 // Builds the Quantum UI registry (shadcn registry-item JSON) into public/r/.
 //   npm run registry:build
-// Source of truth: src/data/components.js (what is public) + src/components/ui/** (the code).
+// Source of truth: src/data/components.ts (what is public) + src/components/ui/** (the code).
 import { readdir, readFile, writeFile, mkdir, rm, stat } from "node:fs/promises";
 import { join, dirname, basename, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { componentGroups, getSlug, getExportName } from "../src/data/components.js";
+import { componentGroups, getSlug, getExportName } from "../src/data/components.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(await readFile(join(root, "registry.config.json"), "utf8"));
@@ -16,7 +16,7 @@ async function walk(dir) {
   for (const e of await readdir(dir, { withFileTypes: true })) {
     const p = join(dir, e.name);
     if (e.isDirectory()) out.push(...(await walk(p)));
-    else if (e.name.endsWith(".jsx")) out.push(p);
+    else if (e.name.endsWith(".tsx")) out.push(p);
   }
   return out;
 }
@@ -25,7 +25,7 @@ const importsOf = (src) =>
   [...src.matchAll(/^\s*import\s[^;]*?from\s+["']([^"']+)["']/gm)].map((m) => m[1]);
 
 const files = await walk(uiDir);
-const byExport = new Map(files.map((f) => [basename(f, ".jsx"), f]));
+const byExport = new Map(files.map((f) => [basename(f, ".tsx"), f]));
 
 const errors = [];
 const seen = new Set();
@@ -41,7 +41,7 @@ for (const group of componentGroups) {
     seen.add(slug);
 
     const file = byExport.get(exportName);
-    if (!file) { errors.push(`${c.name}: no file named ${exportName}.jsx under src/components/ui`); continue; }
+    if (!file) { errors.push(`${c.name}: no file named ${exportName}.tsx under src/components/ui`); continue; }
     const content = await readFile(file, "utf8");
     if (!content.trim()) { errors.push(`${c.name}: ${relative(root, file)} is empty`); continue; }
     if (!/export\s+default\s/.test(content)) { errors.push(`${c.name}: no default export in ${relative(root, file)}`); continue; }
@@ -60,9 +60,9 @@ for (const group of componentGroups) {
       dependencies,
       files: [
         {
-          path: `${cfg.installDir}/${exportName}.jsx`,
+          path: `${cfg.installDir}/${exportName}.tsx`,
           type: "registry:ui",
-          target: `${cfg.installDir}/${exportName}.jsx`,
+          target: `${cfg.installDir}/${exportName}.tsx`,
           content,
         },
       ],
@@ -115,4 +115,4 @@ await writeFile(
 
 console.log(`✓ registry: ${items.length} components -> public/r/ (+ registry.json)`);
 if (placeholders.length) console.log(`  not registered: ${placeholders.length} empty placeholder file(s) in src/components/ui`);
-if (unlisted.length) console.warn(`! ${unlisted.length} non-empty ui file(s) not in components.js (not registered): ${unlisted.join(", ")}`);
+if (unlisted.length) console.warn(`! ${unlisted.length} non-empty ui file(s) not in components.ts (not registered): ${unlisted.join(", ")}`);
