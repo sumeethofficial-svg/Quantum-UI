@@ -10,9 +10,9 @@
   "dependencies": [],
   "files": [
     {
-      "path": "components/quantum-ui/AuroraInput.jsx",
+      "path": "components/quantum-ui/AuroraInput.tsx",
       "type": "registry:ui",
-      "target": "components/quantum-ui/AuroraInput.jsx",
+      "target": "components/quantum-ui/AuroraInput.tsx",
       "content": "import { useState } from \"react\";\n\nfunction AuroraInput({ placeholder = \"Acquire input\" }) {\n  const [focused, setFocused] = useState(false);\n\n  return (\n    <div className=\"relative w-full max-w-xs\">\n      <input\n        placeholder={placeholder}\n        onFocus={() => setFocused(true)}\n        onBlur={() => setFocused(false)}\n        className={`w-full rounded-lg border bg-[#0b0d11] px-4 py-2.5 font-mono text-sm text-white outline-none transition-all placeholder:text-slate-600 ${\n          focused ? \"border-cyan-300/50 shadow-[0_0_0_4px_rgba(77,216,255,0.08)]\" : \"border-white/[0.12]\"\n        }`}\n      />\n      <span\n        className={`absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-300 to-transparent transition-all duration-500 ${\n          focused ? \"w-full opacity-100\" : \"w-0 opacity-0\"\n        }`}\n      />\n    </div>\n  );\n}\n\nexport default AuroraInput;\n"
     }
   ],
