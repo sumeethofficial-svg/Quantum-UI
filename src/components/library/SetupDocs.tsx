@@ -276,7 +276,7 @@ const PAGES = {
           </P>
           <Command command={CREATE_NEXT[pm]} />
           <P>
-            TypeScript projects work too. Quantum UI files are <Code>.jsx</Code>
+            TypeScript projects work too. Quantum UI files are <Code>.tsx</Code>
             , and the default Next.js <Code>tsconfig.json</Code> allows
             JavaScript imports.
           </P>
@@ -308,7 +308,7 @@ const PAGES = {
             Every component has a default export. Import it with a relative
             path (the <Code>@/</Code> alias that Next.js sets up works as well).
           </P>
-          <CodeBlock title="app/page.jsx" code={nextUsage} />
+          <CodeBlock title="app/page.tsx" code={nextUsage} />
         </Section>
 
         <Section id="client-components" title="Client components">
@@ -319,7 +319,7 @@ const PAGES = {
             <Code>"use client"</Code> as the first line of the file that
             imports the component.
           </P>
-          <CodeBlock title="app/page.jsx" code={nextClient} />
+          <CodeBlock title="app/page.tsx" code={nextClient} />
         </Section>
       </>
     ),
@@ -347,7 +347,7 @@ const PAGES = {
 
         <Section id="vite-plugin" title="Configure Vite">
           <P>Add the plugin to your Vite config.</P>
-          <CodeBlock title="vite.config.js" code={viteConfig} />
+          <CodeBlock title="vite.config.ts" code={viteConfig} />
         </Section>
 
         <Section id="import-css" title="Import Tailwind">
@@ -407,14 +407,14 @@ const PAGES = {
         </Section>
 
         <Section id="add-util-file" title="Add util file">
-          <CodeBlock title="lib/utils.js" code={utilsFile} />
+          <CodeBlock title="lib/utils.ts" code={utilsFile} />
         </Section>
 
         <Section id="use-the-utility" title="Use the utility">
           <P>
             Use <Code>cn</Code> anywhere you need conditional classes.
           </P>
-          <CodeBlock title="components/example.jsx" code={utilsExample} />
+          <CodeBlock title="components/example.tsx" code={utilsExample} />
         </Section>
 
         <Section id="extra-dependencies" title="Extra dependencies">
