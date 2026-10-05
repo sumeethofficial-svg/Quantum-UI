@@ -1,4 +1,28 @@
-export const componentGroups = [
+export type ComponentProp = {
+  name: string;
+  type: string;
+  default: string;
+};
+
+export type ComponentItem = {
+  name: string;
+  glyph: string;
+  number?: string;
+  description: string;
+  demo: string;
+  slug?: string;
+  exportName?: string;
+  usage?: string;
+  code?: string;
+  props?: ComponentProp[];
+};
+
+export type ComponentGroup = {
+  label: string;
+  items: ComponentItem[];
+};
+
+export const componentGroups: ComponentGroup[] = [
   {
     label: "INTERACTIONS",
     items: [
@@ -270,13 +294,13 @@ export const allComponents = componentGroups.flatMap(
   (group) => group.items
 );
 
-export const getComponent = (name) =>
+export const getComponent = (name: string): ComponentItem | undefined =>
   allComponents.find((component) => component.name === name);
 
 /* Helpers shared by the docs UI and the registry build (scripts/build-registry.mjs). */
-export const getSlug = (component) =>
+export const getSlug = (component: ComponentItem): string =>
   component.slug || component.name.trim().toLowerCase().replace(/\s+/g, "-");
 
 /** Default-export / file name. Defaults to the display name without spaces. */
-export const getExportName = (component) =>
+export const getExportName = (component: ComponentItem): string =>
   component.exportName || component.name.replace(/\s+/g, "");
