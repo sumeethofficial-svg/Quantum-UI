@@ -10,7 +10,7 @@ const members = [
 ];
 
 export default function TeamRevealGrid() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
 
   return (
     <div className="w-full py-8">
