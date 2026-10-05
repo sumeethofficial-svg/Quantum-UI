@@ -17,5 +17,4 @@
     "jsx": "react-jsx"
   },
   "include": ["src"]
-  // TypeScript migration validation
 }
