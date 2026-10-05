@@ -10,9 +10,9 @@
   "dependencies": [],
   "files": [
     {
-      "path": "components/quantum-ui/CommandPalette.jsx",
+      "path": "components/quantum-ui/CommandPalette.tsx",
       "type": "registry:ui",
-      "target": "components/quantum-ui/CommandPalette.jsx",
+      "target": "components/quantum-ui/CommandPalette.tsx",
       "content": "import { useState } from \"react\";\n\nconst commands = [\"Search commands\", \"Open component\", \"Switch theme\", \"Deploy build\"];\n\nfunction CommandPalette() {\n  const [query, setQuery] = useState(\"\");\n  const filtered = commands.filter((c) => c.toLowerCase().includes(query.toLowerCase()));\n\n  return (\n    <div className=\"w-full max-w-sm rounded-xl border border-white/[0.12] bg-[#0b0d11] shadow-2xl\">\n      <input\n        value={query}\n        onChange={(e) => setQuery(e.target.value)}\n        placeholder=\"Type a command...\"\n        className=\"w-full border-b border-white/[0.08] bg-transparent px-4 py-3 font-mono text-sm text-white outline-none placeholder:text-slate-600\"\n      />\n      <div className=\"max-h-48 overflow-y-auto p-2\">\n        {filtered.map((command) => (\n          <div\n            key={command}\n            className=\"cursor-pointer rounded-md px-3 py-2 font-mono text-xs text-slate-400 transition-colors hover:bg-white/[0.05] hover:text-cyan-100\"\n          >\n            {command}\n          </div>\n        ))}\n        {filtered.length === 0 && (\n          <div className=\"px-3 py-2 font-mono text-xs text-slate-600\">No matches</div>\n        )}\n      </div>\n    </div>\n  );\n}\n\nexport default CommandPalette;\n"
     }
   ],
