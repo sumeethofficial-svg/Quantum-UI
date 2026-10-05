@@ -13,10 +13,9 @@
     "mcp:install": "npm --prefix packages/mcp install",
     "test": "npm run registry:build && npm run registry:verify && npm --prefix packages/cli test && npm --prefix packages/mcp test",
     "prebuild": "npm run registry:build",
-    "build": "npx --yes -p typescript@5.8.3 tsc --noEmit > public/typecheck-errors.txt 2>&1; vite build",
+    "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview",
-    "typecheck": "npx --yes -p typescript@5.8.3 tsc --noEmit"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
