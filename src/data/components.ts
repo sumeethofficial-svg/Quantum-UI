@@ -1,30 +1,33 @@
-export type ComponentProp = {
+export interface ComponentProp {
   name: string;
   type: string;
   default: string;
-};
+}
 
-export type ComponentItem = {
+export interface ComponentItem {
+  /** Display name, e.g. "Photon Button". */
   name: string;
   glyph: string;
   number?: string;
   description: string;
   demo: string;
+  /** Overrides the slug derived from `name`. */
   slug?: string;
+  /** Overrides the default-export / file name derived from `name`. */
   exportName?: string;
   usage?: string;
   code?: string;
   props?: ComponentProp[];
-};
+}
 
-export type ComponentGroup = {
+export interface ComponentGroup {
   label: string;
   items: ComponentItem[];
-};
+}
 
 export const componentGroups: ComponentGroup[] = [
   {
-    label: "INTERACTIONS",
+    label: "BUTTONS",
     items: [
       {
         name: "Photon Button",
@@ -59,66 +62,27 @@ export const componentGroups: ComponentGroup[] = [
         demo: "Open command orbit",
       },
       {
-  name: "Liquid Button",
-  glyph: "◈",
-  number: "05",
-  description:
-    "A fluid action button with an animated liquid interaction.",
-  demo: "Activate liquid sequence →",
-},
-    ],
-  },
-
-  {
-    label: "DATA & SYSTEMS",
-    items: [
-      {
-        name: "Telemetry Card",
-        glyph: "▣",
+        name: "Liquid Button",
+        glyph: "◈",
+        number: "05",
         description:
-          "A precision status surface for live system data.",
-        demo: "Sync live telemetry",
+          "A fluid action button with an animated liquid interaction.",
+        demo: "Activate liquid sequence →",
       },
-      {
-        name: "Waveform Chart",
-        glyph: "⌁",
-        description:
-          "An animated data trace built for streaming signals.",
-        demo: "Inspect waveform",
-      },
-      {
-        name: "Command Palette",
-        glyph: "›_",
-        description:
-          "A fast-launch interface for expert workflows.",
-        demo: "Search commands",
-      },
-      {
-        name: "System Status",
-        glyph: "◉",
-        description:
-          "A compact health beacon with meaningful states.",
-        demo: "Systems nominal",
-      },
-    ],
-  },
-
-  {
-    label: "SURFACES",
-    items: [
-      {
-        name: "Hologram Panel",
+          {
+        name: "Iso Button",
         glyph: "◇",
+        number: "06",
         description:
-          "A layered glass surface with projected depth.",
-        demo: "Project interface",
-      },
-      {
-        name: "Aurora Input",
-        glyph: "—",
-        description:
-          "An input field with an active spectral edge.",
-        demo: "Acquire input",
+          "An isometric layered tile whose plates spread apart and glow on hover.",
+        demo: "Stack layers",
+        props: [
+          { name: "children", type: "ReactNode", default: '"Stack layers"' },
+          { name: "icon", type: "ReactNode", default: "spark mark" },
+          { name: "size", type: "number", default: "112" },
+          { name: "layers", type: "number", default: "6" },
+          { name: "onClick", type: "() => void", default: "undefined" },
+        ],
       },
     ],
   },
@@ -194,17 +158,9 @@ export default function Example() {
       },
     ],
   },
-
   {
     label: "INTERACTIVE",
     items: [
-      {
-        name: "Avatar Group",
-        glyph: "◎",
-        description:
-          "Overlapping avatars that lift and scale forward on hover.",
-        demo: "Reveal contributor",
-      },
       {
         name: "Cursor",
         glyph: "➹",
@@ -220,16 +176,46 @@ export default function Example() {
         demo: "Docs",
       },
       {
-        name: "Masked Avatars",
-        glyph: "◒",
+        name: "Ring Gallery",
+        glyph: "⊚",
         description:
-          "Overlapping circular avatars with an active name label.",
-        demo: "AIZEN",
+          "A circular gallery where cards orbit a ring and grow as they pass the front slot.",
+        demo: "Push",
+        usage: `import RingGallery from "./components/quantum-ui/RingGallery";
+
+export default function Example() {
+  return <RingGallery />;
+}`,
+        code: `import RingGallery from "./components/quantum-ui/RingGallery";
+
+export default function Example() {
+  return (
+    <RingGallery
+      items={[
+        { id: "one", src: "/images/one.jpg", alt: "One" },
+        { id: "two", src: "/images/two.jpg", alt: "Two" },
+        { id: "three", src: "/images/three.jpg", alt: "Three" },
+      ]}
+      label="Push"
+      speed={24}
+    />
+  );
+}`,
+        props: [
+          { name: "items", type: "RingGalleryItem[]", default: "built-in demo cards" },
+          { name: "label", type: "ReactNode", default: '"Push"' },
+          { name: "speed", type: "number", default: "24" },
+          { name: "radius", type: "number", default: "0.34" },
+          { name: "cardSize", type: "number", default: "0.2" },
+          { name: "pauseOnHover", type: "boolean", default: "true" },
+          { name: "onActiveChange", type: "(item, index) => void", default: "undefined" },
+          { name: "className", type: "string", default: '""' },
+        ],
       },
-    ],
+      ] ,
   },
 
-  {
+   {
     label: "LAYOUT & CARDS",
     items: [
       {
@@ -246,9 +232,35 @@ export default function Example() {
           "A stacked testimonial card with previous/next navigation and a counter.",
         demo: "Ocean Horizon",
       },
+      {
+        name: "Avatar Group",
+        glyph: "◎",
+        description:
+          "Overlapping avatars that lift and scale forward on hover.",
+        demo: "Reveal contributor",
+      },
+      {
+        name: "Masked Avatars",
+        glyph: "◒",
+        description:
+          "Overlapping circular avatars with an active name label.",
+        demo: "AIZEN",
+      },
+      {
+        name: "Orbit Gallery",
+        glyph: "◐",
+        description:
+          "A portrait card with orbiting avatars, a progress ring and a crossfading backdrop.",
+        demo: "Cycle the gallery",
+        props: [
+          { name: "items", type: "OrbitGalleryItem[]", default: "7 sample entries" },
+          { name: "interval", type: "number", default: "3200" },
+          { name: "autoPlay", type: "boolean", default: "true" },
+          { name: "className", type: "string", default: '""' },
+        ],
+      },
     ],
   },
-
   {
     label: "NAVIGATION",
     items: [
@@ -290,14 +302,14 @@ export default function Example() {
   },
 ];
 
-export const allComponents = componentGroups.flatMap(
+export const allComponents: ComponentItem[] = componentGroups.flatMap(
   (group) => group.items
 );
 
 export const getComponent = (name: string): ComponentItem | undefined =>
   allComponents.find((component) => component.name === name);
 
-/* Helpers shared by the docs UI and the registry build (scripts/build-registry.mjs). */
+/* Helpers shared by the docs UI and the registry build (scripts/build-registry.ts). */
 export const getSlug = (component: ComponentItem): string =>
   component.slug || component.name.trim().toLowerCase().replace(/\s+/g, "-");
 

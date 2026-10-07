@@ -9,7 +9,7 @@
       "title": "Photon Button",
       "description": "A charged action trigger with an energized hover sweep.",
       "categories": [
-        "interactions"
+        "buttons"
       ],
       "dependencies": [],
       "files": [
@@ -21,7 +21,7 @@
       ],
       "meta": {
         "exportName": "PhotonButton",
-        "category": "INTERACTIONS",
+        "category": "BUTTONS",
         "demo": "Initialize sequence →",
         "usage": "import PhotonButton from \"./components/quantum-ui/PhotonButton\";\n\nexport default function Example() {\n  return <PhotonButton>Initialize sequence →</PhotonButton>;\n}"
       }
@@ -32,7 +32,7 @@
       "title": "Magnetic Link",
       "description": "A text link that bends toward the cursor's gravity.",
       "categories": [
-        "interactions"
+        "buttons"
       ],
       "dependencies": [],
       "files": [
@@ -44,7 +44,7 @@
       ],
       "meta": {
         "exportName": "MagneticLink",
-        "category": "INTERACTIONS",
+        "category": "BUTTONS",
         "demo": "Follow trajectory ↗",
         "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink>Follow trajectory ↗</MagneticLink>;\n}"
       }
@@ -55,7 +55,7 @@
       "title": "Signal Toggle",
       "description": "A binary control that makes state instantly legible.",
       "categories": [
-        "interactions"
+        "buttons"
       ],
       "dependencies": [],
       "files": [
@@ -67,7 +67,7 @@
       ],
       "meta": {
         "exportName": "SignalToggle",
-        "category": "INTERACTIONS",
+        "category": "BUTTONS",
         "demo": "Signal enabled",
         "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return <SignalToggle>Signal enabled</SignalToggle>;\n}"
       }
@@ -78,7 +78,7 @@
       "title": "Orbit Menu",
       "description": "A compact radial navigator for dense interfaces.",
       "categories": [
-        "interactions"
+        "buttons"
       ],
       "dependencies": [],
       "files": [
@@ -90,7 +90,7 @@
       ],
       "meta": {
         "exportName": "OrbitMenu",
-        "category": "INTERACTIONS",
+        "category": "BUTTONS",
         "demo": "Open command orbit",
         "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu>Open command orbit</OrbitMenu>;\n}"
       }
@@ -101,7 +101,7 @@
       "title": "Liquid Button",
       "description": "A fluid action button with an animated liquid interaction.",
       "categories": [
-        "interactions"
+        "buttons"
       ],
       "dependencies": [],
       "files": [
@@ -113,147 +113,32 @@
       ],
       "meta": {
         "exportName": "LiquidButton",
-        "category": "INTERACTIONS",
+        "category": "BUTTONS",
         "demo": "Activate liquid sequence →",
         "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return <LiquidButton>Activate liquid sequence →</LiquidButton>;\n}"
       }
     },
     {
-      "name": "telemetry-card",
+      "name": "iso-button",
       "type": "registry:ui",
-      "title": "Telemetry Card",
-      "description": "A precision status surface for live system data.",
+      "title": "Iso Button",
+      "description": "An isometric layered tile whose plates spread apart and glow on hover.",
       "categories": [
-        "data & systems"
+        "buttons"
       ],
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/TelemetryCard.tsx",
+          "path": "components/quantum-ui/IsoButton.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/TelemetryCard.tsx"
+          "target": "components/quantum-ui/IsoButton.tsx"
         }
       ],
       "meta": {
-        "exportName": "TelemetryCard",
-        "category": "DATA & SYSTEMS",
-        "demo": "Sync live telemetry",
-        "usage": "import TelemetryCard from \"./components/quantum-ui/TelemetryCard\";\n\nexport default function Example() {\n  return <TelemetryCard>Sync live telemetry</TelemetryCard>;\n}"
-      }
-    },
-    {
-      "name": "waveform-chart",
-      "type": "registry:ui",
-      "title": "Waveform Chart",
-      "description": "An animated data trace built for streaming signals.",
-      "categories": [
-        "data & systems"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "components/quantum-ui/WaveformChart.tsx",
-          "type": "registry:ui",
-          "target": "components/quantum-ui/WaveformChart.tsx"
-        }
-      ],
-      "meta": {
-        "exportName": "WaveformChart",
-        "category": "DATA & SYSTEMS",
-        "demo": "Inspect waveform",
-        "usage": "import WaveformChart from \"./components/quantum-ui/WaveformChart\";\n\nexport default function Example() {\n  return <WaveformChart>Inspect waveform</WaveformChart>;\n}"
-      }
-    },
-    {
-      "name": "command-palette",
-      "type": "registry:ui",
-      "title": "Command Palette",
-      "description": "A fast-launch interface for expert workflows.",
-      "categories": [
-        "data & systems"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "components/quantum-ui/CommandPalette.tsx",
-          "type": "registry:ui",
-          "target": "components/quantum-ui/CommandPalette.tsx"
-        }
-      ],
-      "meta": {
-        "exportName": "CommandPalette",
-        "category": "DATA & SYSTEMS",
-        "demo": "Search commands",
-        "usage": "import CommandPalette from \"./components/quantum-ui/CommandPalette\";\n\nexport default function Example() {\n  return <CommandPalette>Search commands</CommandPalette>;\n}"
-      }
-    },
-    {
-      "name": "system-status",
-      "type": "registry:ui",
-      "title": "System Status",
-      "description": "A compact health beacon with meaningful states.",
-      "categories": [
-        "data & systems"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "components/quantum-ui/SystemStatus.tsx",
-          "type": "registry:ui",
-          "target": "components/quantum-ui/SystemStatus.tsx"
-        }
-      ],
-      "meta": {
-        "exportName": "SystemStatus",
-        "category": "DATA & SYSTEMS",
-        "demo": "Systems nominal",
-        "usage": "import SystemStatus from \"./components/quantum-ui/SystemStatus\";\n\nexport default function Example() {\n  return <SystemStatus>Systems nominal</SystemStatus>;\n}"
-      }
-    },
-    {
-      "name": "hologram-panel",
-      "type": "registry:ui",
-      "title": "Hologram Panel",
-      "description": "A layered glass surface with projected depth.",
-      "categories": [
-        "surfaces"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "components/quantum-ui/HologramPanel.tsx",
-          "type": "registry:ui",
-          "target": "components/quantum-ui/HologramPanel.tsx"
-        }
-      ],
-      "meta": {
-        "exportName": "HologramPanel",
-        "category": "SURFACES",
-        "demo": "Project interface",
-        "usage": "import HologramPanel from \"./components/quantum-ui/HologramPanel\";\n\nexport default function Example() {\n  return <HologramPanel>Project interface</HologramPanel>;\n}"
-      }
-    },
-    {
-      "name": "aurora-input",
-      "type": "registry:ui",
-      "title": "Aurora Input",
-      "description": "An input field with an active spectral edge.",
-      "categories": [
-        "surfaces"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "components/quantum-ui/AuroraInput.tsx",
-          "type": "registry:ui",
-          "target": "components/quantum-ui/AuroraInput.tsx"
-        }
-      ],
-      "meta": {
-        "exportName": "AuroraInput",
-        "category": "SURFACES",
-        "demo": "Acquire input",
-        "usage": "import AuroraInput from \"./components/quantum-ui/AuroraInput\";\n\nexport default function Example() {\n  return <AuroraInput>Acquire input</AuroraInput>;\n}"
+        "exportName": "IsoButton",
+        "category": "BUTTONS",
+        "demo": "Stack layers",
+        "usage": "import IsoButton from \"./components/quantum-ui/IsoButton\";\n\nexport default function Example() {\n  return <IsoButton>Stack layers</IsoButton>;\n}"
       }
     },
     {
@@ -372,29 +257,6 @@
       }
     },
     {
-      "name": "avatar-group",
-      "type": "registry:ui",
-      "title": "Avatar Group",
-      "description": "Overlapping avatars that lift and scale forward on hover.",
-      "categories": [
-        "interactive"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "components/quantum-ui/AvatarGroup.tsx",
-          "type": "registry:ui",
-          "target": "components/quantum-ui/AvatarGroup.tsx"
-        }
-      ],
-      "meta": {
-        "exportName": "AvatarGroup",
-        "category": "INTERACTIVE",
-        "demo": "Reveal contributor",
-        "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
-      }
-    },
-    {
       "name": "cursor",
       "type": "registry:ui",
       "title": "Cursor",
@@ -441,26 +303,26 @@
       }
     },
     {
-      "name": "masked-avatars",
+      "name": "ring-gallery",
       "type": "registry:ui",
-      "title": "Masked Avatars",
-      "description": "Overlapping circular avatars with an active name label.",
+      "title": "Ring Gallery",
+      "description": "A circular gallery where cards orbit a ring and grow as they pass the front slot.",
       "categories": [
         "interactive"
       ],
       "dependencies": [],
       "files": [
         {
-          "path": "components/quantum-ui/MaskedAvatars.tsx",
+          "path": "components/quantum-ui/RingGallery.tsx",
           "type": "registry:ui",
-          "target": "components/quantum-ui/MaskedAvatars.tsx"
+          "target": "components/quantum-ui/RingGallery.tsx"
         }
       ],
       "meta": {
-        "exportName": "MaskedAvatars",
+        "exportName": "RingGallery",
         "category": "INTERACTIVE",
-        "demo": "AIZEN",
-        "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars>AIZEN</MaskedAvatars>;\n}"
+        "demo": "Push",
+        "usage": "import RingGallery from \"./components/quantum-ui/RingGallery\";\n\nexport default function Example() {\n  return <RingGallery />;\n}"
       }
     },
     {
@@ -507,6 +369,75 @@
         "category": "LAYOUT & CARDS",
         "demo": "Ocean Horizon",
         "usage": "import TestimonialsCard from \"./components/quantum-ui/TestimonialsCard\";\n\nexport default function Example() {\n  return <TestimonialsCard>Ocean Horizon</TestimonialsCard>;\n}"
+      }
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Overlapping avatars that lift and scale forward on hover.",
+      "categories": [
+        "layout & cards"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/AvatarGroup.tsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/AvatarGroup.tsx"
+        }
+      ],
+      "meta": {
+        "exportName": "AvatarGroup",
+        "category": "LAYOUT & CARDS",
+        "demo": "Reveal contributor",
+        "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
+      }
+    },
+    {
+      "name": "masked-avatars",
+      "type": "registry:ui",
+      "title": "Masked Avatars",
+      "description": "Overlapping circular avatars with an active name label.",
+      "categories": [
+        "layout & cards"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/MaskedAvatars.tsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/MaskedAvatars.tsx"
+        }
+      ],
+      "meta": {
+        "exportName": "MaskedAvatars",
+        "category": "LAYOUT & CARDS",
+        "demo": "AIZEN",
+        "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars>AIZEN</MaskedAvatars>;\n}"
+      }
+    },
+    {
+      "name": "orbit-gallery",
+      "type": "registry:ui",
+      "title": "Orbit Gallery",
+      "description": "A portrait card with orbiting avatars, a progress ring and a crossfading backdrop.",
+      "categories": [
+        "layout & cards"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/OrbitGallery.tsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/OrbitGallery.tsx"
+        }
+      ],
+      "meta": {
+        "exportName": "OrbitGallery",
+        "category": "LAYOUT & CARDS",
+        "demo": "Cycle the gallery",
+        "usage": "import OrbitGallery from \"./components/quantum-ui/OrbitGallery\";\n\nexport default function Example() {\n  return <OrbitGallery>Cycle the gallery</OrbitGallery>;\n}"
       }
     },
     {

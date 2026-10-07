@@ -61,7 +61,7 @@ test("components whose file name differs from their title resolve correctly", ()
   const t = body(await c.callTool({ name: "get_component", arguments: { name: "3D Text Reveal" } }));
   assert.match(t, /npx shadcn@latest add @quantum-ui\/3d-text-reveal/);
   assert.match(t, /import Text3DReveal from "\.\/components\/quantum-ui\/Text3DReveal"/);
-  assert.match(t, /components\/quantum-ui\/Text3DReveal\.jsx/);
+  assert.match(t, /components\/quantum-ui\/Text3DReveal\.tsx/);
   assert.doesNotMatch(t, /from "@\//);
   const k = body(await c.callTool({ name: "get_component", arguments: { name: "kinetic-typography" } }));
   assert.match(k, /import KineticText from "\.\/components\/quantum-ui\/KineticText"/);

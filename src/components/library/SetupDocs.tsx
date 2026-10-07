@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CopyButton from "./CopyButton";
 import registryConfig from "../../../registry.config.json";
+import ComponentPageNav from "./ComponentPageNav";
 
 /* =====================================================
    SETUP DOCS
@@ -584,41 +585,12 @@ function SetupDocs({ docId }) {
     </div>
   );
 }
-
-/** Right-hand "On this page" list for a setup page. */
-export function SetupPageNav({ docId }) {
-  const page = PAGES[docId];
+/** Right-hand "On this page" rail for a setup page. */
+export function SetupPageNav({ docId }: { docId: string }) {
+  const page = PAGES[docId as keyof typeof PAGES];
   if (!page) return null;
 
-  const jump = (id) =>
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  return (
-    <nav
-      aria-label="On this page"
-      className="hidden min-h-0 overflow-y-auto border-l border-white/[0.06] px-6 py-[43px] xl:block"
-    >
-      <div className="mb-3 font-mono text-[10px] tracking-[0.14em] text-slate-600">
-        ON THIS PAGE
-      </div>
-
-      <ul className="space-y-1">
-        {page.sections.map((section) => (
-          <li key={section.id}>
-            <button
-              type="button"
-              onClick={() => jump(section.id)}
-              className="block w-full rounded-md px-2 py-1.5 text-left text-[13px] text-slate-500 transition-colors hover:text-white"
-            >
-              {section.title}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
+  return <ComponentPageNav items={page.sections} />;
 }
 
 export default SetupDocs;

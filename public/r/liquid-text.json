@@ -13,7 +13,7 @@
       "path": "components/quantum-ui/LiquidText.tsx",
       "type": "registry:ui",
       "target": "components/quantum-ui/LiquidText.tsx",
-      "content": "import { useState } from \"react\";\n\nfunction LiquidText({ children = \"Hover Me\" }) {\n  const [hovered, setHovered] = useState(false);\n\n  return (\n    <span\n      onMouseEnter={() => setHovered(true)}\n      onMouseLeave={() => setHovered(false)}\n      className=\"inline-block cursor-default text-4xl font-semibold tracking-tight text-white transition-all duration-500\"\n      style={{\n        transform: hovered ? \"skewX(-8deg) scaleX(1.08)\" : \"skewX(0) scaleX(1)\",\n        filter: hovered ? \"blur(.2px)\" : \"blur(0)\",\n        textShadow: hovered ? \"10px 0 18px rgba(77,216,255,.16), -10px 0 18px rgba(255,255,255,.08)\" : \"none\",\n      }}\n    >\n      {children}\n    </span>\n  );\n}\n\nexport default LiquidText;\n"
+      "content": "import { useState } from \"react\";\r\n\r\nfunction LiquidText({ children = \"Hover Me\" }) {\r\n  const [hovered, setHovered] = useState(false);\r\n\r\n  return (\r\n    <span\r\n      onMouseEnter={() => setHovered(true)}\r\n      onMouseLeave={() => setHovered(false)}\r\n      className=\"inline-block cursor-default text-4xl font-semibold tracking-tight text-white transition-all duration-500\"\r\n      style={{\r\n        transform: hovered ? \"skewX(-8deg) scaleX(1.08)\" : \"skewX(0) scaleX(1)\",\r\n        filter: hovered ? \"blur(.2px)\" : \"blur(0)\",\r\n        textShadow: hovered ? \"10px 0 18px rgba(77,216,255,.16), -10px 0 18px rgba(255,255,255,.08)\" : \"none\",\r\n      }}\r\n    >\r\n      {children}\r\n    </span>\r\n  );\r\n}\r\n\r\nexport default LiquidText;\r\n"
     }
   ],
   "meta": {

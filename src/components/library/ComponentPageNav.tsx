@@ -1,6 +1,21 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useState } from "react";
 
-const DEFAULT_ITEMS = [
+export interface PageNavItem {
+  /** Must match the `id` of a heading/section element on the page. */
+  id: string;
+  title: string;
+  /** 2 = top level (default), 3 = nested/indented. */
+  depth?: number;
+}
+
+interface PageNavProps {
+  /** Sections to show. Omit to get the default component-page sections. */
+  items?: PageNavItem[];
+  /** CSS selector of the scrolling container that holds the sections. */
+  scrollSelector?: string;
+}
+
+const DEFAULT_ITEMS: PageNavItem[] = [
   { id: "overview", title: "Overview", depth: 2 },
   { id: "preview", title: "Preview", depth: 3 },
   { id: "installation", title: "Installation", depth: 2 },
@@ -8,95 +23,96 @@ const DEFAULT_ITEMS = [
   { id: "props", title: "Props", depth: 2 },
 ];
 
+const SCROLL_SELECTOR = ".quantum-content-scroll";
 const ROW_HEIGHT = 40;
 const RAIL_WIDTH = 24;
 
-function buildZigzagPath(items) {
-  const points = items.map((_, index) => ({
+type Point = { x: number; y: number };
+
+function buildZigzagPath(count: number): string {
+  const points: Point[] = Array.from({ length: count }, (_, index) => ({
     x: index % 2 === 0 ? 5 : 19,
     y: index * ROW_HEIGHT,
   }));
 
   points.push({
-    x: items.length % 2 === 0 ? 5 : 19,
-    y: items.length * ROW_HEIGHT,
+    x: count % 2 === 0 ? 5 : 19,
+    y: count * ROW_HEIGHT,
   });
 
   return points
-    .map((point, index) =>
-      `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`
-    )
+    .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`)
     .join(" ");
 }
 
-function ComponentPageNav() {
+function ComponentPageNav({
+  items = DEFAULT_ITEMS,
+  scrollSelector = SCROLL_SELECTOR,
+}: PageNavProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const path = useMemo(
-    () => buildZigzagPath(DEFAULT_ITEMS),
-    []
-  );
+  // useId can contain ":" which is awkward inside url(#...), so strip it.
+  const clipId = `quantum-zigzag-${useId().replace(/:/g, "")}`;
 
-  const totalHeight = DEFAULT_ITEMS.length * ROW_HEIGHT;
+  const depthOf = (item: PageNavItem) => item.depth ?? 2;
+
+  const path = useMemo(() => buildZigzagPath(items.length), [items.length]);
+  const totalHeight = items.length * ROW_HEIGHT;
+
+  // Items can change when the user switches pages, so never trust a stale index.
+  const safeIndex = Math.min(activeIndex, Math.max(items.length - 1, 0));
 
   const activeStartIndex = useMemo(() => {
-    const activeItem = DEFAULT_ITEMS[activeIndex];
+    const activeItem = items[safeIndex];
 
-    if (!activeItem || activeItem.depth <= 2) {
-      return activeIndex;
+    if (!activeItem || depthOf(activeItem) <= 2) {
+      return safeIndex;
     }
 
-    for (let index = activeIndex - 1; index >= 0; index--) {
-      if (DEFAULT_ITEMS[index].depth < activeItem.depth) {
+    for (let index = safeIndex - 1; index >= 0; index--) {
+      if (depthOf(items[index]) < depthOf(activeItem)) {
         return index;
       }
     }
 
-    return activeIndex;
-  }, [activeIndex]);
+    return safeIndex;
+  }, [items, safeIndex]);
 
   const handleScroll = useCallback(() => {
-    const container = document.querySelector(
-      ".quantum-content-scroll"
-    );
+    const container = document.querySelector<HTMLElement>(scrollSelector);
 
-    if (!container) return;
+    if (!container || items.length === 0) return;
 
-    const activationLine =
-      container.getBoundingClientRect().top + 120;
+    const activationLine = container.getBoundingClientRect().top + 120;
 
     const isAtBottom =
       container.scrollTop + container.clientHeight >=
       container.scrollHeight - 50;
 
-    if (isAtBottom) {
-      setActiveIndex(DEFAULT_ITEMS.length - 1);
+    // Only snap to the last item if the page can actually scroll.
+    const canScroll = container.scrollHeight > container.clientHeight + 50;
+
+    if (isAtBottom && canScroll) {
+      setActiveIndex(items.length - 1);
       return;
     }
 
     let currentIndex = 0;
 
-    for (let index = DEFAULT_ITEMS.length - 1; index >= 0; index--) {
-      const section = document.getElementById(
-        DEFAULT_ITEMS[index].id
-      );
+    for (let index = items.length - 1; index >= 0; index--) {
+      const section = document.getElementById(items[index].id);
 
-      if (
-        section &&
-        section.getBoundingClientRect().top <= activationLine
-      ) {
+      if (section && section.getBoundingClientRect().top <= activationLine) {
         currentIndex = index;
         break;
       }
     }
 
     setActiveIndex(currentIndex);
-  }, []);
+  }, [items, scrollSelector]);
 
   useEffect(() => {
-    const container = document.querySelector(
-      ".quantum-content-scroll"
-    );
+    const container = document.querySelector<HTMLElement>(scrollSelector);
 
     if (!container) return undefined;
 
@@ -113,43 +129,39 @@ function ComponentPageNav() {
       });
     };
 
-    container.addEventListener("scroll", onScroll, {
-      passive: true,
-    });
+    container.addEventListener("scroll", onScroll, { passive: true });
 
+    // Sync once for the new page's sections.
     handleScroll();
 
     return () => {
       container.removeEventListener("scroll", onScroll);
     };
-  }, [handleScroll]);
+  }, [handleScroll, scrollSelector]);
 
-  const scrollToSection = useCallback((id) => {
-    const container = document.querySelector(
-      ".quantum-content-scroll"
-    );
+  const scrollToSection = useCallback(
+    (id: string) => {
+      const container = document.querySelector<HTMLElement>(scrollSelector);
+      const section = document.getElementById(id);
 
-    const section = document.getElementById(id);
+      if (!container || !section) return;
 
-    if (!container || !section) return;
+      const containerRect = container.getBoundingClientRect();
+      const sectionRect = section.getBoundingClientRect();
 
-    const containerRect = container.getBoundingClientRect();
-    const sectionRect = section.getBoundingClientRect();
+      container.scrollTo({
+        top: container.scrollTop + sectionRect.top - containerRect.top - 32,
+        behavior: "smooth",
+      });
+    },
+    [scrollSelector],
+  );
 
-    const targetPosition =
-      container.scrollTop +
-      sectionRect.top -
-      containerRect.top -
-      32;
-
-    container.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-  }, []);
+  if (items.length === 0) return null;
 
   return (
     <aside
+      aria-label="On this page"
       className="
         hidden
         h-full
@@ -208,29 +220,25 @@ function ComponentPageNav() {
             fill="none"
           >
             <defs>
-              <clipPath id="quantum-zigzag-active-clip">
+              <clipPath id={clipId}>
                 <rect
                   x="0"
                   y={activeStartIndex * ROW_HEIGHT}
                   width={RAIL_WIDTH}
-                  height={
-                    (activeIndex - activeStartIndex + 1) *
-                    ROW_HEIGHT
-                  }
+                  height={(safeIndex - activeStartIndex + 1) * ROW_HEIGHT}
                 />
               </clipPath>
             </defs>
 
             <path
               d={path}
-              clipPath="url(#quantum-zigzag-active-clip)"
+              clipPath={`url(#${clipId})`}
               stroke="#4DD8FF"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
               style={{
-                filter:
-                  "drop-shadow(0 0 3px rgba(77,216,255,0.35))",
+                filter: "drop-shadow(0 0 3px rgba(77,216,255,0.35))",
                 transition: "opacity 200ms ease",
               }}
             />
@@ -252,14 +260,14 @@ function ComponentPageNav() {
             "
             style={{
               left: 8,
-              top: activeIndex * ROW_HEIGHT + ROW_HEIGHT / 2 - 4,
+              top: safeIndex * ROW_HEIGHT + ROW_HEIGHT / 2 - 4,
             }}
           />
 
           {/* NAVIGATION LABELS */}
           <ul className="relative z-10 flex w-full flex-col">
-            {DEFAULT_ITEMS.map((item, index) => {
-              const isActive = index === activeIndex;
+            {items.map((item, index) => {
+              const isActive = index === safeIndex;
 
               return (
                 <li key={item.id} className="relative h-10">
@@ -288,8 +296,7 @@ function ComponentPageNav() {
                       }
                     `}
                     style={{
-                      paddingInlineStart:
-                        item.depth <= 2 ? 20 : 32,
+                      paddingInlineStart: depthOf(item) <= 2 ? 20 : 32,
                     }}
                   >
                     {item.title}

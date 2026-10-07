@@ -5,7 +5,7 @@
   "title": "Avatar Group",
   "description": "Overlapping avatars that lift and scale forward on hover.",
   "categories": [
-    "interactive"
+    "layout & cards"
   ],
   "dependencies": [],
   "files": [
@@ -13,12 +13,12 @@
       "path": "components/quantum-ui/AvatarGroup.tsx",
       "type": "registry:ui",
       "target": "components/quantum-ui/AvatarGroup.tsx",
-      "content": "import React, { useState } from \"react\";\n\nconst defaultAvatars = [\n  { name: \"A\", image: \"https://i.pravatar.cc/96?img=12\" },\n  { name: \"B\", image: \"https://i.pravatar.cc/96?img=32\" },\n  { name: \"C\", image: \"https://i.pravatar.cc/96?img=47\" },\n  { name: \"D\", image: \"https://i.pravatar.cc/96?img=5\" },\n  { name: \"E\", image: \"https://i.pravatar.cc/96?img=68\" },\n];\n\nexport default function AvatarGroup({\n  avatars = defaultAvatars,\n  size = 48,\n  overlap = 14,\n}) {\n  const [active, setActive] = useState(null);\n\n  return (\n    <div className=\"flex items-center justify-center py-6\">\n      <div className=\"flex items-center\">\n        {avatars.map((avatar, index) => (\n          <button\n            key={index}\n            type=\"button\"\n            onMouseEnter={() => setActive(index)}\n            onMouseLeave={() => setActive(null)}\n            className=\"relative overflow-hidden rounded-full border-2 border-[#08090c] bg-neutral-800 transition-all duration-300 ease-out focus:outline-none\"\n            style={{\n              width: size,\n              height: size,\n              marginLeft: index === 0 ? 0 : -overlap,\n              zIndex: active === index ? 50 : index + 1,\n              transform:\n                active === index\n                  ? \"translateY(-8px) scale(1.12)\"\n                  : \"translateY(0) scale(1)\",\n            }}\n            aria-label={avatar.name}\n          >\n            <img\n              src={avatar.image}\n              alt={avatar.name}\n              className=\"h-full w-full object-cover\"\n            />\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
+      "content": "import React, { useState } from \"react\";\r\n\r\nconst defaultAvatars = [\r\n  { name: \"A\", image: \"https://i.pravatar.cc/96?img=12\" },\r\n  { name: \"B\", image: \"https://i.pravatar.cc/96?img=32\" },\r\n  { name: \"C\", image: \"https://i.pravatar.cc/96?img=47\" },\r\n  { name: \"D\", image: \"https://i.pravatar.cc/96?img=5\" },\r\n  { name: \"E\", image: \"https://i.pravatar.cc/96?img=68\" },\r\n];\r\n\r\nexport default function AvatarGroup({\r\n  avatars = defaultAvatars,\r\n  size = 48,\r\n  overlap = 14,\r\n}) {\r\n  const [active, setActive] = useState<number | null>(null);\r\n\r\n  return (\r\n    <div className=\"flex items-center justify-center py-6\">\r\n      <div className=\"flex items-center\">\r\n        {avatars.map((avatar, index) => (\r\n          <button\r\n            key={index}\r\n            type=\"button\"\r\n            onMouseEnter={() => setActive(index)}\r\n            onMouseLeave={() => setActive(null)}\r\n            className=\"relative overflow-hidden rounded-full border-2 border-[#08090c] bg-neutral-800 transition-all duration-300 ease-out focus:outline-none\"\r\n            style={{\r\n              width: size,\r\n              height: size,\r\n              marginLeft: index === 0 ? 0 : -overlap,\r\n              zIndex: active === index ? 50 : index + 1,\r\n              transform:\r\n                active === index\r\n                  ? \"translateY(-8px) scale(1.12)\"\r\n                  : \"translateY(0) scale(1)\",\r\n            }}\r\n            aria-label={avatar.name}\r\n          >\r\n            <img\r\n              src={avatar.image}\r\n              alt={avatar.name}\r\n              className=\"h-full w-full object-cover\"\r\n            />\r\n          </button>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n"
     }
   ],
   "meta": {
     "exportName": "AvatarGroup",
-    "category": "INTERACTIVE",
+    "category": "LAYOUT & CARDS",
     "demo": "Reveal contributor",
     "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
   }

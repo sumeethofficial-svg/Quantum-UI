@@ -5,7 +5,7 @@
   "title": "Liquid Button",
   "description": "A fluid action button with an animated liquid interaction.",
   "categories": [
-    "interactions"
+    "buttons"
   ],
   "dependencies": [],
   "files": [
@@ -13,12 +13,12 @@
       "path": "components/quantum-ui/LiquidButton.tsx",
       "type": "registry:ui",
       "target": "components/quantum-ui/LiquidButton.tsx",
-      "content": "import { useState } from \"react\";\n\nfunction LiquidButton({ children = \"Activate liquid sequence →\", onClick }) {\n  const [active, setActive] = useState(false);\n\n  return (\n    <button\n      type=\"button\"\n      onClick={() => {\n        setActive(true);\n        onClick?.();\n        window.setTimeout(() => setActive(false), 650);\n      }}\n      className={`relative overflow-hidden rounded-full border px-6 py-3 font-mono text-sm text-cyan-100 transition-all duration-500 ${\n        active\n          ? \"border-cyan-200 shadow-[0_0_40px_rgba(77,216,255,0.3)]\"\n          : \"border-cyan-400/25 bg-black/40 hover:border-cyan-300/50\"\n      }`}\n      style={{\n        backgroundImage: active\n          ? \"radial-gradient(circle at 50% 120%, rgba(77,216,255,0.35), transparent 60%)\"\n          : \"none\",\n      }}\n    >\n      {children}\n    </button>\n  );\n}\n\nexport default LiquidButton;\n"
+      "content": "import { useState } from \"react\";\r\n\r\nfunction LiquidButton({ children = \"Activate liquid sequence →\", onClick }) {\r\n  const [active, setActive] = useState(false);\r\n\r\n  return (\r\n    <button\r\n      type=\"button\"\r\n      onClick={() => {\r\n        setActive(true);\r\n        onClick?.();\r\n        window.setTimeout(() => setActive(false), 650);\r\n      }}\r\n      className={`relative overflow-hidden rounded-full border px-6 py-3 font-mono text-sm text-cyan-100 transition-all duration-500 ${\r\n        active\r\n          ? \"border-cyan-200 shadow-[0_0_40px_rgba(77,216,255,0.3)]\"\r\n          : \"border-cyan-400/25 bg-black/40 hover:border-cyan-300/50\"\r\n      }`}\r\n      style={{\r\n        backgroundImage: active\r\n          ? \"radial-gradient(circle at 50% 120%, rgba(77,216,255,0.35), transparent 60%)\"\r\n          : \"none\",\r\n      }}\r\n    >\r\n      {children}\r\n    </button>\r\n  );\r\n}\r\n\r\nexport default LiquidButton;\r\n"
     }
   ],
   "meta": {
     "exportName": "LiquidButton",
-    "category": "INTERACTIONS",
+    "category": "BUTTONS",
     "demo": "Activate liquid sequence →",
     "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return <LiquidButton>Activate liquid sequence →</LiquidButton>;\n}"
   }

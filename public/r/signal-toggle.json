@@ -5,7 +5,7 @@
   "title": "Signal Toggle",
   "description": "A binary control that makes state instantly legible.",
   "categories": [
-    "interactions"
+    "buttons"
   ],
   "dependencies": [],
   "files": [
@@ -18,7 +18,7 @@
   ],
   "meta": {
     "exportName": "SignalToggle",
-    "category": "INTERACTIONS",
+    "category": "BUTTONS",
     "demo": "Signal enabled",
     "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return <SignalToggle>Signal enabled</SignalToggle>;\n}"
   }
