@@ -26,7 +26,7 @@ import Cursor from "../ui/interactive/Cursor";
 import Tooltip from "../ui/interactive/Tooltip";
 import MaskedAvatars from "../ui/interactive/MaskedAvatars";
 import RingGallery from "../ui/interactive/RingGallery";
-
+import BookShelf from "../ui/interactive/BookShelf";
 import TeamRevealGrid from "../ui/cards/TeamRevealGrid";
 import TestimonialsCard from "../ui/cards/TestimonialsCard";
 
@@ -69,6 +69,7 @@ export const componentRegistry = {
   "Tooltip": Tooltip,
   "Masked Avatars": MaskedAvatars,
   "Ring Gallery": RingGallery,
+  "Book Shelf": BookShelf,
 
   "Team Reveal Grid": TeamRevealGrid,
   "Testimonials Card": TestimonialsCard,

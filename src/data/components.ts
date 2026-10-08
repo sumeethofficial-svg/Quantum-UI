@@ -212,7 +212,23 @@ export default function Example() {
           { name: "className", type: "string", default: '""' },
         ],
       },
-      ] ,
+              {
+           name: "Book Shelf",
+           glyph: "▥",
+           description:
+             "A row of book spines where the active book swings open in 3D to reveal its cover.",
+           demo: "Open a book",
+           props: [
+             { name: "items", type: "BookShelfItem[]", default: "6 sample books" },
+             { name: "heading", type: "string", default: '"Favorite books"' },
+             { name: "interval", type: "number", default: "3000" },
+             { name: "autoPlay", type: "boolean", default: "true" },
+             { name: "trigger", type: '"click" | "hover"', default: '"click"' },
+             { name: "className", type: "string", default: '""' },
+           ],
+         },
+        
+    ] ,
   },
 
    {
