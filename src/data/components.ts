@@ -228,7 +228,20 @@ export default function Example() {
            ],
          },
         
-    ] ,
+             {
+           name: "Stack Orbit",
+           glyph: "◍",
+           description:
+             "Tech-stack logos on a depth loop: the front one is sharp and large, the rest recede and blur.",
+           demo: "Rotate the stack",
+           props: [
+             { name: "items", type: "StackOrbitItem[]", default: "7 sample logos" },
+             { name: "interval", type: "number", default: "2600" },
+             { name: "autoPlay", type: "boolean", default: "true" },
+             { name: "className", type: "string", default: '""' },
+           ],
+         },
+      ] ,
   },
 
    {

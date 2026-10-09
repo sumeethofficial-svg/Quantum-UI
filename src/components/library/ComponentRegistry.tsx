@@ -29,6 +29,7 @@ import RingGallery from "../ui/interactive/RingGallery";
 import BookShelf from "../ui/interactive/BookShelf";
 import TeamRevealGrid from "../ui/cards/TeamRevealGrid";
 import TestimonialsCard from "../ui/cards/TestimonialsCard";
+import StackOrbit from "../ui/interactive/StackOrbit";
 
 import SpotlightNavbar from "../ui/navigation/SpotlightNavbar";
 
@@ -70,6 +71,7 @@ export const componentRegistry = {
   "Masked Avatars": MaskedAvatars,
   "Ring Gallery": RingGallery,
   "Book Shelf": BookShelf,
+   "Stack Orbit": StackOrbit,
 
   "Team Reveal Grid": TeamRevealGrid,
   "Testimonials Card": TestimonialsCard,
