@@ -1,88 +1,134 @@
+<div align="center">
+
 # Quantum UI
 
-Quantum UI is a futuristic React component library focused on precision interfaces, motion, glass surfaces, and reusable UI primitives.
+**Components built to feel different.**
 
-> Work in progress — the public component library is currently under active development.
+Open-source React components with distinctive interaction, depth and motion, for interfaces that don't look like every other card-and-button kit.
 
-## Development
+[Live site](https://quantumui-labs.vercel.app) · [Browse components](https://quantumui-labs.vercel.app/components) · [Report a bug](https://github.com/sumeethofficial-svg/Quantum-UI/issues) · [Request a component](https://github.com/sumeethofficial-svg/Quantum-UI/issues)
 
-This repository contains the active Vite + React application.
+![Status: beta](https://img.shields.io/badge/status-beta-4dd8ff?style=flat-square)
+![React](https://img.shields.io/badge/React-black?style=flat-square&logo=react&logoColor=61DAFB)
+![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-black?style=flat-square&logo=tailwindcss&logoColor=38BDF8)
+![Vite](https://img.shields.io/badge/Vite-black?style=flat-square&logo=vite&logoColor=A78BFA)
+![PRs welcome](https://img.shields.io/badge/PRs-welcome-black?style=flat-square)
+
+</div>
+
+<!-- Add a screenshot or GIF of the site here, for example:
+![Quantum UI preview](./public/preview.png)
+-->
+
+> [!NOTE]
+> Quantum UI is in **beta**. New components and features are added regularly, so expect rough edges and the occasional breaking change. Contributions are welcome.
+
+## Why Quantum
+
+Most component kits look alike. Quantum focuses on three things instead:
+
+- **Interaction**: buttons, toggles, links and menus engineered around how they feel to use.
+- **Motion**: animated surfaces and transitions that share one visual language.
+- **Composition**: cards, navigation and layout blocks designed to work together.
+
+Everything is open source, so you can read how each component is built and adapt it to your project.
+
+## Components
+
+| Group | Components |
+| --- | --- |
+| Interactions | Photon Button, Magnetic Link, Signal Toggle, Orbit Menu, Liquid Button |
+
+Plus data and surface components. Every component has a live preview, its source code and a copyable install command on the [components page](https://quantumui-labs.vercel.app/components).
+
+## Getting started
+
+### Requirements
+
+- A React project (Vite or Next.js) using **Tailwind CSS v4**
+- A `components.json` for the shadcn CLI. If your project doesn't have one, run `npx shadcn@latest init` first.
+
+### Install a component
+
+Components install through the shadcn CLI, so the source lands in your own project and you own it.
+
+<!-- TODO: replace <registry-path> with the real path from the install command on the components page -->
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/sumeethofficial-svg/Quantum-UI/main/<registry-path>/photon-button.json
+```
+
+Each component page has the exact command for that component with a copy button.
+
+### Use it
+
+Import the component from wherever the CLI placed it. That depends on the aliases in your `components.json`, so adjust the path to match your project:
+
+```jsx
+import PhotonButton from "./components/ui/photon-button";
+
+export default function Example() {
+  return <PhotonButton>Initialize sequence</PhotonButton>;
+}
+```
+
+## Run the docs site locally
 
 ```bash
+git clone https://github.com/sumeethofficial-svg/Quantum-UI.git
+cd Quantum-UI
 npm install
 npm run dev
 ```
 
-## Status
+Then open <http://localhost:5173>.
 
-Quantum UI is open source and actively being built. Components and documentation will continue to evolve.
+## Project structure
 
-## Using Quantum UI in your project
-
-Quantum UI is a copy-paste component registry (React + Tailwind CSS v4). Components are installed with the
-[shadcn CLI](https://ui.shadcn.com/docs/cli); there is no runtime package to depend on.
-
-```bash
-# add a component: works in any project, no setup (this is the command on each component page)
-npx shadcn@latest add https://raw.githubusercontent.com/sumeethofficial-svg/Quantum-UI/main/public/r/photon-button.json
-
-# or register the @quantum-ui registry once, then use short names
-npx quantum-ui-cli init
-npx shadcn@latest add @quantum-ui/photon-button
-npx shadcn@latest search @quantum-ui         # browse
-npx shadcn@latest view @quantum-ui/wave-grid # read the source first
+```
+Quantum-UI/
+├── public/                # static assets
+├── scripts/               # helper scripts
+├── packages/              # CLI and MCP server (in progress)
+├── src/
+│   ├── components/
+│   │   ├── hero/          # homepage hero
+│   │   ├── library/       # components page: sidebar, preview, code, install
+│   │   ├── navigation/    # navbar
+│   │   ├── sections/      # homepage sections
+│   │   └── ui/            # the Quantum components
+│   ├── data/              # component metadata
+│   ├── pages/             # home and docs pages
+│   ├── App.jsx
+│   └── main.jsx
+├── registry.config.json   # registry configuration
+└── vercel.json
 ```
 
-Components are copied to `src/components/quantum-ui/` and each has a **default export**:
+## Roadmap
 
-```jsx
-import PhotonButton from "./components/quantum-ui/PhotonButton"; // path relative to the importing file
+- [x] Docs site with live previews, source code and copyable install commands
+- [ ] Registry: every component installable through the shadcn CLI
+- [ ] Quantum CLI
+- [ ] MCP server, so AI assistants can browse and install components
+- [ ] More components across interaction, motion and composition
 
-export default function App() {
-  return <PhotonButton>Initialize sequence →</PhotonButton>;
-}
-```
+## Contributing
 
-No `@/` alias is needed to *use* the components. (The shadcn CLI itself reads `tsconfig.json`/`jsconfig.json`;
-`init` creates a `jsconfig.json` only if the project has neither.)
+Contributions of every size are welcome: a bug fix, a docs improvement, a new component.
 
-### Cursor / Claude
+1. Fork the repo and create a branch: `git checkout -b feat/my-component`
+2. Run the site locally with `npm run dev`
+3. Make your change. For a new component, look at how an existing one such as Photon Button is built and listed, and follow the same pattern.
+4. Check that it works on the components page, then open a pull request describing what you changed and why.
 
-```bash
-npx quantum-ui-cli init cursor   # .cursor/rules/quantum-ui.mdc + .cursor/mcp.json
-npx quantum-ui-cli init claude   # CLAUDE.md section + .mcp.json
-npx quantum-ui-cli init mcp      # MCP server config only (.cursor/mcp.json and .mcp.json)
-npx quantum-ui-cli init -y       # Cursor + Claude + MCP config
-```
+Not sure where to start? Open an [issue](https://github.com/sumeethofficial-svg/Quantum-UI/issues) with your idea before you build it, and we can talk it through.
 
-Existing files are merged, never overwritten. Add `--no-mcp` to write the instructions without the MCP config.
+## License
 
-### MCP server
+<!-- Add a LICENSE file to the repo and name the license here, for example: MIT -->
 
-`quantum-ui-mcp` lets an assistant search components and read their source before installing.
+## Author
 
-```json
-{
-  "mcpServers": {
-    "quantum-ui": { "command": "npx", "args": ["-y", "quantum-ui-mcp"] }
-  }
-}
-```
+Built by **Sumeeth HB**. Find me on [X (@sumedev_)](https://x.com/sumedev_) and [GitHub](https://github.com/sumeethofficial-svg).
 
-Tools: `list_components`, `search_components`, `get_component`, `get_install_command`.
-Because `init` writes the `@quantum-ui` registry into `components.json`, shadcn's own MCP server
-(`npx shadcn@latest mcp init`) can also browse it.
-
-## Maintaining the registry
-
-`src/data/components.ts` decides what is public; sources live in `src/components/ui/`. Empty placeholder files are
-never published. Registry config (name, namespace, base URL, package names) lives in `registry.config.json`.
-
-```bash
-npm run registry:build    # writes public/r/*.json (also runs before every `npm run build`)
-npm run registry:verify   # every listed component resolves, content is fresh, names/URLs agree
-npm run mcp:install       # one-time: install MCP server dependencies
-npm test                  # build + verify registry, then CLI and MCP server tests
-```
-
-Commit `public/r/` after changing a component: the default registry URL serves it straight from `main`.
+If you find Quantum UI useful, a star on the repo helps a lot.
