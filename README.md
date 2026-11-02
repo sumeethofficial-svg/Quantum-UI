@@ -131,4 +131,5 @@ Not sure where to start? Open an [issue](https://github.com/sumeethofficial-svg/
 
 Built by **Sumeeth HB**. Find me on [X (@sumedev_)](https://x.com/sumedev_) and [GitHub](https://github.com/sumeethofficial-svg).
 
-If you find Quantum UI useful, a star on the repo helps a lot.
+If you find Quantum UI useful, a star on the repo helps a lot.,,
+
