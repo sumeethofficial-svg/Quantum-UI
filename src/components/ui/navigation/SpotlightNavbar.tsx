@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState, type ComponentType } from "react";
 import {
   House,
   CircleCheck,
@@ -19,6 +19,10 @@ export default function SpotlightNavbar({
   items = defaultItems,
   defaultActive = 0,
   onChange,
+}: {
+  items?: Array<string | { label: string; icon?: ComponentType<{ className?: string }> }>;
+  defaultActive?: number;
+  onChange?: (item: { label: string; icon: ComponentType<{ className?: string }> }, index: number) => void;
 }) {
   const [active, setActive] = useState(defaultActive);
 
@@ -38,7 +42,7 @@ export default function SpotlightNavbar({
     };
   });
 
-  function selectItem(index) {
+  function selectItem(index: number) {
     setActive(index);
     onChange?.(navItems[index], index);
   }

@@ -42,7 +42,7 @@ for (const group of componentGroups) {
 
     const file = byExport.get(exportName);
     if (!file) { errors.push(`${c.name}: no file named ${exportName}.tsx under src/components/ui`); continue; }
-    const content = await readFile(file, "utf8");
+    const content = (await readFile(file, "utf8")).replace(/\r\n/g, "\n");
     if (!content.trim()) { errors.push(`${c.name}: ${relative(root, file)} is empty`); continue; }
     if (!/export\s+default\s/.test(content)) { errors.push(`${c.name}: no default export in ${relative(root, file)}`); continue; }
 

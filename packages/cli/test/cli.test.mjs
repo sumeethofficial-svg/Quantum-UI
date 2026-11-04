@@ -114,3 +114,26 @@ test("unknown target / command fail with exit 1; missing package.json fails", ()
   const empty = mkdtempSync(join(tmpdir(), "qui-empty-"));
   assert.equal(run(empty, "init").status, 1);
 });
+
+test("adds the @/* alias to a Vite-style tsconfig.json (references only) and tsconfig.app.json", () => {
+  const d = project();
+  writeFileSync(join(d, "tsconfig.json"), JSON.stringify({ files: [], references: [{ path: "./tsconfig.app.json" }] }));
+  writeFileSync(join(d, "tsconfig.app.json"), JSON.stringify({ compilerOptions: { jsx: "react-jsx" }, include: ["src"] }));
+  assert.equal(run(d, "init").status, 0);
+  for (const f of ["tsconfig.json", "tsconfig.app.json"]) assert.deepEqual(json(d, f).compilerOptions.paths, { "@/*": ["./src/*"] }, f);
+  assert.equal(json(d, "tsconfig.app.json").compilerOptions.jsx, "react-jsx");
+  assert.equal(has(d, "jsconfig.json"), false);
+  const snap = read(d, "tsconfig.json");
+  assert.equal(run(d, "init").status, 0);
+  assert.equal(read(d, "tsconfig.json"), snap);
+});
+
+test("leaves a tsconfig with comments untouched and warns", () => {
+  const d = project();
+  const text = '{\n  // keep me\n  "compilerOptions": { "strict": true }\n}\n';
+  writeFileSync(join(d, "tsconfig.json"), text);
+  const r = run(d, "init");
+  assert.equal(r.status, 0);
+  assert.equal(read(d, "tsconfig.json"), text);
+  assert.match(r.stdout, /has comments/);
+});

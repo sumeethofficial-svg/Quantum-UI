@@ -326,6 +326,52 @@
       }
     },
     {
+      "name": "book-shelf",
+      "type": "registry:ui",
+      "title": "Book Shelf",
+      "description": "A row of book spines where the active book swings open in 3D to reveal its cover.",
+      "categories": [
+        "interactive"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/BookShelf.tsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/BookShelf.tsx"
+        }
+      ],
+      "meta": {
+        "exportName": "BookShelf",
+        "category": "INTERACTIVE",
+        "demo": "Open a book",
+        "usage": "import BookShelf from \"./components/quantum-ui/BookShelf\";\n\nexport default function Example() {\n  return <BookShelf>Open a book</BookShelf>;\n}"
+      }
+    },
+    {
+      "name": "stack-orbit",
+      "type": "registry:ui",
+      "title": "Stack Orbit",
+      "description": "Tech-stack logos on a depth loop: the front one is sharp and large, the rest recede and blur.",
+      "categories": [
+        "interactive"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/quantum-ui/StackOrbit.tsx",
+          "type": "registry:ui",
+          "target": "components/quantum-ui/StackOrbit.tsx"
+        }
+      ],
+      "meta": {
+        "exportName": "StackOrbit",
+        "category": "INTERACTIVE",
+        "demo": "Rotate the stack",
+        "usage": "import StackOrbit from \"./components/quantum-ui/StackOrbit\";\n\nexport default function Example() {\n  return <StackOrbit>Rotate the stack</StackOrbit>;\n}"
+      }
+    },
+    {
       "name": "team-reveal-grid",
       "type": "registry:ui",
       "title": "Team Reveal Grid",

@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-function PhotonButton({ children = "Initialize sequence →", onClick, className = "" }) {
+type PhotonButtonProps = {
+  children?: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+};
+
+function PhotonButton({ children = "Initialize sequence →", onClick, className = "" }: PhotonButtonProps) {
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
