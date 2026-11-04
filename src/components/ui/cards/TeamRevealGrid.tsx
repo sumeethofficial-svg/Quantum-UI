@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const members = [
   { name: "Naruto", role: "Web3 Lead", image: "https://i.pravatar.cc/300?img=12", bio: "Designs decentralized product systems." },

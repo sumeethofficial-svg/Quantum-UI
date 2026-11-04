@@ -1,4 +1,3 @@
-import React from "react";
 
 function KineticText({ lines = ["WORDS", "IN", "MOTION"] } = {}) {
   return (

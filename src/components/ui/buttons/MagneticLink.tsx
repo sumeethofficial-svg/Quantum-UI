@@ -1,10 +1,15 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 
-function MagneticLink({ children = "Follow trajectory ↗", strength = 0.18 }) {
-  const ref = useRef(null);
+type MagneticLinkProps = {
+  children?: React.ReactNode;
+  strength?: number;
+};
+
+function MagneticLink({ children = "Follow trajectory ↗", strength = 0.18 }: MagneticLinkProps) {
+  const ref = useRef<HTMLAnchorElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  const move = (event) => {
+  const move = (event: MouseEvent<HTMLAnchorElement>) => {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     setOffset({

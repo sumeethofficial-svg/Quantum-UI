@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const people = [
   { name: "JOHAN", image: "https://i.pravatar.cc/160?img=14" },

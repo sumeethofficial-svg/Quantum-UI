@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Cursor({
   children = "Move your mouse over the div",
   label = "Designer",
 }) {
-  const areaRef = useRef(null);
-  const cursorRef = useRef(null);
-  const followRef = useRef(null);
+  const areaRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const followRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const area = areaRef.current;
@@ -18,9 +18,9 @@ export default function Cursor({
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
-    let raf;
+    let raf = 0;
 
-    const move = (event) => {
+    const move = (event: MouseEvent) => {
       const rect = area.getBoundingClientRect();
       targetX = event.clientX - rect.left;
       targetY = event.clientY - rect.top;

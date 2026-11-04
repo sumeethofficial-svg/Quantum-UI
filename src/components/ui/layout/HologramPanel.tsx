@@ -1,4 +1,4 @@
-function HologramPanel({ title = "Interface", children }) {
+function HologramPanel({ title = "Interface", children }: { title?: string; children?: React.ReactNode }) {
   return (
     <div className="relative w-full max-w-md overflow-hidden rounded-xl border border-cyan-300/[0.15] bg-[#0b0d11]/80 p-6 backdrop-blur-xl">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-300/[0.06] via-transparent to-transparent" />

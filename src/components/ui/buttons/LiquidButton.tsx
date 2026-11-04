@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-function LiquidButton({ children = "Activate liquid sequence →", onClick }) {
+type LiquidButtonProps = {
+  children?: React.ReactNode;
+  onClick?: () => void;
+};
+
+function LiquidButton({ children = "Activate liquid sequence →", onClick }: LiquidButtonProps) {
   const [active, setActive] = useState(false);
 
   return (

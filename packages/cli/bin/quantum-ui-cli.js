@@ -93,6 +93,43 @@ async function upsertBlock(path, block, dry) {
   return cur === null ? "created" : "updated";
 }
 
+// tsconfig files are JSON with comments/trailing commas. Returns null when the file can't be parsed safely.
+function parseJsonc(text) {
+  const withoutComments = text.replace(/("(?:\\.|[^"\\])*")|\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, (m, str) => str ?? "");
+  try {
+    return { data: JSON.parse(withoutComments.replace(/,(\s*[}\]])/g, "$1")), hasComments: withoutComments !== text };
+  } catch {
+    return null;
+  }
+}
+
+// shadcn resolves its install paths from the "@/*" alias in tsconfig.json. Vite's default tsconfig.json is only a
+// list of "references" and has no alias, which makes `shadcn add` fail. Add it (to tsconfig.json and, for Vite,
+// tsconfig.app.json) without touching anything else; leave files with comments alone and say what to add.
+async function ensureAlias(cwd, dry) {
+  const targets = [];
+  for (const f of ["tsconfig.json", "tsconfig.app.json"]) if (await exists(join(cwd, f))) targets.push(f);
+  if (!targets.length) return false;
+  const hint = `"compilerOptions": { "paths": { "@/*": ["./src/*"] } }`;
+  for (const f of targets) {
+    const path = join(cwd, f);
+    const text = await readFile(path, "utf8");
+    const parsed = parseJsonc(text);
+    if (!parsed) { log.warn(`could not parse ${f}; add ${hint} yourself if shadcn reports a missing "@/*" alias.`); continue; }
+    const { data, hasComments } = parsed;
+    if (data.compilerOptions?.paths?.["@/*"]) { log.dim(`${f} already has the "@/*" alias`); continue; }
+    if (hasComments) {
+      // shadcn only reads tsconfig.json; tsconfig.app.json (Vite) matters only if your own code imports through "@/".
+      (f === "tsconfig.json" ? log.warn : log.dim)(`${f} has comments, so it was left untouched. Add ${hint}`);
+      continue;
+    }
+    data.compilerOptions = { ...(data.compilerOptions || {}), paths: { ...(data.compilerOptions?.paths || {}), "@/*": ["./src/*"] } };
+    if (!dry) await writeFile(path, JSON.stringify(data, null, 2) + "\n");
+    log.ok(`${f} updated — added the "@/*" path alias (read by the shadcn CLI; Quantum UI files do not import through it)`);
+  }
+  return true;
+}
+
 async function detectCss(cwd) {
   for (const c of ["src/index.css", "src/App.css", "src/styles.css", "src/app/globals.css", "app/globals.css", "styles/globals.css"]) {
     if (await exists(join(cwd, c))) return c;
@@ -113,14 +150,17 @@ export async function init(cwd, opts) {
     if (major && major < 4) log.warn(`tailwindcss ${deps.tailwindcss} detected — Quantum UI targets Tailwind v4.`);
   }
 
-  // 1) shadcn reads path aliases from tsconfig.json / jsconfig.json. Create a jsconfig only if neither exists.
+  // 1) shadcn reads path aliases from tsconfig.json / jsconfig.json. Add the alias to existing tsconfig files;
+  //    create a jsconfig only if the project has neither.
   const hasTs = await exists(join(cwd, "tsconfig.json"));
   const hasJs = await exists(join(cwd, "jsconfig.json"));
-  if (!hasTs && !hasJs) {
-    if (!dry) await writeFile(join(cwd, "jsconfig.json"), JSON.stringify({ compilerOptions: { baseUrl: ".", paths: { "@/*": ["./src/*"] } } }, null, 2) + "\n");
+  if (hasTs) {
+    await ensureAlias(cwd, dry);
+  } else if (!hasJs) {
+    if (!dry) await writeFile(join(cwd, "jsconfig.json"), JSON.stringify({ compilerOptions: { paths: { "@/*": ["./src/*"] } } }, null, 2) + "\n");
     log.ok("created jsconfig.json (path alias is only read by the shadcn CLI; Quantum UI files do not import through it)");
   } else {
-    log.dim(`using existing ${hasTs ? "tsconfig.json" : "jsconfig.json"} (not modified). If shadcn reports a missing "@/*" alias, add it there.`);
+    log.dim("using existing jsconfig.json (not modified). If shadcn reports a missing \"@/*\" alias, add it there.");
   }
 
   // 2) components.json: create if missing, otherwise only add the registry entry.

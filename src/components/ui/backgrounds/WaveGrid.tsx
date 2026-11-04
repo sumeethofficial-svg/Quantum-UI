@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 
 export default function WaveGrid({
   columns = 18,
   rows = 10,
 }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [pointer, setPointer] = useState({ x: 0.5, y: 0.5 });
 
-  const handleMove = (event) => {
+  const handleMove = (event: MouseEvent<HTMLDivElement>) => {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     setPointer({

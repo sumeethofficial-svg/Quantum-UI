@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const defaultAvatars = [
   { name: "A", image: "https://i.pravatar.cc/96?img=12" },

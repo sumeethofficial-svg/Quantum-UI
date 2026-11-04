@@ -1,4 +1,3 @@
-import React from "react";
 
 function Text3DReveal({ text = "QUANTUM", subtitle = "Built beyond the surface" } = {}) {
   return (

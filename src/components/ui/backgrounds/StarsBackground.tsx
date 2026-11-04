@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 export default function StarsBackground({ count = 90 }) {
   const stars = useMemo(

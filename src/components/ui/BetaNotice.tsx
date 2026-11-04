@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "quantum-ui:beta-notice-v2";
 
@@ -16,7 +16,7 @@ export default function BetaNotice() {
   useEffect(() => {
     if (!open) return;
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeNotice();
       }

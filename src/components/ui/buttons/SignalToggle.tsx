@@ -7,6 +7,12 @@ function SignalToggle({
   orientation = "horizontal",
   disabled = false,
   label = "SIGNAL",
+}: {
+  defaultChecked?: boolean;
+  onChange?: (checked: boolean) => void;
+  orientation?: "horizontal" | "vertical";
+  disabled?: boolean;
+  label?: string;
 }) {
   const [checked, setChecked] = useState(defaultChecked);
 

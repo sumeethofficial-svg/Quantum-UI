@@ -10,8 +10,9 @@
     "dev": "vite",
     "registry:build": "node --experimental-strip-types scripts/build-registry.mjs",
     "registry:verify": "node --experimental-strip-types scripts/verify-registry.mjs",
+    "typecheck:registry": "tsc -p tsconfig.registry.json",
     "mcp:install": "npm --prefix packages/mcp install",
-    "test": "npm run registry:build && npm run registry:verify && npm --prefix packages/cli test && npm --prefix packages/mcp test",
+    "test": "npm run registry:build && npm run registry:verify && npm run typecheck:registry && npm --prefix packages/cli test && npm --prefix packages/mcp test",
     "prebuild": "npm run registry:build",
     "build": "vite build",
     "lint": "oxlint",
@@ -33,6 +34,7 @@
     "eslint": "^10.10.0",
     "oxlint": "^1.81.0",
     "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
     "vite": "^8.3.0"
   }
 }

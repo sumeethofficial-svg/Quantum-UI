@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const testimonials = [
   { title: "Mountain Landscape", description: "Beautiful mountain scenery with snow-capped peaks.", image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80" },
