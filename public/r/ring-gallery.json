@@ -20,6 +20,6 @@
     "exportName": "RingGallery",
     "category": "INTERACTIVE",
     "demo": "Push",
-    "usage": "import RingGallery from \"./components/quantum-ui/RingGallery\";\n\nexport default function Example() {\n  return <RingGallery />;\n}"
+    "usage": "import RingGallery from \"./components/quantum-ui/RingGallery\";\n\nconst card = (id: string, text: string, background: string) => ({\n  id,\n  background,\n  content: <span className=\"text-3xl font-semibold text-white\">{text}</span>,\n});\n\nexport default function Example() {\n  return (\n    <RingGallery\n      label=\"Push\"\n      speed={24}\n      items={[\n        card(\"one\", \"One\", \"#134e4a\"),\n        card(\"two\", \"Two\", \"#1e3a8a\"),\n        card(\"three\", \"Three\", \"#7c2d12\"),\n        card(\"four\", \"Four\", \"#581c87\"),\n        card(\"five\", \"Five\", \"#14532d\"),\n        card(\"six\", \"Six\", \"#831843\"),\n      ]}\n    />\n  );\n}\n\n// For photos, use { id, src: \"/images/one.jpg\", alt: \"One\" } instead of `content`."
   }
 }

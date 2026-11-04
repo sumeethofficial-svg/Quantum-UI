@@ -20,6 +20,6 @@
     "exportName": "BookShelf",
     "category": "INTERACTIVE",
     "demo": "Open a book",
-    "usage": "import BookShelf from \"./components/quantum-ui/BookShelf\";\n\nexport default function Example() {\n  return <BookShelf>Open a book</BookShelf>;\n}"
+    "usage": "import BookShelf from \"./components/quantum-ui/BookShelf\";\n\nexport default function Example() {\n  return (\n    <BookShelf\n      heading=\"Reading list\"\n      trigger=\"hover\"\n      items={[\n        { title: \"Grid Systems\", author: \"Josef Müller-Brockmann\", color: \"#b5493a\", textColor: \"#ffffff\" },\n        { title: \"Shapes\", fullTitle: \"Shapes of Design\", author: \"Frank Chimero\", color: \"#1f4e5f\", textColor: \"#ffffff\" },\n        { title: \"Thinking\", fullTitle: \"Thinking in Systems\", author: \"Donella Meadows\", color: \"#e0c25a\", textColor: \"#1a1a1a\" },\n      ]}\n    />\n  );\n}"
   }
 }

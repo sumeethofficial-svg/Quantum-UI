@@ -20,6 +20,6 @@
     "exportName": "KineticText",
     "category": "TEXT & MOTION",
     "demo": "WORDS IN MOTION",
-    "usage": "import KineticText from \"./components/quantum-ui/KineticText\";\n\nexport default function Example() {\n  return <KineticText />;\n}"
+    "usage": "import KineticText from \"./components/quantum-ui/KineticText\";\n\nexport default function Example() {\n  return <KineticText lines={[\"BUILD\", \"SHIP\", \"REPEAT\"]} />;\n}"
   }
 }

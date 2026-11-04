@@ -20,6 +20,6 @@
     "exportName": "MaskedAvatars",
     "category": "LAYOUT & CARDS",
     "demo": "AIZEN",
-    "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars>AIZEN</MaskedAvatars>;\n}"
+    "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars />;\n}"
   }
 }

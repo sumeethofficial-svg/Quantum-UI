@@ -20,6 +20,6 @@
     "exportName": "MagneticLink",
     "category": "BUTTONS",
     "demo": "Follow trajectory ↗",
-    "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink>Follow trajectory ↗</MagneticLink>;\n}"
+    "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink strength={0.25}>Follow trajectory ↗</MagneticLink>;\n}"
   }
 }

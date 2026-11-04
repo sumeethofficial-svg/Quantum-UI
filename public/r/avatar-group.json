@@ -20,6 +20,6 @@
     "exportName": "AvatarGroup",
     "category": "LAYOUT & CARDS",
     "demo": "Reveal contributor",
-    "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
+    "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return (\n    <AvatarGroup\n      size={56}\n      overlap={18}\n      avatars={[\n        { name: \"Ada\", image: \"https://i.pravatar.cc/96?img=12\" },\n        { name: \"Linus\", image: \"https://i.pravatar.cc/96?img=32\" },\n        { name: \"Grace\", image: \"https://i.pravatar.cc/96?img=47\" },\n      ]}\n    />\n  );\n}"
   }
 }

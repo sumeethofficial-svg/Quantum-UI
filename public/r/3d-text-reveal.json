@@ -20,6 +20,6 @@
     "exportName": "Text3DReveal",
     "category": "TEXT & MOTION",
     "demo": "QUANTUM",
-    "usage": "import Text3DReveal from \"./components/quantum-ui/Text3DReveal\";\n\nexport default function Example() {\n  return <Text3DReveal />;\n}"
+    "usage": "import Text3DReveal from \"./components/quantum-ui/Text3DReveal\";\n\nexport default function Example() {\n  return <Text3DReveal text=\"LAUNCH\" subtitle=\"Ready when you are\" />;\n}"
   }
 }

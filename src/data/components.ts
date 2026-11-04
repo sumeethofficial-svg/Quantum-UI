@@ -1,8 +1,6 @@
-export interface ComponentProp {
-  name: string;
-  type: string;
-  default: string;
-}
+import { componentDocs, type ComponentProp } from "./componentDocs.ts";
+
+export type { ComponentProp };
 
 export interface ComponentItem {
   /** Display name, e.g. "Photon Button". */
@@ -15,8 +13,9 @@ export interface ComponentItem {
   slug?: string;
   /** Overrides the default-export / file name derived from `name`. */
   exportName?: string;
+  /** Full example shown in the Code tab and the Usage section. Filled in from componentDocs.ts. */
   usage?: string;
-  code?: string;
+  /** Prop table. Filled in from componentDocs.ts. */
   props?: ComponentProp[];
 }
 
@@ -25,7 +24,7 @@ export interface ComponentGroup {
   items: ComponentItem[];
 }
 
-export const componentGroups: ComponentGroup[] = [
+const baseGroups: ComponentGroup[] = [
   {
     label: "BUTTONS",
     items: [
@@ -76,13 +75,6 @@ export const componentGroups: ComponentGroup[] = [
         description:
           "An isometric layered tile whose plates spread apart and glow on hover.",
         demo: "Stack layers",
-        props: [
-          { name: "children", type: "ReactNode", default: '"Stack layers"' },
-          { name: "icon", type: "ReactNode", default: "spark mark" },
-          { name: "size", type: "number", default: "112" },
-          { name: "layers", type: "number", default: "6" },
-          { name: "onClick", type: "() => void", default: "undefined" },
-        ],
       },
     ],
   },
@@ -119,19 +111,6 @@ export const componentGroups: ComponentGroup[] = [
         demo: "WORDS IN MOTION",
         slug: "kinetic-typography",
         exportName: "KineticText",
-        usage: `import KineticText from "./components/quantum-ui/KineticText";
-
-export default function Example() {
-  return <KineticText />;
-}`,
-        code: `import KineticText from "./components/quantum-ui/KineticText";
-
-export default function Example() {
-  return <KineticText />;
-}`,
-        props: [
-          { name: "lines", type: "string[]", default: '["WORDS", "IN", "MOTION"]' },
-        ],
       },
       {
         name: "3D Text Reveal",
@@ -141,20 +120,6 @@ export default function Example() {
         demo: "QUANTUM",
         slug: "3d-text-reveal",
         exportName: "Text3DReveal",
-        usage: `import Text3DReveal from "./components/quantum-ui/Text3DReveal";
-
-export default function Example() {
-  return <Text3DReveal />;
-}`,
-        code: `import Text3DReveal from "./components/quantum-ui/Text3DReveal";
-
-export default function Example() {
-  return <Text3DReveal />;
-}`,
-        props: [
-          { name: "text", type: "string", default: '"QUANTUM"' },
-          { name: "subtitle", type: "string", default: '"Built beyond the surface"' },
-        ],
       },
     ],
   },
@@ -181,36 +146,6 @@ export default function Example() {
         description:
           "A circular gallery where cards orbit a ring and grow as they pass the front slot.",
         demo: "Push",
-        usage: `import RingGallery from "./components/quantum-ui/RingGallery";
-
-export default function Example() {
-  return <RingGallery />;
-}`,
-        code: `import RingGallery from "./components/quantum-ui/RingGallery";
-
-export default function Example() {
-  return (
-    <RingGallery
-      items={[
-        { id: "one", src: "/images/one.jpg", alt: "One" },
-        { id: "two", src: "/images/two.jpg", alt: "Two" },
-        { id: "three", src: "/images/three.jpg", alt: "Three" },
-      ]}
-      label="Push"
-      speed={24}
-    />
-  );
-}`,
-        props: [
-          { name: "items", type: "RingGalleryItem[]", default: "built-in demo cards" },
-          { name: "label", type: "ReactNode", default: '"Push"' },
-          { name: "speed", type: "number", default: "24" },
-          { name: "radius", type: "number", default: "0.34" },
-          { name: "cardSize", type: "number", default: "0.2" },
-          { name: "pauseOnHover", type: "boolean", default: "true" },
-          { name: "onActiveChange", type: "(item, index) => void", default: "undefined" },
-          { name: "className", type: "string", default: '""' },
-        ],
       },
               {
            name: "Book Shelf",
@@ -218,14 +153,6 @@ export default function Example() {
            description:
              "A row of book spines where the active book swings open in 3D to reveal its cover.",
            demo: "Open a book",
-           props: [
-             { name: "items", type: "BookShelfItem[]", default: "6 sample books" },
-             { name: "heading", type: "string", default: '"Favorite books"' },
-             { name: "interval", type: "number", default: "3000" },
-             { name: "autoPlay", type: "boolean", default: "true" },
-             { name: "trigger", type: '"click" | "hover"', default: '"click"' },
-             { name: "className", type: "string", default: '""' },
-           ],
          },
         
              {
@@ -234,12 +161,6 @@ export default function Example() {
            description:
              "Tech-stack logos on a depth loop: the front one is sharp and large, the rest recede and blur.",
            demo: "Rotate the stack",
-           props: [
-             { name: "items", type: "StackOrbitItem[]", default: "7 sample logos" },
-             { name: "interval", type: "number", default: "2600" },
-             { name: "autoPlay", type: "boolean", default: "true" },
-             { name: "className", type: "string", default: '""' },
-           ],
          },
       ] ,
   },
@@ -281,12 +202,6 @@ export default function Example() {
         description:
           "A portrait card with orbiting avatars, a progress ring and a crossfading backdrop.",
         demo: "Cycle the gallery",
-        props: [
-          { name: "items", type: "OrbitGalleryItem[]", default: "7 sample entries" },
-          { name: "interval", type: "number", default: "3200" },
-          { name: "autoPlay", type: "boolean", default: "true" },
-          { name: "className", type: "string", default: '""' },
-        ],
       },
     ],
   },
@@ -330,6 +245,12 @@ export default function Example() {
     ],
   },
 ];
+
+/** Display data plus the usage/props docs from componentDocs.ts. */
+export const componentGroups: ComponentGroup[] = baseGroups.map((group) => ({
+  ...group,
+  items: group.items.map((item) => ({ ...item, ...componentDocs[item.name] })),
+}));
 
 export const allComponents: ComponentItem[] = componentGroups.flatMap(
   (group) => group.items

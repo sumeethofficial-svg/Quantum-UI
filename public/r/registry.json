@@ -23,7 +23,7 @@
         "exportName": "PhotonButton",
         "category": "BUTTONS",
         "demo": "Initialize sequence →",
-        "usage": "import PhotonButton from \"./components/quantum-ui/PhotonButton\";\n\nexport default function Example() {\n  return <PhotonButton>Initialize sequence →</PhotonButton>;\n}"
+        "usage": "import PhotonButton from \"./components/quantum-ui/PhotonButton\";\n\nexport default function Example() {\n  return (\n    <PhotonButton onClick={() => console.log(\"launched\")}>\n      Initialize sequence →\n    </PhotonButton>\n  );\n}"
       }
     },
     {
@@ -46,7 +46,7 @@
         "exportName": "MagneticLink",
         "category": "BUTTONS",
         "demo": "Follow trajectory ↗",
-        "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink>Follow trajectory ↗</MagneticLink>;\n}"
+        "usage": "import MagneticLink from \"./components/quantum-ui/MagneticLink\";\n\nexport default function Example() {\n  return <MagneticLink strength={0.25}>Follow trajectory ↗</MagneticLink>;\n}"
       }
     },
     {
@@ -69,7 +69,7 @@
         "exportName": "SignalToggle",
         "category": "BUTTONS",
         "demo": "Signal enabled",
-        "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return <SignalToggle>Signal enabled</SignalToggle>;\n}"
+        "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return (\n    <SignalToggle\n      label=\"WIFI\"\n      defaultChecked\n      onChange={(checked) => console.log(\"signal\", checked)}\n    />\n  );\n}"
       }
     },
     {
@@ -92,7 +92,7 @@
         "exportName": "OrbitMenu",
         "category": "BUTTONS",
         "demo": "Open command orbit",
-        "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu>Open command orbit</OrbitMenu>;\n}"
+        "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu />;\n}"
       }
     },
     {
@@ -115,7 +115,7 @@
         "exportName": "LiquidButton",
         "category": "BUTTONS",
         "demo": "Activate liquid sequence →",
-        "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return <LiquidButton>Activate liquid sequence →</LiquidButton>;\n}"
+        "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return (\n    <LiquidButton onClick={() => console.log(\"activated\")}>\n      Activate liquid sequence →\n    </LiquidButton>\n  );\n}"
       }
     },
     {
@@ -138,7 +138,7 @@
         "exportName": "IsoButton",
         "category": "BUTTONS",
         "demo": "Stack layers",
-        "usage": "import IsoButton from \"./components/quantum-ui/IsoButton\";\n\nexport default function Example() {\n  return <IsoButton>Stack layers</IsoButton>;\n}"
+        "usage": "import IsoButton from \"./components/quantum-ui/IsoButton\";\n\nexport default function Example() {\n  return (\n    <IsoButton size={120} onClick={() => console.log(\"stacked\")}>\n      Stack layers\n    </IsoButton>\n  );\n}"
       }
     },
     {
@@ -161,7 +161,7 @@
         "exportName": "FlipText",
         "category": "TEXT & MOTION",
         "demo": "beautiful → precise → quantum",
-        "usage": "import FlipText from \"./components/quantum-ui/FlipText\";\n\nexport default function Example() {\n  return <FlipText>beautiful → precise → quantum</FlipText>;\n}"
+        "usage": "import FlipText from \"./components/quantum-ui/FlipText\";\n\nexport default function Example() {\n  return <FlipText words={[\"fast\", \"precise\", \"quantum\"]} interval={2000} />;\n}"
       }
     },
     {
@@ -184,7 +184,7 @@
         "exportName": "FlipFadeText",
         "category": "TEXT & MOTION",
         "demo": "BUILDING → PROTOTYPING → SHIPPING",
-        "usage": "import FlipFadeText from \"./components/quantum-ui/FlipFadeText\";\n\nexport default function Example() {\n  return <FlipFadeText>BUILDING → PROTOTYPING → SHIPPING</FlipFadeText>;\n}"
+        "usage": "import FlipFadeText from \"./components/quantum-ui/FlipFadeText\";\n\nexport default function Example() {\n  return <FlipFadeText words={[\"DESIGN\", \"BUILD\", \"SHIP\"]} interval={2000} />;\n}"
       }
     },
     {
@@ -230,7 +230,7 @@
         "exportName": "KineticText",
         "category": "TEXT & MOTION",
         "demo": "WORDS IN MOTION",
-        "usage": "import KineticText from \"./components/quantum-ui/KineticText\";\n\nexport default function Example() {\n  return <KineticText />;\n}"
+        "usage": "import KineticText from \"./components/quantum-ui/KineticText\";\n\nexport default function Example() {\n  return <KineticText lines={[\"BUILD\", \"SHIP\", \"REPEAT\"]} />;\n}"
       }
     },
     {
@@ -253,7 +253,7 @@
         "exportName": "Text3DReveal",
         "category": "TEXT & MOTION",
         "demo": "QUANTUM",
-        "usage": "import Text3DReveal from \"./components/quantum-ui/Text3DReveal\";\n\nexport default function Example() {\n  return <Text3DReveal />;\n}"
+        "usage": "import Text3DReveal from \"./components/quantum-ui/Text3DReveal\";\n\nexport default function Example() {\n  return <Text3DReveal text=\"LAUNCH\" subtitle=\"Ready when you are\" />;\n}"
       }
     },
     {
@@ -276,7 +276,7 @@
         "exportName": "Cursor",
         "category": "INTERACTIVE",
         "demo": "Move your mouse over the div",
-        "usage": "import Cursor from \"./components/quantum-ui/Cursor\";\n\nexport default function Example() {\n  return <Cursor>Move your mouse over the div</Cursor>;\n}"
+        "usage": "import Cursor from \"./components/quantum-ui/Cursor\";\n\nexport default function Example() {\n  return <Cursor label=\"Designer\">Move your mouse over the div</Cursor>;\n}"
       }
     },
     {
@@ -299,7 +299,7 @@
         "exportName": "Tooltip",
         "category": "INTERACTIVE",
         "demo": "Docs",
-        "usage": "import Tooltip from \"./components/quantum-ui/Tooltip\";\n\nexport default function Example() {\n  return <Tooltip>Docs</Tooltip>;\n}"
+        "usage": "import Tooltip from \"./components/quantum-ui/Tooltip\";\n\nexport default function Example() {\n  return <Tooltip label=\"Documentation\" items={[\"Docs\", \"Guides\", \"API\"]} />;\n}"
       }
     },
     {
@@ -322,7 +322,7 @@
         "exportName": "RingGallery",
         "category": "INTERACTIVE",
         "demo": "Push",
-        "usage": "import RingGallery from \"./components/quantum-ui/RingGallery\";\n\nexport default function Example() {\n  return <RingGallery />;\n}"
+        "usage": "import RingGallery from \"./components/quantum-ui/RingGallery\";\n\nconst card = (id: string, text: string, background: string) => ({\n  id,\n  background,\n  content: <span className=\"text-3xl font-semibold text-white\">{text}</span>,\n});\n\nexport default function Example() {\n  return (\n    <RingGallery\n      label=\"Push\"\n      speed={24}\n      items={[\n        card(\"one\", \"One\", \"#134e4a\"),\n        card(\"two\", \"Two\", \"#1e3a8a\"),\n        card(\"three\", \"Three\", \"#7c2d12\"),\n        card(\"four\", \"Four\", \"#581c87\"),\n        card(\"five\", \"Five\", \"#14532d\"),\n        card(\"six\", \"Six\", \"#831843\"),\n      ]}\n    />\n  );\n}\n\n// For photos, use { id, src: \"/images/one.jpg\", alt: \"One\" } instead of `content`."
       }
     },
     {
@@ -345,7 +345,7 @@
         "exportName": "BookShelf",
         "category": "INTERACTIVE",
         "demo": "Open a book",
-        "usage": "import BookShelf from \"./components/quantum-ui/BookShelf\";\n\nexport default function Example() {\n  return <BookShelf>Open a book</BookShelf>;\n}"
+        "usage": "import BookShelf from \"./components/quantum-ui/BookShelf\";\n\nexport default function Example() {\n  return (\n    <BookShelf\n      heading=\"Reading list\"\n      trigger=\"hover\"\n      items={[\n        { title: \"Grid Systems\", author: \"Josef Müller-Brockmann\", color: \"#b5493a\", textColor: \"#ffffff\" },\n        { title: \"Shapes\", fullTitle: \"Shapes of Design\", author: \"Frank Chimero\", color: \"#1f4e5f\", textColor: \"#ffffff\" },\n        { title: \"Thinking\", fullTitle: \"Thinking in Systems\", author: \"Donella Meadows\", color: \"#e0c25a\", textColor: \"#1a1a1a\" },\n      ]}\n    />\n  );\n}"
       }
     },
     {
@@ -368,7 +368,7 @@
         "exportName": "StackOrbit",
         "category": "INTERACTIVE",
         "demo": "Rotate the stack",
-        "usage": "import StackOrbit from \"./components/quantum-ui/StackOrbit\";\n\nexport default function Example() {\n  return <StackOrbit>Rotate the stack</StackOrbit>;\n}"
+        "usage": "import StackOrbit from \"./components/quantum-ui/StackOrbit\";\n\nconst Mark = ({ letter }: { letter: string }) => (\n  <span className=\"grid size-full place-items-center text-2xl font-bold text-white\">{letter}</span>\n);\n\nexport default function Example() {\n  return (\n    <StackOrbit\n      interval={2000}\n      items={[\n        { name: \"Alpha\", logo: <Mark letter=\"A\" />, accent: \"#22d3ee\" },\n        { name: \"Beta\", logo: <Mark letter=\"B\" />, accent: \"#a78bfa\" },\n        { name: \"Gamma\", logo: <Mark letter=\"G\" />, accent: \"#f472b6\" },\n        { name: \"Delta\", logo: <Mark letter=\"D\" />, accent: \"#facc15\" },\n      ]}\n    />\n  );\n}"
       }
     },
     {
@@ -391,7 +391,7 @@
         "exportName": "TeamRevealGrid",
         "category": "LAYOUT & CARDS",
         "demo": "Meet the team",
-        "usage": "import TeamRevealGrid from \"./components/quantum-ui/TeamRevealGrid\";\n\nexport default function Example() {\n  return <TeamRevealGrid>Meet the team</TeamRevealGrid>;\n}"
+        "usage": "import TeamRevealGrid from \"./components/quantum-ui/TeamRevealGrid\";\n\nexport default function Example() {\n  return <TeamRevealGrid />;\n}"
       }
     },
     {
@@ -414,7 +414,7 @@
         "exportName": "TestimonialsCard",
         "category": "LAYOUT & CARDS",
         "demo": "Ocean Horizon",
-        "usage": "import TestimonialsCard from \"./components/quantum-ui/TestimonialsCard\";\n\nexport default function Example() {\n  return <TestimonialsCard>Ocean Horizon</TestimonialsCard>;\n}"
+        "usage": "import TestimonialsCard from \"./components/quantum-ui/TestimonialsCard\";\n\nexport default function Example() {\n  return <TestimonialsCard />;\n}"
       }
     },
     {
@@ -437,7 +437,7 @@
         "exportName": "AvatarGroup",
         "category": "LAYOUT & CARDS",
         "demo": "Reveal contributor",
-        "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return <AvatarGroup>Reveal contributor</AvatarGroup>;\n}"
+        "usage": "import AvatarGroup from \"./components/quantum-ui/AvatarGroup\";\n\nexport default function Example() {\n  return (\n    <AvatarGroup\n      size={56}\n      overlap={18}\n      avatars={[\n        { name: \"Ada\", image: \"https://i.pravatar.cc/96?img=12\" },\n        { name: \"Linus\", image: \"https://i.pravatar.cc/96?img=32\" },\n        { name: \"Grace\", image: \"https://i.pravatar.cc/96?img=47\" },\n      ]}\n    />\n  );\n}"
       }
     },
     {
@@ -460,7 +460,7 @@
         "exportName": "MaskedAvatars",
         "category": "LAYOUT & CARDS",
         "demo": "AIZEN",
-        "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars>AIZEN</MaskedAvatars>;\n}"
+        "usage": "import MaskedAvatars from \"./components/quantum-ui/MaskedAvatars\";\n\nexport default function Example() {\n  return <MaskedAvatars />;\n}"
       }
     },
     {
@@ -483,7 +483,7 @@
         "exportName": "OrbitGallery",
         "category": "LAYOUT & CARDS",
         "demo": "Cycle the gallery",
-        "usage": "import OrbitGallery from \"./components/quantum-ui/OrbitGallery\";\n\nexport default function Example() {\n  return <OrbitGallery>Cycle the gallery</OrbitGallery>;\n}"
+        "usage": "import OrbitGallery from \"./components/quantum-ui/OrbitGallery\";\n\nexport default function Example() {\n  return (\n    <OrbitGallery\n      interval={3000}\n      items={[\n        { name: \"Ada Lovelace\", years: \"1815 — 1852\", background: \"linear-gradient(135deg, #3b2a4f, #0b0710)\" },\n        { name: \"Alan Turing\", years: \"1912 — 1954\", background: \"linear-gradient(135deg, #1f3a4d, #070d12)\" },\n        { name: \"Grace Hopper\", years: \"1906 — 1992\", background: \"linear-gradient(135deg, #4d2f1f, #120a07)\" },\n      ]}\n    />\n  );\n}"
       }
     },
     {
@@ -508,7 +508,7 @@
         "exportName": "SpotlightNavbar",
         "category": "NAVIGATION",
         "demo": "Home",
-        "usage": "import SpotlightNavbar from \"./components/quantum-ui/SpotlightNavbar\";\n\nexport default function Example() {\n  return <SpotlightNavbar>Home</SpotlightNavbar>;\n}"
+        "usage": "import { House, Search, Target } from \"lucide-react\";\nimport SpotlightNavbar from \"./components/quantum-ui/SpotlightNavbar\";\n\nexport default function Example() {\n  return (\n    <SpotlightNavbar\n      defaultActive={1}\n      items={[\n        { label: \"Home\", icon: House },\n        { label: \"Search\", icon: Search },\n        { label: \"Goals\", icon: Target },\n      ]}\n      onChange={(item, index) => console.log(item.label, index)}\n    />\n  );\n}\n\n// Plain strings work too: items={[\"Home\", \"Search\", \"Goals\"]}"
       }
     },
     {
@@ -531,7 +531,7 @@
         "exportName": "WaveGrid",
         "category": "BACKGROUNDS",
         "demo": "Move across the grid",
-        "usage": "import WaveGrid from \"./components/quantum-ui/WaveGrid\";\n\nexport default function Example() {\n  return <WaveGrid>Move across the grid</WaveGrid>;\n}"
+        "usage": "import WaveGrid from \"./components/quantum-ui/WaveGrid\";\n\nexport default function Example() {\n  return <WaveGrid columns={24} rows={12} />;\n}"
       }
     },
     {
@@ -554,7 +554,7 @@
         "exportName": "AuroraHero",
         "category": "BACKGROUNDS",
         "demo": "Shift the aurora",
-        "usage": "import AuroraHero from \"./components/quantum-ui/AuroraHero\";\n\nexport default function Example() {\n  return <AuroraHero>Shift the aurora</AuroraHero>;\n}"
+        "usage": "import AuroraHero from \"./components/quantum-ui/AuroraHero\";\n\nexport default function Example() {\n  return <AuroraHero />;\n}"
       }
     },
     {
@@ -577,7 +577,7 @@
         "exportName": "StarsBackground",
         "category": "BACKGROUNDS",
         "demo": "90 stars",
-        "usage": "import StarsBackground from \"./components/quantum-ui/StarsBackground\";\n\nexport default function Example() {\n  return <StarsBackground>90 stars</StarsBackground>;\n}"
+        "usage": "import StarsBackground from \"./components/quantum-ui/StarsBackground\";\n\nexport default function Example() {\n  return <StarsBackground count={140} />;\n}"
       }
     }
   ]

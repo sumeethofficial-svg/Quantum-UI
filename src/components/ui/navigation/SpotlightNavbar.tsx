@@ -8,6 +8,8 @@ import {
   Search,
 } from "lucide-react";
 
+type NavIcon = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+
 const defaultItems = [
   { label: "Home", icon: House },
   { label: "Updates", icon: CircleCheck },
@@ -20,9 +22,9 @@ export default function SpotlightNavbar({
   defaultActive = 0,
   onChange,
 }: {
-  items?: Array<string | { label: string; icon?: ComponentType<{ className?: string }> }>;
+  items?: Array<string | { label: string; icon?: NavIcon }>;
   defaultActive?: number;
-  onChange?: (item: { label: string; icon: ComponentType<{ className?: string }> }, index: number) => void;
+  onChange?: (item: { label: string; icon: NavIcon }, index: number) => void;
 }) {
   const [active, setActive] = useState(defaultActive);
 
