@@ -20,6 +20,6 @@
     "exportName": "SignalToggle",
     "category": "BUTTONS",
     "demo": "Signal enabled",
-    "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return <SignalToggle>Signal enabled</SignalToggle>;\n}"
+    "usage": "import SignalToggle from \"./components/quantum-ui/SignalToggle\";\n\nexport default function Example() {\n  return (\n    <SignalToggle\n      label=\"WIFI\"\n      defaultChecked\n      onChange={(checked) => console.log(\"signal\", checked)}\n    />\n  );\n}"
   }
 }

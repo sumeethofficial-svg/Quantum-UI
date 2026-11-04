@@ -20,6 +20,6 @@
     "exportName": "IsoButton",
     "category": "BUTTONS",
     "demo": "Stack layers",
-    "usage": "import IsoButton from \"./components/quantum-ui/IsoButton\";\n\nexport default function Example() {\n  return <IsoButton>Stack layers</IsoButton>;\n}"
+    "usage": "import IsoButton from \"./components/quantum-ui/IsoButton\";\n\nexport default function Example() {\n  return (\n    <IsoButton size={120} onClick={() => console.log(\"stacked\")}>\n      Stack layers\n    </IsoButton>\n  );\n}"
   }
 }

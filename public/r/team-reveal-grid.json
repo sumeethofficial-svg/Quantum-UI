@@ -20,6 +20,6 @@
     "exportName": "TeamRevealGrid",
     "category": "LAYOUT & CARDS",
     "demo": "Meet the team",
-    "usage": "import TeamRevealGrid from \"./components/quantum-ui/TeamRevealGrid\";\n\nexport default function Example() {\n  return <TeamRevealGrid>Meet the team</TeamRevealGrid>;\n}"
+    "usage": "import TeamRevealGrid from \"./components/quantum-ui/TeamRevealGrid\";\n\nexport default function Example() {\n  return <TeamRevealGrid />;\n}"
   }
 }

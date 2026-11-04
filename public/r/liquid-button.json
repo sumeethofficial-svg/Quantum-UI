@@ -20,6 +20,6 @@
     "exportName": "LiquidButton",
     "category": "BUTTONS",
     "demo": "Activate liquid sequence →",
-    "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return <LiquidButton>Activate liquid sequence →</LiquidButton>;\n}"
+    "usage": "import LiquidButton from \"./components/quantum-ui/LiquidButton\";\n\nexport default function Example() {\n  return (\n    <LiquidButton onClick={() => console.log(\"activated\")}>\n      Activate liquid sequence →\n    </LiquidButton>\n  );\n}"
   }
 }

@@ -20,6 +20,6 @@
     "exportName": "FlipText",
     "category": "TEXT & MOTION",
     "demo": "beautiful → precise → quantum",
-    "usage": "import FlipText from \"./components/quantum-ui/FlipText\";\n\nexport default function Example() {\n  return <FlipText>beautiful → precise → quantum</FlipText>;\n}"
+    "usage": "import FlipText from \"./components/quantum-ui/FlipText\";\n\nexport default function Example() {\n  return <FlipText words={[\"fast\", \"precise\", \"quantum\"]} interval={2000} />;\n}"
   }
 }

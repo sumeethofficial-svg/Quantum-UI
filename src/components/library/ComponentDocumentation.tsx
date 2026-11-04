@@ -166,15 +166,22 @@ export default function Example() {
                     key={prop.name}
                     className="grid grid-cols-[1fr_1fr_1fr] px-5 py-4 text-xs"
                   >
-                    <span className="font-mono text-cyan-100">
-                      {prop.name}
+                    <span className="pr-4">
+                      <span className="font-mono text-cyan-100">
+                        {prop.name}
+                      </span>
+                      {prop.description && (
+                        <span className="mt-1 block text-[11px] leading-5 text-slate-500">
+                          {prop.description}
+                        </span>
+                      )}
                     </span>
 
-                    <span className="font-mono text-slate-500">
+                    <span className="break-words pr-4 font-mono text-slate-500">
                       {prop.type}
                     </span>
 
-                    <span className="font-mono text-slate-600">
+                    <span className="break-words font-mono text-slate-600">
                       {prop.default ?? "—"}
                     </span>
                   </div>
@@ -182,7 +189,7 @@ export default function Example() {
               )
             ) : (
               <div className="px-5 py-6 text-xs text-slate-600">
-                No configurable props documented.
+                This component takes no props. Edit the copied file to change its content.
               </div>
             )}
 

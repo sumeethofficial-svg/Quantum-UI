@@ -20,6 +20,6 @@
     "exportName": "Tooltip",
     "category": "INTERACTIVE",
     "demo": "Docs",
-    "usage": "import Tooltip from \"./components/quantum-ui/Tooltip\";\n\nexport default function Example() {\n  return <Tooltip>Docs</Tooltip>;\n}"
+    "usage": "import Tooltip from \"./components/quantum-ui/Tooltip\";\n\nexport default function Example() {\n  return <Tooltip label=\"Documentation\" items={[\"Docs\", \"Guides\", \"API\"]} />;\n}"
   }
 }

@@ -20,6 +20,6 @@
     "exportName": "OrbitMenu",
     "category": "BUTTONS",
     "demo": "Open command orbit",
-    "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu>Open command orbit</OrbitMenu>;\n}"
+    "usage": "import OrbitMenu from \"./components/quantum-ui/OrbitMenu\";\n\nexport default function Example() {\n  return <OrbitMenu />;\n}"
   }
 }

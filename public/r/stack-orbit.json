@@ -20,6 +20,6 @@
     "exportName": "StackOrbit",
     "category": "INTERACTIVE",
     "demo": "Rotate the stack",
-    "usage": "import StackOrbit from \"./components/quantum-ui/StackOrbit\";\n\nexport default function Example() {\n  return <StackOrbit>Rotate the stack</StackOrbit>;\n}"
+    "usage": "import StackOrbit from \"./components/quantum-ui/StackOrbit\";\n\nconst Mark = ({ letter }: { letter: string }) => (\n  <span className=\"grid size-full place-items-center text-2xl font-bold text-white\">{letter}</span>\n);\n\nexport default function Example() {\n  return (\n    <StackOrbit\n      interval={2000}\n      items={[\n        { name: \"Alpha\", logo: <Mark letter=\"A\" />, accent: \"#22d3ee\" },\n        { name: \"Beta\", logo: <Mark letter=\"B\" />, accent: \"#a78bfa\" },\n        { name: \"Gamma\", logo: <Mark letter=\"G\" />, accent: \"#f472b6\" },\n        { name: \"Delta\", logo: <Mark letter=\"D\" />, accent: \"#facc15\" },\n      ]}\n    />\n  );\n}"
   }
 }

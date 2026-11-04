@@ -20,6 +20,6 @@
     "exportName": "OrbitGallery",
     "category": "LAYOUT & CARDS",
     "demo": "Cycle the gallery",
-    "usage": "import OrbitGallery from \"./components/quantum-ui/OrbitGallery\";\n\nexport default function Example() {\n  return <OrbitGallery>Cycle the gallery</OrbitGallery>;\n}"
+    "usage": "import OrbitGallery from \"./components/quantum-ui/OrbitGallery\";\n\nexport default function Example() {\n  return (\n    <OrbitGallery\n      interval={3000}\n      items={[\n        { name: \"Ada Lovelace\", years: \"1815 — 1852\", background: \"linear-gradient(135deg, #3b2a4f, #0b0710)\" },\n        { name: \"Alan Turing\", years: \"1912 — 1954\", background: \"linear-gradient(135deg, #1f3a4d, #070d12)\" },\n        { name: \"Grace Hopper\", years: \"1906 — 1992\", background: \"linear-gradient(135deg, #4d2f1f, #120a07)\" },\n      ]}\n    />\n  );\n}"
   }
 }

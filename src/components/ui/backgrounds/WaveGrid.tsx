@@ -32,7 +32,10 @@ export default function WaveGrid({
           backgroundSize: "8% 10%",
         }}
       />
-      <div className="relative grid h-full grid-cols-[repeat(18,minmax(0,1fr))] gap-2">
+      <div
+        className="relative grid h-full gap-2"
+        style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+      >
         {cells.map((_, index) => {
           const x = (index % columns) / columns;
           const y = Math.floor(index / columns) / rows;
