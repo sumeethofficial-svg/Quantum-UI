@@ -2,7 +2,6 @@
 
 # Quantum UI
 
-**Components built to feel different.**
 
 Open-source React components with distinctive interaction, depth and motion, for interfaces that don't look like every other card-and-button kit.
 
